@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análisis de Datos - Economía Mineconómica</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body class="minecraft-body">
+    <!-- Video de fondo - PARA TODAS LAS PÁGINAS -->
+<video autoplay muted loop class="video-background">
+    <source src="{{ url_for('static', filename='videos/fondo.mp4') }}" type="video/mp4">
+    Tu navegador no soporta videos HTML5.
+</video>
+<div class="overlay"></div>
+    <header class="minecraft-header">
+        <div class="header-container">
+            <div class="logo-section">
+                <a href="/" class="minecraft-logo">
+                    <span class="logo-text">⛏️ MINECONOMÍA</span>
+                </a>
+            </div>
+            <nav class="main-nav">
+                <div class="nav-section">
+                    <a href="/" class="nav-item">🏠 Inicio</a>
+                    
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <main class="minecraft-main">
+            <section class="minecraft-hero">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1>📈 Análisis de Datos</h1>
+                        <p class="hero-subtitle">💥 <strong>Creeper</strong> te explica el poder de los datos</p>
+                    </div>
+                    <div class="hero-media">
+                        <div class="character-explanation">
+                            <img src="https://es.minecraft.wiki/images/Creeper1.png?03e67" alt="Creeper" width="250" height="250" class="character-image">
+                            <div class="speech-bubble">
+                               <div class="speech-bubble">
+    <p style="font-family: 'Press Start 2P', cursive; font-size: 10px; line-height: 1.5;">"Los datos pueden ser EXPLOSIVAMENTE reveladores! Aprendemos a extraer insights valiosos de información cruda."</p>
+</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="features-section">
+                <div class="tabs-container">
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">🐍</div>
+                            <h3>Python para Datos</h3>
+                            <p>"Como mi explosión revela patrones, Python revela patrones en datos económicos."</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">📊</div>
+                            <h3>Visualización</h3>
+                            <p>"Transformar datos en gráficos es como convertir bloques en construcciones comprensibles."</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🤖</div>
+                            <h3>Machine Learning</h3>
+                            <p>"Algoritmos que aprenden patrones como yo aprendo a acercarme sigilosamente."</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div style="text-align: center; margin: 3rem 0;">
+                <a href="/" class="btn-primary">🏠 Volver al Inicio</a>
+                <a href="/economia-digital" class="btn-secondary">🤖 Economía Digital</a>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

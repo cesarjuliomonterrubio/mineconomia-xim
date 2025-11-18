@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capital Humano - Economía Mineconómica</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body class="minecraft-body">
+    <!-- Video de fondo - PARA TODAS LAS PÁGINAS -->
+    <video autoplay muted loop class="video-background">
+        <source src="{{ url_for('static', filename='videos/fondo.mp4') }}" type="video/mp4">
+        Tu navegador no soporta videos HTML5.
+    </video>
+    <div class="overlay"></div>
+
+    <header class="minecraft-header">
+        <div class="header-container">
+            <div class="logo-section">
+                <a href="/" class="minecraft-logo">
+                    <span class="logo-text">⛏️ MINECONOMÍA</span>
+                </a>
+            </div>
+            <nav class="main-nav">
+                <div class="nav-section">
+                    <a href="/" class="nav-item">🏠 Inicio</a>
+                   
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <main class="minecraft-main">
+            <!-- Hero Section con Perro -->
+            <section class="minecraft-hero">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1>📚 Capital Humano</h1>
+                        <p class="hero-subtitle">🐺 <strong>El Lobo</strong> te explica la importancia del conocimiento</p>
+                    </div>
+                    <div class="hero-media">
+                        <div class="character-explanation">
+                            <img src="https://minecraft.wiki/images/thumb/Tamed_Wolf_with_Red_Collar_JE2_BE2.png/150px-Tamed_Wolf_with_Red_Collar_JE2_BE2.png?0aed1" alt="Lobo de Minecraft" width="250" height="250" class="character-image">
+                            <div class="speech-bubble">
+                                <p style="font-family: 'Press Start 2P', cursive; font-size: 10px; line-height: 1.5;">"¡Guau! Como lobo domesticado, sé que el entrenamiento y conocimiento nos hacen más valiosos. El capital humano es nuestra mejor inversión!"</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Explicación del Lobo -->
+            <section class="features-section">
+                <div class="tabs-container">
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">🎓</div>
+                            <h3>Educación Formal</h3>
+                            <p>"Como me entrenaron para ser útil, la educación formal prepara a las personas para ser más productivas y valiosas en la economía."</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">💪</div>
+                            <h3>Habilidades Técnicas</h3>
+                            <p>"Aprendí a cazar y proteger. Las habilidades técnicas especializan a los trabajadores para tareas específicas del mercado."</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🌟</div>
+                            <h3>Habilidades Blandas</h3>
+                            <p>"En la manada aprendí a colaborar. Las habilidades blandas permiten trabajar en equipo y adaptarse a cambios económicos."</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Componentes del Capital Humano -->
+            <section class="resources-section">
+                <div class="section-header">
+                    <h2>🐺 Componentes del Capital Humano</h2>
+                    <p>Según la experiencia del Lobo</p>
+                </div>
+                <div class="resources-grid">
+                    <div class="resource-item">
+                        <span class="resource-icon">📖</span>
+                        <span class="resource-name">Educación</span>
+                        <span class="resource-desc">Conocimiento académico formal</span>
+                    </div>
+                    <div class="resource-item">
+                        <span class="resource-icon">🔧</span>
+                        <span class="resource-name">Capacitación</span>
+                        <span class="resource-desc">Habilidades prácticas</span>
+                    </div>
+                    <div class="resource-item">
+                        <span class="resource-icon">💡</span>
+                        <span class="resource-name">Experiencia</span>
+                        <span class="resource-desc">Aprendizaje en el trabajo</span>
+                    </div>
+                    <div class="resource-item">
+                        <span class="resource-icon">🏥</span>
+                        <span class="resource-name">Salud</span>
+                        <span class="resource-desc">Bienestar físico y mental</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Importancia Económica -->
+            <section class="features-section">
+                <div class="section-header">
+                    <h2>🚀 Importancia en la Economía</h2>
+                    <p>Por qué el capital humano es crucial</p>
+                </div>
+                <div class="feature-card" style="max-width: 800px; margin: 0 auto;">
+                    <h3>🐺 Desde la perspectiva del Lobo:</h3>
+                    <ul style="text-align: left; margin: 1rem 0;">
+                        <li>📈 <strong>Productividad:</strong> Personas más capacitadas producen más y mejor</li>
+                        <li>💡 <strong>Innovación:</strong> Conocimiento genera nuevas ideas y tecnologías</li>
+                        <li>🌍 <strong>Competitividad:</strong> Países con mejor educación compiten globalmente</li>
+                        <li>💰 <strong>Salarios:</strong> Más educación = mejores salarios y calidad de vida</li>
+                        <li>🔄 <strong>Adaptabilidad:</strong> Permite ajustarse a cambios económicos</li>
+                    </ul>
+                    <div style="margin-top: 1rem; padding: 1rem; background: rgba(74, 124, 71, 0.2); border-radius: 10px;">
+                        <p><strong>💡 Dato del Lobo:</strong> "Invertir en capital humano es como domesticar un lobo - requiere tiempo y recursos, pero el retorno es enorme!"</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Inversión en Capital Humano -->
+            <section class="platforms-section">
+                <div class="section-header">
+                    <h2>🎯 Cómo Invertir en Capital Humano</h2>
+                    <p>Estrategias para desarrollar el conocimiento</p>
+                </div>
+                <div class="platforms-grid">
+                    <div class="platform-item">
+                        <span class="platform-icon">🏫</span>
+                        <span class="platform-name">Educación Básica</span>
+                        <p>Escuelas y universidades de calidad</p>
+                    </div>
+                    <div class="platform-item">
+                        <span class="platform-icon">🏢</span>
+                        <span class="platform-name">Capacitación Laboral</span>
+                        <p>Programas de entrenamiento en empresas</p>
+                    </div>
+                    <div class="platform-item">
+                        <span class="platform-icon">🌐</span>
+                        <span class="platform-name">Educación Continua</span>
+                        <p>Cursos online y especializaciones</p>
+                    </div>
+                    <div class="platform-item">
+                        <span class="platform-icon">🔬</span>
+                        <span class="platform-name">Investigación</span>
+                        <p>Inversión en ciencia y tecnología</p>
+                    </div>
+                </div>
+            </section>
+
+            <div style="text-align: center; margin: 3rem 0;">
+                <a href="/" class="btn-primary">🏠 Volver al Inicio</a>
+                <a href="/capital-fisico" class="btn-secondary">🏭 Capital Físico</a>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

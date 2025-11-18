@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Economía Digital - Economía Mineconómica</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body class="minecraft-body">
+    <!-- Video de fondo - PARA TODAS LAS PÁGINAS -->
+<video autoplay muted loop class="video-background">
+    <source src="{{ url_for('static', filename='videos/fondo.mp4') }}" type="video/mp4">
+    Tu navegador no soporta videos HTML5.
+</video>
+<div class="overlay"></div>
+    <header class="minecraft-header">
+        <div class="header-container">
+            <div class="logo-section">
+                <a href="/" class="minecraft-logo">
+                    <span class="logo-text">⛏️ MINECONOMÍA</span>
+                </a>
+            </div>
+            <nav class="main-nav">
+                <div class="nav-section">
+                    <a href="/" class="nav-item">🏠 Inicio</a>
+                    
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <main class="minecraft-main">
+            <section class="minecraft-hero">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1>🤖 Economía Digital</h1>
+                        <p class="hero-subtitle">👩 <strong>Alex</strong> te explica la economía del futuro</p>
+                    </div>
+                    <div class="hero-media">
+                        <div class="character-explanation">
+                            <img src="https://www.tynker.com/api/v2/mcresources/snapshot?resourceId=645c87a44467d903571063a8&v=1&cache=2w" alt="Alex" width="200" height="200" class="character-image">
+                            <div class="speech-bubble">
+    <p style="font-family: 'Press Start 2P', cursive; font-size: 10px; line-height: 1.5;">"La economía digital transforma todo, como la redstone transforma la automatización en Minecraft."</p>
+</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="features-section">
+                <div class="tabs-container">
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">🌐</div>
+                            <h3>Plataformas Digitales</h3>
+                            <p>"Mercados online que conectan oferta y demanda globalmente, como servidores multijugador."</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">💰</div>
+                            <h3>Criptoeconomía</h3>
+                            <p>"Sistemas financieros descentralizados que revolucionan el intercambio de valor."</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">📱</div>
+                            <h3>Economía App</h3>
+                            <p>"Modelos de negocio basados en aplicaciones y servicios digitales."</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div style="text-align: center; margin: 3rem 0;">
+                <a href="/" class="btn-primary">🏠 Volver al Inicio</a>
+                <a href="/licenciatura-economia" class="btn-secondary">🎓 Licenciatura</a>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

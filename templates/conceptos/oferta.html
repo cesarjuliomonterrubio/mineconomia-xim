@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oferta - Concepto Completo</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        .concepto-container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 30px;
+            background: rgba(42, 42, 42, 0.95);
+            border: 4px solid #555;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            color: white;
+        }
+        
+        .concepto-header {
+            text-align: center;
+            margin-bottom: 40px;
+            background: linear-gradient(135deg, #3a6b35 0%, #2d4a1f 100%);
+            color: #ffd700;
+            padding: 30px;
+            border-radius: 10px;
+            border: 3px solid #5d2f0f;
+            font-family: 'Press Start 2P', cursive;
+            text-shadow: 3px 3px 0 #000;
+        }
+        
+        .graph-container {
+            text-align: center;
+            margin: 40px 0;
+            padding: 30px;
+            background: rgba(93, 47, 15, 0.3);
+            border-radius: 15px;
+            border: 3px solid #7a7a7a;
+        }
+        
+        .explanation {
+            background: rgba(58, 58, 58, 0.8);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border: 3px solid #5d2f0f;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .definition-box {
+            background: rgba(93, 47, 15, 0.4);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border: 3px solid #ffd700;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .back-button {
+            display: inline-block;
+            padding: 12px 25px;
+            background: #5d2f0f;
+            color: #ffd700;
+            text-decoration: none;
+            border-radius: 8px;
+            margin: 10px;
+            border: 2px solid #ffd700;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-shadow: 2px 2px 0 #000;
+        }
+        
+        .back-button:hover {
+            background: #7a451f;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 0 #3a2f0f;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Press Start 2P', cursive;
+            color: #ffd700;
+            text-shadow: 2px 2px 0 #000;
+        }
+        
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+        
+        h2 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+        
+        h3 {
+            font-size: 1rem;
+            margin-bottom: 12px;
+        }
+        
+        h4 {
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            color: #cddc39;
+        }
+        
+        strong {
+            color: #cddc39;
+            font-family: 'Courier New', monospace;
+        }
+        
+        ul li {
+            margin-bottom: 0.8rem;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .button-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        .graph-image {
+            max-width: 100%;
+            height: auto;
+            border: 3px solid #ffd700;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+        }
+        
+        .image-caption {
+            margin-top: 15px;
+            font-style: italic;
+            color: #cddc39;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.7rem;
+            text-shadow: 1px 1px 0 #000;
+        }
+        
+        .concepto-header p {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.8rem;
+            margin-top: 15px;
+            text-shadow: 1px 1px 0 #000;
+        }
+    </style>
+</head>
+<body class="minecraft-body">
+    <!-- Video de fondo - PARA TODAS LAS PÁGINAS -->
+<video autoplay muted loop class="video-background">
+    <source src="{{ url_for('static', filename='videos/fondo.mp4') }}" type="video/mp4">
+    Tu navegador no soporta videos HTML5.
+</video>
+<div class="overlay"></div>
+    <div class="concepto-container">
+        <div class="concepto-header">
+            <h1>📈 CONCEPTO DE OFERTA</h1>
+            <p>ANÁLISIS COMPLETO DE LA CURVA DE OFERTA Y SUS APLICACIONES</p>
+        </div>
+
+        <div class="definition-box">
+            <h2>📖 DEFINICIÓN DE OFERTA</h2>
+            <p><strong>OFERTA:</strong> "La oferta es una relación que muestra las distintas cantidades de una mercancía que los vendedores estarían dispuestos y serian capaces de poner a la venta a precios alternativos durante un periodo dado de tiempo, suponiendo que todas las demás cosas permanecen constantes."</p>
+        </div>
+
+        <div class="graph-container">
+            <h2>📊 CURVA DE LA OFERTA</h2>
+            <div style="background: rgba(0, 0, 0, 0.8); padding: 20px; border-radius: 10px; display: inline-block; border: 2px solid #ffd700;">
+                <!-- Tu imagen de la curva de oferta -->
+                <img src="https://www.cienciasfera.com/materiales/economia/economia/tema07/img25.JPG" 
+                     alt="Curva de Oferta Económica" 
+                     class="graph-image"
+                     style="max-width: 600px; height: auto;">
+            </div>
+            <p class="image-caption">LA CURVA DE OFERTA MUESTRA LA RELACIÓN POSITIVA ENTRE PRECIO Y CANTIDAD OFRECIDA</p>
+        </div>
+
+        <div class="explanation">
+            <h3>🔍 EXPLICACIÓN DE LA CURVA DE OFERTA</h3>
+            <p>"Es la que muestra el vínculo existente entre el precio de un bien y la cantidad ofrecida del mismo. La pendiente de esta curva determina cómo aumenta o disminuye la oferta ante una disminución o un aumento del precio del bien."</p>
+            
+            <h4>📐 ELASTICIDAD DE LA OFERTA</h4>
+            <p>"Se denomina elasticidad de la curva de oferta a la variación porcentual experimentada por la cantidad ofrecida de un bien cuando varia su precio en 1%, manteniéndose constantes los demás factores que lleguen a afectar la cantidad ofrecida."</p>
+        </div>
+
+        <div class="explanation" style="border-color: #cddc39;">
+            <h3>🎯 FACTORES QUE AFECTAN LA OFERTA</h3>
+            <ul>
+                <li><strong>PRECIO DEL BIEN:</strong> Relación directa con la cantidad ofrecida</li>
+                <li><strong>COSTOS DE PRODUCCIÓN:</strong> Afectan la rentabilidad</li>
+                <li><strong>TECNOLOGÍA:</strong> Mejoras que reducen costos</li>
+                <li><strong>PRECIOS DE BIENES RELACIONADOS:</strong> Bienes sustitutos en producción</li>
+                <li><strong>EXPECTATIVAS DE PRECIOS FUTUROS:</strong> Decisiones de producción</li>
+            </ul>
+        </div>
+
+        <div class="button-container">
+            <a href="{{ url_for('inicio') }}" class="back-button">🏠 IR AL INICIO</a>
+            <button onclick="goBack()" class="back-button">🔙 REGRESAR</button>
+        </div>
+    </div>
+
+    <script>
+        function goBack() {
+            if (window.history.length > 1) {
+                window.history.back();
+            } else {
+                window.location.href = "{{ url_for('inicio') }}";
+            }
+        }
+        
+        // Función para regresar con Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                if (window.history.length > 1) {
+                    window.history.back();
+                } else {
+                    window.location.href = "{{ url_for('inicio') }}";
+                }
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Econometría Aplicada - Economía Mineconómica</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body class="minecraft-body">
+    <!-- Video de fondo - PARA TODAS LAS PÁGINAS -->
+<video autoplay muted loop class="video-background">
+    <source src="{{ url_for('static', filename='videos/fondo.mp4') }}" type="video/mp4">
+    Tu navegador no soporta videos HTML5.
+</video>
+<div class="overlay"></div>
+    <header class="minecraft-header">
+        <div class="header-container">
+            <div class="logo-section">
+                <a href="/" class="minecraft-logo">
+                    <span class="logo-text">⛏️ MINECONOMÍA</span>
+                </a>
+            </div>
+            <nav class="main-nav">
+                <div class="nav-section">
+                    <a href="/" class="nav-item">🏠 Inicio</a>
+                    
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <main class="minecraft-main">
+            <section class="minecraft-hero">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1>📊 Econometría Aplicada</h1>
+                        <p class="hero-subtitle">🖤 <strong>Enderman</strong> te explica el arte de los datos económicos</p>
+                    </div>
+                    <div class="hero-media">
+                        <div class="character-explanation">
+                            <img src="https://minecraft.wiki/images/thumb/Enderman_JE3_BE1.png/640px-Enderman_JE3_BE1.png?c6308" alt="Enderman" width="300" height="300" class="character-image">
+                           <div class="speech-bubble">
+    <p style="font-family: 'Press Start 2P', cursive; font-size: 10px; line-height: 1.5;">"Los datos económicos son como bloques que teleporto... La econometría encuentra patrones y relaciones ocultas.."</p>
+</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="features-section">
+                <div class="tabs-container">
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">📈</div>
+                            <h3>Regresiones Lineales</h3>
+                            <p>"Como teleporto bloques, las regresiones conectan variables económicas para predecir resultados."</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">⏰</div>
+                            <h3>Series de Tiempo</h3>
+                            <p>"Analizo patrones temporales como observo el paso del tiempo entre dimensiones."</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🎯</div>
+                            <h3>Modelos Predictivos</h3>
+                            <p>"Predigo comportamientos económicos futuros basados en datos históricos."</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div style="text-align: center; margin: 3rem 0;">
+                <a href="/" class="btn-primary">🏠 Volver al Inicio</a>
+                <a href="/finanzas-corporativas" class="btn-secondary">💼 Finanzas</a>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ titulo }} - Mineconomía</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body class="minecraft-body">
+    <!-- Video de fondo - PARA TODAS LAS PÁGINAS -->
+<video autoplay muted loop class="video-background">
+    <source src="{{ url_for('static', filename='videos/fondo.mp4') }}" type="video/mp4">
+    Tu navegador no soporta videos HTML5.
+</video>
+<div class="overlay"></div>
+    <header class="minecraft-header">
+        <div class="header-container">
+            <div class="logo-section">
+                <a href="/" class="minecraft-logo">
+                    <span class="logo-text">⛏️ MINECONOMÍA</span>
+                </a>
+            </div>
+            <nav class="main-nav">
+                <div class="nav-section">
+                    <a href="/" class="nav-item">🏠 Inicio</a>
+                    
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ALDEANO GRANDE FLOTANTE EN ESQUINA -->
+    <div style="position: fixed; top: 80px; right: 20px; z-index: 1000;">
+        <img src="https://p.novaskin.me/4039143784.png?class=thumbnail" 
+             alt="Aldeano Minecraft" 
+             style="width: 180px; height: 180px; border-radius: 15px; border: 4px solid #38a169; box-shadow: 0 6px 12px rgba(0,0,0,0.4);">
+        <div style="text-align: center; margin-top: 8px; font-size: 14px; color: #38a169; font-weight: bold; text-shadow: 1px 1px 2px black;"></div>
+    </div>
+
+    <div class="container">
+        <main class="minecraft-main">
+            <section class="features-section">
+                <div class="section-header">
+                    <h1>🛍️ Competencia Monopolística</h1>
+                    <p>Muchos vendedores, productos diferenciados</p>
+                </div>
+                
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">📚</div>
+                        <h3>Definición Económica</h3>
+                        <p>La competencia monopolística es una estructura de mercado en la que existen muchos vendedores de productos similares, pero no idénticos. Cada empresa tiene un pequeño poder para influir en el precio de su producto gracias a la diferenciación.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">🎮</div>
+                        <h3>Ejemplo en Minecraft</h3>
+                        <p>Como las <strong>especialidades de cada jugador</strong> - un jugador se especializa en granjas automáticas, otro en construcción estética, otro en redstone compleja. Ofrecen servicios similares pero con diferenciación que justifica precios distintos.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">📊</div>
+                        <h3>Características Principales</h3>
+                        <ul style="text-align: left; margin: 15px 0;">
+                            <li>👥 Muchos vendedores</li>
+                            <li>🎨 Diferenciación de productos</li>
+                            <li>💼 Libre entrada y salida</li>
+                            <li>📢 Competencia no-precio</li>
+                            <li>⚖️ Poder de mercado limitado</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="feature-card" style="max-width: 800px; margin: 20px auto;">
+                    <h3>🎭 Diferenciación del Producto</h3>
+                    <div style="background: #2d3748; padding: 20px; border-radius: 10px; border: 2px solid #38a169; margin: 15px 0;">
+                        <h4>✨ Creando valor percibido</h4>
+                        <p>Las empresas compiten mediante diferenciación real (calidad, características) o percibida (marca, publicidad) para crear lealtad del cliente y cierto poder de mercado.</p>
+                    </div>
+                </div>
+
+                <!-- IMAGEN DE LA CURVA - COMPETENCIA MONOPOLÍSTICA -->
+                <div class="feature-card" style="max-width: 800px; margin: 20px auto;">
+                    <h3>📈 Curva de Competencia Monopolística</h3>
+                    <div style="text-align: center; margin: 20px 0;">
+                        <img src="https://www.auladeeconomia.com/compmonop3.GIF" 
+                             alt="Curva de Competencia Monopolística" 
+                             style="width: 100%; max-width: 600px; border-radius: 10px; border: 2px solid #38a169;">
+                        <p style="margin-top: 10px; font-size: 14px; color: #ccc;">Demanda descendente con poder de mercado limitado</p>
+                    </div>
+                </div>
+
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🏆</div>
+                        <h3>Estrategias de Diferenciación</h3>
+                        <ul style="text-align: left;">
+                            <li><strong>Calidad:</strong> Producto superior</li>
+                            <li><strong>Diseño:</strong> Estética única</li>
+                            <li><strong>Ubicación:</strong> Accesibilidad</li>
+                            <li><strong>Servicio:</strong> Atención al cliente</li>
+                            <li><strong>Marca:</strong> Imagen y reputación</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">💡</div>
+                        <h3>Equilibrio a Corto vs Largo Plazo</h3>
+                        <p>En el corto plazo pueden obtener beneficios, pero en el largo plazo la entrada de nuevos competidores elimina los beneficios extraordinarios, similar a la competencia perfecta.</p>
+                    </div>
+                </div>
+
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">✅</div>
+                        <h3>Ventajas</h3>
+                        <ul style="text-align: left;">
+                            <li>Variedad para consumidores</li>
+                            <li>Innovación constante</li>
+                            <li>Competencia en calidad</li>
+                            <li>Bajas barreras de entrada</li>
+                            <li>Eficiencia productiva razonable</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">❌</div>
+                        <h3>Desventajas</h3>
+                        <ul style="text-align: left;">
+                            <li>Exceso de capacidad</li>
+                            <li>Costos de publicidad elevados</li>
+                            <li>Precios por encima del costo marginal</li>
+                            <li>Ineficiencia allocativa</li>
+                            <li>Posible confusión del consumidor</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="feature-card" style="max-width: 800px; margin: 20px auto;">
+                    <h3>🌍 Aplicación en la Economía Real</h3>
+                    <p>La competencia monopolística es muy común en sectores como:</p>
+                    <ul style="text-align: left; columns: 2;">
+                        <li>Restaurantes y cafeterías</li>
+                        <li>Ropa y moda</li>
+                        <li>Productos cosméticos</li>
+                        <li>Servicios profesionales</li>
+                        <li>Tiendas minoristas</li>
+                        <li>Entretenimiento</li>
+                    </ul>
+                </div>
+
+                <div style="text-align: center; margin: 40px 0;">
+    <a href="/" class="nav-item" style="display: inline-block; padding: 15px 30px; background: #4CAF50; color: white; text-decoration: none; border-radius: 5px; font-weight: bold;">
+         Volver al Inicio
+    </a>
+</div>
+
+    <footer class="minecraft-footer" style="text-align: center; padding: 20px;">
+        <p>&copy; 2024 Mineconomía - Aprendiendo economía con Minecraft</p>
+    </footer>
+</body>
+</html>

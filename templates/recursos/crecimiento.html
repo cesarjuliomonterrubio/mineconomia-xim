@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crecimiento - Economía Mineconómica</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body class="minecraft-body">
+    <!-- Video de fondo - PARA TODAS LAS PÁGINAS -->
+    <video autoplay muted loop class="video-background">
+        <source src="{{ url_for('static', filename='videos/fondo.mp4') }}" type="video/mp4">
+        Tu navegador no soporta videos HTML5.
+    </video>
+    <div class="overlay"></div>
+    
+    <header class="minecraft-header">
+        <div class="header-container">
+            <div class="logo-section">
+                <a href="/" class="minecraft-logo">
+                    <span class="logo-text">⛏️ MINECONOMÍA</span>
+                </a>
+            </div>
+            <nav class="main-nav">
+                <div class="nav-section">
+                    <a href="/" class="nav-item">🏠 Inicio</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <main class="minecraft-main">
+            <!-- Hero Section con Ghast Feliz -->
+            <section class="minecraft-hero">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1>📈 Crecimiento Económico</h1>
+                        <p class="hero-subtitle">👻 <strong>El Ghast Feliz</strong> te explica cómo crecen las economías</p>
+                    </div>
+                    <div class="hero-media">
+                        <div class="character-explanation">
+                            <img src="https://preview.redd.it/i-made-a-concept-of-what-the-happy-ghast-would-look-like-if-v0-gkolw3je5bqe1.png?width=309&format=png&auto=webp&s=7e81ae3381c58f3aec352b5fecd09955b4630b9a" alt="Ghast Feliz de Minecraft" width="250" height="250" class="character-image">
+                            <div class="speech-bubble">
+                                <p style="font-family: 'Press Start 2P', cursive; font-size: 10px; line-height: 1.5;">"¡Hola! Como Ghast feliz, floto alto y veo cómo todo crece. El crecimiento económico mejora la vida de todos cuando es sostenible!"</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Explicación del Ghast Feliz -->
+            <section class="features-section">
+                <div class="tabs-container">
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">🌱</div>
+                            <h3>Crecimiento Sostenible</h3>
+                            <p>"Desde las alturas veo ecosistemas frágiles. El crecimiento debe respetar el ambiente y pensar en futuras generaciones."</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🚀</div>
+                            <h3>Productividad</h3>
+                            <p>"Vuelo eficientemente usando mis tentáculos. La productividad usa mejor la tecnología y organización para producir más."</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">📊</div>
+                            <h3>Indicadores</h3>
+                            <p>"Desde arriba mido distancias. Los indicadores económicos nos dicen si vamos por buen camino o necesitamos ajustes."</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Factores del Crecimiento -->
+            <section class="resources-section">
+                <div class="section-header">
+                    <h2>👻 Factores del Crecimiento</h2>
+                    <p>Según la perspectiva del Ghast Feliz</p>
+                </div>
+                <div class="resources-grid">
+                    <div class="resource-item">
+                        <span class="resource-icon">💡</span>
+                        <span class="resource-name">Innovación</span>
+                        <span class="resource-desc">Nuevas tecnologías</span>
+                    </div>
+                    <div class="resource-item">
+                        <span class="resource-icon">🎓</span>
+                        <span class="resource-name">Capital Humano</span>
+                        <span class="resource-desc">Educación y habilidades</span>
+                    </div>
+                    <div class="resource-item">
+                        <span class="resource-icon">🏭</span>
+                        <span class="resource-name">Capital Físico</span>
+                        <span class="resource-desc">Infraestructura</span>
+                    </div>
+                    <div class="resource-item">
+                        <span class="resource-icon">⚖️</span>
+                        <span class="resource-name">Instituciones</span>
+                        <span class="resource-desc">Marco legal estable</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tipos de Crecimiento -->
+            <section class="features-section">
+                <div class="section-header">
+                    <h2>📊 Tipos de Crecimiento Económico</h2>
+                    <p>Diferentes formas en que las economías se expanden</p>
+                </div>
+                <div class="feature-card" style="max-width: 800px; margin: 0 auto;">
+                    <h3>👻 Desde las alturas del Ghast:</h3>
+                    <ul style="text-align: left; margin: 1rem 0;">
+                        <li>📈 <strong>Extensivo:</strong> Más recursos y mano de obra (como expandir territorio en Minecraft)</li>
+                        <li>💡 <strong>Intensivo:</strong> Mejor tecnología y eficiencia (como optimizar granjas)</li>
+                        <li>🌱 <strong>Orgánico:</strong> Desarrollo interno y sostenible</li>
+                        <li>🚀 <strong>Exponencial:</strong> Aceleración con innovación constante</li>
+                        <li>🔄 <strong>Cíclico:</strong> Periodos de expansión y contracción</li>
+                    </ul>
+                    <div style="margin-top: 1rem; padding: 1rem; background: rgba(255, 193, 7, 0.2); border-radius: 10px;">
+                        <p><strong>💡 Dato del Ghast:</strong> "En Minecraft pasas de una choza a un castillo. En economía, de subsistencia a sociedad del bienestar!"</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Gráfico de crecimiento simulado -->
+            <section class="platforms-section">
+                <div class="section-header">
+                    <h2>📈 Progreso del Crecimiento</h2>
+                    <p>Evolución económica típica en Minecraft</p>
+                </div>
+                <div class="feature-card">
+                    <h3>👻 Fases del Desarrollo según el Ghast:</h3>
+                    <div style="background: #2d4a1f; padding: 2rem; border-radius: 10px; margin: 1rem 0;">
+                        <div style="display: flex; justify-content: space-between; align-items: end; height: 200px;">
+                            <div style="text-align: center;">
+                                <div style="height: 30px; width: 30px; background: #ffd700; margin: 0 auto;"></div>
+                                <div>Día 1</div>
+                                <div style="font-size: 0.8rem; margin-top: 0.5rem;">🛖 Subsistencia</div>
+                            </div>
+                            <div style="text-align: center;">
+                                <div style="height: 60px; width: 30px; background: #ffd700; margin: 0 auto;"></div>
+                                <div>Día 5</div>
+                                <div style="font-size: 0.8rem; margin-top: 0.5rem;">🏠 Acumulación</div>
+                            </div>
+                            <div style="text-align: center;">
+                                <div style="height: 120px; width: 30px; background: #ffd700; margin: 0 auto;"></div>
+                                <div>Día 10</div>
+                                <div style="font-size: 0.8rem; margin-top: 0.5rem;">🏰 Expansión</div>
+                            </div>
+                            <div style="text-align: center;">
+                                <div style="height: 180px; width: 30px; background: #ffd700; margin: 0 auto;"></div>
+                                <div>Día 20</div>
+                                <div style="font-size: 0.8rem; margin-top: 0.5rem;">🌆 Desarrollo</div>
+                            </div>
+                        </div>
+                    </div>
+                    <p>Este gráfico muestra el crecimiento exponencial típico en Minecraft, similar al crecimiento económico real donde la acumulación acelera el progreso.</p>
+                </div>
+            </section>
+
+            <!-- Importancia del Crecimiento -->
+            <section class="features-section">
+                <div class="section-header">
+                    <h2>🎯 ¿Por qué es Importante el Crecimiento?</h2>
+                    <p>Beneficios del desarrollo económico sostenido</p>
+                </div>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">💰</div>
+                        <h3>Mejor Calidad de Vida</h3>
+                        <p>Permite mejores salarios, acceso a salud, educación y servicios públicos de calidad.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🏥</div>
+                        <h3>Inversión Social</h3>
+                        <p>Genera recursos para invertir en infraestructura, investigación y programas sociales.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🌍</div>
+                        <h3>Estabilidad</h3>
+                        <p>Economías en crecimiento ofrecen más oportunidades y menor desempleo.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Desafíos del Crecimiento -->
+            <section class="resources-section">
+                <div class="section-header">
+                    <h2>⚠️ Desafíos del Crecimiento</h2>
+                    <p>Obstáculos para el desarrollo económico sostenible</p>
+                </div>
+                <div class="feature-card" style="max-width: 800px; margin: 0 auto;">
+                    <h3>👻 Advertencias del Ghast Feliz:</h3>
+                    <ul style="text-align: left; margin: 1rem 0;">
+                        <li>🌡️ <strong>Contaminación:</strong> Crecimiento sin cuidado ambiental</li>
+                        <li>📉 <strong>Desigualdad:</strong> Beneficios que no llegan a todos</li>
+                        <li>💸 <strong>Deuda:</strong> Crecimiento basado en endeudamiento</li>
+                        <li>🛢️ <strong>Recursos:</strong> Dependencia de recursos no renovables</li>
+                        <li>🌎 <strong>Globalización:</strong> Vulnerabilidad a crisis internacionales</li>
+                    </ul>
+                    <div style="margin-top: 1rem; padding: 1rem; background: rgba(244, 67, 54, 0.1); border-radius: 10px;">
+                        <p><strong>🎯 Reflexión del Ghast:</strong> "Un crecimiento que destruye el Nether no es verdadero crecimiento. La sostenibilidad es clave!"</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Cómo Medir el Crecimiento -->
+            <section class="features-section">
+                <div class="section-header">
+                    <h2>📏 Medición del Crecimiento</h2>
+                    <p>Indicadores para evaluar el progreso económico</p>
+                </div>
+                <div class="platforms-grid">
+                    <div class="platform-item">
+                        <span class="platform-icon">💹</span>
+                        <span class="platform-name">PIB</span>
+                        <p>Producto Interno Bruto total</p>
+                    </div>
+                    <div class="platform-item">
+                        <span class="platform-icon">👤</span>
+                        <span class="platform-name">PIB per cápita</span>
+                        <p>Riqueza por persona</p>
+                    </div>
+                    <div class="platform-item">
+                        <span class="platform-icon">📊</span>
+                        <span class="platform-name">IDH</span>
+                        <p>Índice Desarrollo Humano</p>
+                    </div>
+                    <div class="platform-item">
+                        <span class="platform-icon">😊</span>
+                        <span class="platform-name">Felicidad</span>
+                        <p>Bienestar y calidad de vida</p>
+                    </div>
+                </div>
+            </section>
+
+            <div style="text-align: center; margin: 3rem 0;">
+                <a href="/" class="btn-primary">🏠 Volver al Inicio</a>
+                <a href="/globalizacion" class="btn-secondary">🌐 Globalización</a>
+                <a href="/innovacion" class="btn-secondary">💡 Innovación</a>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

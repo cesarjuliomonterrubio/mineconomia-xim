@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi pagina de Economia</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body class="minecraft-body">
+    <!-- Video de fondo - SOLO EN INDEX -->
+    <video autoplay muted loop class="video-background">
+        <source src="{{ url_for('static', filename='videos/fondo.mp4') }}" type="video/mp4">
+        Tu navegador no soporta videos HTML5.
+    </video>
+    <div class="overlay"></div>
+
+    <!-- Header/Navegación -->
+    <header class="minecraft-header">
+        <div class="header-container">
+            <div class="logo-section">
+                <a href="/" class="minecraft-logo">
+                    <span class="logo-text">⛏️ MINECONOMÍA</span>
+                </a>
+            </div>
+            
+            <nav class="main-nav">
+                <div class="nav-section">
+                    <a href="/" class="nav-item active">🏠 Inicio</a>
+                    <!-- BOTÓN NUEVO DE AGRADECIMIENTOS -->
+                    <a href="/agradecimientos" class="nav-item"> Agradecimiento</a>
+                </div>
+            </nav>
+            
+            <div class="header-actions">
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="minecraft-hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Aprendiendo economia con Minecraft</h1>
+                <p class="hero-subtitle">Construyendo conocimiento económico bloque por bloque.</p>
+               
+                <div class="hero-features">
+                    <span>✅ Análisis de Mercados</span>
+                    <span>✅ Econometría Aplicada</span>
+                    <span>✅ Finanzas Corporativas</span>
+                    <span>✅ Economía Digital</span>
+                </div>
+            </div>
+              <div class="hero-media">
+            <div class="minecraft-image-container">
+                <img src="https://image.api.playstation.com/vulcan/ap/rnd/202407/1020/91fe046f742042e3b31e57f7731dbe2226e1fd1e02a36223.jpg" 
+                     alt="Economía Creativa en Minecraft" 
+                     class="minecraft-economy-image">
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Contenido Principal -->
+    <div class="container">
+        <main class="minecraft-main">
+            <!-- Sección de Especialidades con Tabs -->
+            <section class="features-section">
+                <div class="section-header">
+                    <h2>Especialidades Económicas</h2>
+                    <p>Las áreas que dominan en el mundo de la economía</p>
+                </div>
+                
+                <div class="tabs-container">
+                    <!-- SOLO 3 PESTAÑAS AHORA -->
+                    <div class="tabs-header">
+                        <button class="tab-btn active" data-tab="habilidades">💼 Areas</button>
+                        <button class="tab-btn" data-tab="proyectos">🚀 Escuelas</button>
+                        <button class="tab-btn" data-tab="regresion">📈 Curvas</button>
+                    </div>
+                    
+                    <div class="tabs-content">
+                        <div class="tab-panel active" id="habilidades">
+                            <div class="feature-grid">
+                                <div class="feature-card">
+                                    <div class="feature-icon">
+                                        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135695.png" alt="Microeconomía" width="80" height="80">
+                                    </div>
+                                    <h3>Microeconomía</h3>
+                                    <p>Rama de la economía que estudia cada unidad (consumidores, productores, empresas, etc.) y las relaciones ente estas unidades, dentro de un determinado marco de producción y distribución de bienes y servicios.</p>
+                                </div>
+                                <div class="feature-card">
+                                    <div class="feature-icon">
+                                        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135678.png" alt="Macroeconomía" width="80" height="80">
+                                    </div>
+                                    <h3>Macroeconomía</h3>
+                                    <p>Es la rama de la teoría económica que trata de explicar cómo y por qué la economía crece, fluctúa y evoluciona con el paso del tiempo.</p>
+                                </div>
+                                <div class="feature-card">
+                                    <div class="feature-icon">
+                                        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135673.png" alt="Economía" width="80" height="80">
+                                    </div>
+                                    <h3>¿Qué es la Economía?</h3>
+                                    <p>Es una ciencia social que estudia la forma en que participan las personas y las organizaciones de la sociedad en la producción, distribución y consumo de bienes y servicios.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="tab-panel" id="proyectos">
+                            <div class="feature-grid">
+                                <div class="feature-card">
+                                    <div class="feature-icon">🏰</div>
+                                    <h3>Mercantilismo</h3>
+                                    <p>Propuso que la riqueza de una nación se basa en la acumulación de metales preciosos y abogó por políticas proteccionistas.</p>
+                                </div>
+                                <div class="feature-card">
+                                    <div class="feature-icon">🌾</div>
+                                    <h3>Fisiocracia</h3>
+                                    <p>Consideraba que la riqueza provenía de la tierra y la agricultura, defendiendo la no intervención del gobierno en la economía.</p>
+                                </div>
+                                <div class="feature-card">
+                                    <div class="feature-icon">📚</div>
+                                    <h3>Escuela Clásica</h3>
+                                    <p>Se centró en la producción y el crecimiento económico, destacando la "mano invisible" y el libre mercado. Sus principales representantes fueron Adam Smith y David Ricardo.</p>
+                                </div>
+                                <div class="feature-card">
+                                    <div class="feature-icon">⚒️</div>
+                                    <h3>Marxismo</h3>
+                                    <p>Propone la abolición de las clases sociales y la propiedad privada, argumentando que el valor de un producto depende del trabajo invertido en él.</p>
+                                </div>
+                                <div class="feature-card">
+                                    <div class="feature-icon">📊</div>
+                                    <h3>Escuela Neoclásica</h3>
+                                    <p>Integró la teoría clásica con el marginalismo, enfocándose en la utilidad individual y la maximización de beneficios.</p>
+                                </div>
+                                <div class="feature-card">
+                                    <div class="feature-icon">💰</div>
+                                    <h3>Keynesianismo</h3>
+                                    <p>Surge como respuesta a la Gran Depresión, argumentando que la intervención del Estado es necesaria para estimular la demanda y la producción durante las crisis económicas.</p>
+                                </div>
+                                <div class="feature-card">
+                                    <div class="feature-icon">🎓</div>
+                                    <h3>Escuela Austriaca</h3>
+                                    <p>Se enfoca en el individualismo metodológico y la importancia de la subjetividad en la economía.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ÚNICA PESTAÑA DE REGRESIÓN LINEAL CON GRÁFICA PYTHON -->
+                        <div class="tab-panel" id="regresion">
+                            <div class="feature-grid">
+                                <a href="{{ url_for('is_lm') }}" class="resource-link">
+                                    <div class="feature-card">
+                                        <div class="feature-icon">📐</div>
+                                        <h3>Modelo IS-LM </h3>
+                                        <p>Visualiza el equilibrio simultáneo en el mercado de bienes (curva IS) y mercado de dinero (curva LM) mediante Python.</p>
+                                       
+                                    </div>
+                                </a>
+                                <a href="{{ url_for('oferta') }}" class="resource-link">
+                                    <div class="feature-card">
+                                        <div class="feature-icon">📈</div>
+                                        <h3>Curva de Oferta</h3>
+                                        <p>Relación entre precio y cantidad ofrecida en el mercado. Análisis completo con gráfica interactiva.</p>
+                                        <div class="click-hint">📊 Ver análisis completo</div>
+                                    </div>
+                                </a>
+                                <a href="{{ url_for('demanda') }}" class="resource-link">
+                                    <div class="feature-card">
+                                        <div class="feature-icon">📉</div>
+                                        <h3>Curva de Demanda</h3>
+                                        <p>Relación inversa entre precio y cantidad demandada. Estudio detallado del comportamiento del consumidor.</p>
+                                        <div class="click-hint">📊 Ver análisis completo</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- NUEVA SECCIÓN: TIPOS DE MERCADO MEJORADA -->
+            <section class="platforms-section">
+                <div class="section-header">
+                    <h2>Tipos de Mercado</h2>
+                    <p>¡Haz clic en cada tipo para descubrir sus características económicas! 🎮</p>
+                </div>
+                <div class="platforms-grid">
+                    <!-- Competencia Perfecta -->
+                    <a href="/competencia-perfecta" class="platform-link">
+                        <div class="platform-item" style="background: linear-gradient(135deg, #4CAF50, #8BC34A); color: white; text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">
+                            <span class="platform-icon" style="font-size: 2.5rem;">⚖️</span>
+                            <span class="platform-name" style="font-size: 1.3rem; font-weight: bold; margin: 10px 0;">COMPETENCIA PERFECTA</span>
+                            <p class="platform-desc" style="font-size: 1.1rem; font-weight: 500;">Muchos compradores y vendedores, productos idénticos</p>
+                            <div class="click-hint" style="background: rgba(255,255,255,0.3); padding: 8px; border-radius: 10px;"> ¡Haz clic para aprender!</div>
+                        </div>
+                    </a>
+                    
+                    <!-- Monopolio -->
+                    <a href="/monopolio" class="platform-link">
+                        <div class="platform-item" style="background: linear-gradient(135deg, #F44336, #E91E63); color: white; text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">
+                            <span class="platform-icon" style="font-size: 2.5rem;">👑</span>
+                            <span class="platform-name" style="font-size: 1.3rem; font-weight: bold; margin: 10px 0;">MONOPOLIO</span>
+                            <p class="platform-desc" style="font-size: 1.1rem; font-weight: 500;">Un solo vendedor controla el mercado</p>
+                            <div class="click-hint" style="background: rgba(255,255,255,0.3); padding: 8px; border-radius: 10px;"> ¡Haz clic para aprender!</div>
+                        </div>
+                    </a>
+                    
+                    <!-- Oligopolio -->
+                    <a href="/oligopolio" class="platform-link">
+                        <div class="platform-item" style="background: linear-gradient(135deg, #2196F3, #03A9F4); color: white; text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">
+                            <span class="platform-icon" style="font-size: 2.5rem;">🏢</span>
+                            <span class="platform-name" style="font-size: 1.3rem; font-weight: bold; margin: 10px 0;">OLIGOPOLIO</span>
+                            <p class="platform-desc" style="font-size: 1.1rem; font-weight: 500;">Pocas empresas dominan el mercado</p>
+                            <div class="click-hint" style="background: rgba(255,255,255,0.3); padding: 8px; border-radius: 10px;"> ¡Haz clic para aprender!</div>
+                        </div>
+                    </a>
+                    
+                    <!-- Competencia Monopolística -->
+                    <a href="/competencia-monopolistica" class="platform-link">
+                        <div class="platform-item" style="background: linear-gradient(135deg, #FF9800, #FFC107); color: white; text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">
+                            <span class="platform-icon" style="font-size: 2.5rem;">🛍️</span>
+                            <span class="platform-name" style="font-size: 1.3rem; font-weight: bold; margin: 10px 0;">COMPETENCIA MONOPOLÍSTICA</span>
+                            <p class="platform-desc" style="font-size: 1.1rem; font-weight: 500;">Muchos vendedores con productos diferenciados</p>
+                            <div class="click-hint" style="background: rgba(255,255,255,0.3); padding: 8px; border-radius: 10px;"> ¡Haz clic para aprender!</div>
+                        </div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Sección de Recursos Económicos -->
+            <section class="resources-section">
+                <div class="section-header">
+                    <h2>Recursos Económicos Esenciales</h2>
+                    <p>¡Haz clic en cada recurso para explorar a fondo! 🚀</p>
+                </div>
+                <div class="resources-grid">
+                    <a href="/capital-humano" class="resource-link">
+                        <div class="resource-item">
+                            <span class="resource-icon">📚</span>
+                            <span class="resource-name">Capital Humano</span>
+                            <span class="resource-desc">Conocimiento y habilidades</span>
+                            <div class="click-hint">🌐 Ver página completa</div>
+                        </div>
+                    </a>
+                    
+                    <a href="/capital-fisico" class="resource-link">
+                        <div class="resource-item">
+                            <span class="resource-icon">🏭</span>
+                            <span class="resource-name">Capital Físico</span>
+                            <span class="resource-desc">Herramientas y tecnología</span>
+                            <div class="click-hint">🌐 Ver página completa</div>
+                        </div>
+                    </a>
+                    
+                    <a href="/innovacion" class="resource-link">
+                        <div class="resource-item">
+                            <span class="resource-icon">💡</span>
+                            <span class="resource-name">Innovación</span>
+                            <span class="resource-desc">Progreso tecnológico</span>
+                            <div class="click-hint">🌐 Ver página completa</div>
+                        </div>
+                    </a>
+                    
+                    <a href="/instituciones" class="resource-link">
+                        <div class="resource-item">
+                            <span class="resource-icon">⚖️</span>
+                            <span class="resource-name">Instituciones</span>
+                            <span class="resource-desc">Reglas del juego económico</span>
+                            <div class="click-hint">🌐 Ver página completa</div>
+                        </div>
+                    </a>
+                    
+                    <a href="/globalizacion" class="resource-link">
+                        <div class="resource-item">
+                            <span class="resource-icon">🌐</span>
+                            <span class="resource-name">Globalización</span>
+                            <span class="resource-desc">Interconexión económica</span>
+                            <div class="click-hint">🌐 Ver página completa</div>
+                        </div>
+                    </a>
+                    
+                    <a href="/crecimiento" class="resource-link">
+                        <div class="resource-item">
+                            <span class="resource-icon">📈</span>
+                            <span class="resource-name">Crecimiento</span>
+                            <span class="resource-desc">Desarrollo sostenible</span>
+                            <div class="click-hint">🌐 Ver página completa</div>
+                        </div>
+                    </a>
+
+                    <!-- NUEVO BOTÓN DE REGRESIÓN LINEAL -->
+                    <a href="{{ url_for('regresion_lineal') }}" class="resource-link">
+                        <div class="resource-item">
+                            <span class="resource-icon">📊</span>
+                            <span class="resource-name">Regresión Lineal</span>
+                            <span class="resource-desc">Análisis estadístico avanzado</span>
+                            <div class="click-hint">🎮 ¡Calculadora interactiva!</div>
+                        </div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Sección de Logros Académicos -->
+            <section class="platforms-section">
+                <div class="section-header">
+                    <h2>Mis Competencias Económicas</h2>
+                    <p>¡Haz clic en cada área para descubrir qué personaje de Minecraft lo explica! 🎮</p>
+                </div>
+                <div class="platforms-grid">
+                    <a href="/licenciatura-economia" class="platform-link">
+                        <div class="platform-item">
+                            <span class="platform-icon">🎓</span>
+                            <span class="platform-name">Licenciatura en Economía</span>
+                            <div class="click-hint">💥 ¡Creeper te explica!</div>
+                        </div>
+                    </a>
+                    <a href="/econometria-aplicada" class="platform-link">
+                        <div class="platform-item">
+                            <span class="platform-icon">📊</span>
+                            <span class="platform-name">Econometría Aplicada</span>
+                            <div class="click-hint">🖤 ¡Enderman te explica!</div>
+                        </div>
+                    </a>
+                    <a href="/finanzas-corporativas" class="platform-link">
+                        <div class="platform-item">
+                            <span class="platform-icon">💼</span>
+                            <span class="platform-name">Finanzas Corporativas</span>
+                            <div class="click-hint">👩 ¡Alex te explica!</div>
+                        </div>
+                    </a>
+                    <a href="/economia-internacional" class="platform-link">
+                        <div class="platform-item">
+                            <span class="platform-icon">🌍</span>
+                            <span class="platform-name">Economía Internacional</span>
+                            <div class="click-hint">🧔 ¡Steve te explica!</div>
+                        </div>
+                    </a>
+                    <a href="/analisis-datos" class="platform-link">
+                        <div class="platform-item">
+                            <span class="platform-icon">📈</span>
+                            <span class="platform-name">Análisis de Datos</span>
+                            <div class="click-hint">💥 ¡Creeper te explica!</div>
+                        </div>
+                    </a>
+                    <a href="/economia-digital" class="platform-link">
+                        <div class="platform-item">
+                            <span class="platform-icon">🤖</span>
+                            <span class="platform-name">Economía Digital</span>
+                            <div class="click-hint">👩 ¡Alex te explica!</div>
+                        </div>
+                    </a>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Footer mínimo -->
+    <footer class="minecraft-footer" style="text-align: center; padding: 20px;">
+        <p>&copy; ♥ Estefany Ximena Sánchez Torres ♥</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabPanels = document.querySelectorAll('.tab-panel');
+            
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    tabPanels.forEach(p => p.classList.remove('active'));
+                    
+                    this.classList.add('active');
+                    const tabId = this.getAttribute('data-tab');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

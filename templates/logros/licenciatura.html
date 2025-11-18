@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Licenciatura en Economía - Economía Mineconómica</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body class="minecraft-body">
+    <!-- Video de fondo - PARA TODAS LAS PÁGINAS -->
+<video autoplay muted loop class="video-background">
+    <source src="{{ url_for('static', filename='videos/fondo.mp4') }}" type="video/mp4">
+    Tu navegador no soporta videos HTML5.
+</video>
+<div class="overlay"></div>
+    <header class="minecraft-header">
+        <div class="header-container">
+            <div class="logo-section">
+                <a href="/" class="minecraft-logo">
+                    <span class="logo-text">⛏️ MINECONOMÍA</span>
+                </a>
+            </div>
+            <nav class="main-nav">
+                <div class="nav-section">
+                    <a href="/" class="nav-item">🏠 Inicio</a>
+                    
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <main class="minecraft-main">
+            <!-- Hero Section con Creeper -->
+            <section class="minecraft-hero">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1>🎓 Licenciatura en Economía</h1>
+                        <p class="hero-subtitle">💥 <strong>Creeper</strong> te explica esta formación fundamental</p>
+                    </div>
+                    <div class="hero-media">
+                        <div class="character-explanation">
+                            <img src="https://es.minecraft.wiki/images/Creeper1.png?03e67" alt="Creeper" width="250" height="250" class="character-image">
+                            <div class="speech-bubble">
+    <p style="font-family: 'Press Start 2P', cursive; font-size: 10px; line-height: 1.5;">"¡SSSSS... Te explico por qué la economía es EXPLOSIVAMENTE importante! Aprendemos a analizar decisiones y recursos escasos"</p>
+</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Explicación del Creeper -->
+            <section class="features-section">
+                <div class="tabs-container">
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">💥</div>
+                            <h3>Fundamentos Explosivos</h3>
+                            <p>"Como creeper, entiendo de impactos. La economía estudia el impacto de decisiones en sociedad, mercados y recursos limitados."</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">📈</div>
+                            <h3>Análisis de Comportamiento</h3>
+                            <p>"Sé cómo te comportas cuando me ves... Los economistas estudiamos el comportamiento humano en entornos de escasez."</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🌍</div>
+                            <h3>Visión Global</h3>
+                            <p>"Mi explosión afecta todo a mi alrededor. La economía analiza interconexiones globales y efectos en cadena."</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Habilidades de un Economista -->
+            <section class="resources-section">
+                <div class="section-header">
+                    <h2>💥 Lo que Aprende un Economista</h2>
+                    <p>Según la experiencia de Creeper</p>
+                </div>
+                <div class="resources-grid">
+                    <div class="resource-item">
+                        <span class="resource-icon">🧮</span>
+                        <span class="resource-name">Matemáticas</span>
+                        <span class="resource-desc">Cálculo y modelos cuantitativos</span>
+                    </div>
+                    <div class="resource-item">
+                        <span class="resource-icon">📊</span>
+                        <span class="resource-name">Estadística</span>
+                        <span class="resource-desc">Análisis de datos económicos</span>
+                    </div>
+                    <div class="resource-item">
+                        <span class="resource-icon">💹</span>
+                        <span class="resource-name">Mercados</span>
+                        <span class="resource-desc">Oferta, demanda y precios</span>
+                    </div>
+                    <div class="resource-item">
+                        <span class="resource-icon">🏦</span>
+                        <span class="resource-name">Políticas</span>
+                        <span class="resource-desc">Fiscal y monetaria</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Campo Laboral -->
+            <section class="features-section">
+                <div class="section-header">
+                    <h2>🚀 Campo Laboral del Economista</h2>
+                    <p>Donde puedes aplicar tus conocimientos</p>
+                </div>
+                <div class="feature-card" style="max-width: 800px; margin: 0 auto;">
+                    <h3>💥 Desde la perspectiva de Creeper:</h3>
+                    <ul style="text-align: left; margin: 1rem 0;">
+                        <li>🏦 <strong>Sector Financiero:</strong> Bancos, bolsas de valores, fondos de inversión</li>
+                        <li>🏛️ <strong>Sector Público:</strong> Ministerios, bancos centrales, organismos internacionales</li>
+                        <li>🏢 <strong>Consultoría:</strong> Análisis de mercados y proyecciones económicas</li>
+                        <li>🎓 <strong>Academia:</strong> Investigación y docencia universitaria</li>
+                        <li>📈 <strong>Análisis de Datos:</strong> Empresas tech y startups</li>
+                    </ul>
+                    <div style="margin-top: 1rem; padding: 1rem; background: rgba(255,69,0,0.1); border-radius: 10px;">
+                        <p><strong>💡 Dato Creeper:</strong> "Los economistas somos como creepers estratégicos - analizamos el terreno antes de actuar!"</p>
+                    </div>
+                </div>
+            </section>
+
+            <div style="text-align: center; margin: 3rem 0;">
+                <a href="/" class="btn-primary">🏠 Volver al Inicio</a>
+                <a href="/econometria-aplicada" class="btn-secondary">📊 Econometría</a>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

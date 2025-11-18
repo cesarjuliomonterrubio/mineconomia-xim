@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ titulo }} - Mineconomía</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body class="minecraft-body">
+    <!-- Video de fondo - PARA TODAS LAS PÁGINAS -->
+<video autoplay muted loop class="video-background">
+    <source src="{{ url_for('static', filename='videos/fondo.mp4') }}" type="video/mp4">
+    Tu navegador no soporta videos HTML5.
+</video>
+<div class="overlay"></div>
+    <header class="minecraft-header">
+        <div class="header-container">
+            <div class="logo-section">
+                <a href="/" class="minecraft-logo">
+                    <span class="logo-text">⛏️ MINECONOMÍA</span>
+                </a>
+            </div>
+            <nav class="main-nav">
+                <div class="nav-section">
+                    <a href="/" class="nav-item">🏠 Inicio</a>
+                    
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ALDEANO GRANDE FLOTANTE EN ESQUINA -->
+    <div style="position: fixed; top: 80px; right: 20px; z-index: 1000;">
+        <img src="https://minecraftporrhektran.weebly.com/uploads/1/4/4/6/14466068/210254.png?1" 
+             alt="Aldeano Minecraft" 
+             style="width: 180px; height: 180px; border-radius: 15px; border: 4px solid #4CAF50; box-shadow: 0 6px 12px rgba(0,0,0,0.4);">
+        <div style="text-align: center; margin-top: 8px; font-size: 14px; color: #4CAF50; font-weight: bold; text-shadow: 1px 1px 2px black;"></div>
+    </div>
+
+    <div class="container">
+        <main class="minecraft-main">
+            <section class="features-section">
+                <div class="section-header">
+                    <h1>⚖️ Competencia Perfecta</h1>
+                    <p>El mercado donde todos son precio-aceptantes</p>
+                </div>
+                
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">📚</div>
+                        <h3>Definición Económica</h3>
+                        <p>La competencia perfecta en un mercado significa que ninguno de los agentes puede influir en el precio del bien o servicio, es decir, tanto los vendedores como compradores son precio-aceptantes.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">🎮</div>
+                        <h3>Ejemplo en Minecraft</h3>
+                        <p>Como el mercado de <strong>tierra o piedra común</strong> - muchos jugadores pueden producir estos recursos, el producto es idéntico, y ningún jugador individual puede afectar el precio de mercado. Todos venden al mismo precio.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">📊</div>
+                        <h3>Características Principales</h3>
+                        <ul style="text-align: left; margin: 15px 0;">
+                            <li>✅ Muchos compradores y vendedores</li>
+                            <li>✅ Productos idénticos (homogéneos)</li>
+                            <li>✅ Libre entrada y salida del mercado</li>
+                            <li>✅ Información perfecta disponible</li>
+                            <li>✅ Ningún participante influye en el precio</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="feature-card" style="max-width: 800px; margin: 20px auto;">
+                    <h3>🏗️ Estructura del Mercado</h3>
+                    <div style="text-align: center; margin: 20px 0;">
+                        <div style="background: #2d3748; padding: 20px; border-radius: 10px; border: 2px solid #4CAF50;">
+                            <h4>📈 Curva de Demanda Perfectamente Elástica</h4>
+                            <p>Las empresas individuales enfrentan una demanda horizontal - pueden vender toda su producción al precio de mercado, pero nada a un precio más alto.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- IMAGEN DE LA CURVA - COMPETENCIA PERFECTA -->
+                <div class="feature-card" style="max-width: 800px; margin: 20px auto;">
+                    <h3>📈 Curva de Competencia Perfecta</h3>
+                    <div style="text-align: center; margin: 20px 0;">
+                        <img src="https://img.freepik.com/vector-premium/competencia-perfecta-es-estructura-mercado-que-existe-cuando-empresas-toman-precio-equilibrio-industria_518018-2510.jpg" 
+                             alt="Curva de Competencia Perfecta" 
+                             style="width: 100%; max-width: 600px; border-radius: 10px; border: 2px solid #4CAF50;">
+                        <p style="margin-top: 10px; font-size: 14px; color: #ccc;">Demanda perfectamente elástica - las empresas son precio-aceptantes</p>
+                    </div>
+                </div>
+
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">💡</div>
+                        <h3>Ventajas</h3>
+                        <ul style="text-align: left;">
+                            <li>Eficiencia en la asignación de recursos</li>
+                            <li>Precios justos para consumidores</li>
+                            <li>Innovación constante</li>
+                            <li>Máximo bienestar social</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">⚠️</div>
+                        <h3>Desventajas</h3>
+                        <ul style="text-align: left;">
+                            <li>Beneficios económicos nulos a largo plazo</li>
+                            <li>Falta de diferenciación de productos</li>
+                            <li>Poco incentivo para I+D</li>
+                            <li>Riesgo de externalidades no consideradas</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin: 40px 0;">
+    <a href="/" class="nav-item" style="display: inline-block; padding: 15px 30px; background: #4CAF50; color: white; text-decoration: none; border-radius: 5px; font-weight: bold;">
+         Volver al Inicio
+    </a>
+</div>
+
+    <footer class="minecraft-footer" style="text-align: center; padding: 20px;">
+        <p>&copy; 2024 Mineconomía - Aprendiendo economía con Minecraft</p>
+    </footer>
+</body>
+</html>

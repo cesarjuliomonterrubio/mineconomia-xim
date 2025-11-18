@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regresión Lineal - Modelo Económico</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        .graph-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin: 20px 0;
+        }
+        .explanation {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 25px;
+            border-radius: 10px;
+            margin: 20px 0;
+            color: #333333;
+            border: 2px solid #8B4513;
+        }
+        .explanation h2, 
+        .explanation h3, 
+        .explanation h4, 
+        .explanation h5 {
+            color: #2E8B57 !important;
+        }
+        .explanation p, 
+        .explanation li, 
+        .explanation strong {
+            color: #333333 !important;
+        }
+        .code-block {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+        }
+        .variable-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 10px 0;
+        }
+        .regression-line {
+            border-left: 3px dashed #4CAF50;
+            padding-left: 15px;
+            margin: 15px 0;
+            background: rgba(76, 175, 80, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+        }
+        
+        /* Mejorar contraste del texto */
+        .minecraft-main {
+            color: #333333;
+        }
+        
+        .features-section h2,
+        .features-section h3,
+        .features-section h4 {
+            color: #2E8B57 !important;
+            text-shadow: none !important;
+        }
+        
+        .features-section p,
+        .features-section li {
+            color: #333333 !important;
+            text-shadow: none !important;
+        }
+        
+        /* Controles más visibles */
+        select, label {
+            color: #333333 !important;
+            font-weight: bold;
+        }
+        
+        select {
+            background: white;
+            border: 2px solid #8B4513;
+            padding: 8px;
+            border-radius: 5px;
+            width: 100%;
+        }
+        
+        label strong {
+            color: #2E8B57 !important;
+        }
+    </style>
+</head>
+<body class="minecraft-body">
+    <!-- Video de fondo - PARA TODAS LAS PÁGINAS -->
+    <video autoplay muted loop class="video-background">
+        <source src="{{ url_for('static', filename='videos/fondo.mp4') }}" type="video/mp4">
+        Tu navegador no soporta videos HTML5.
+    </video>
+    <div class="overlay"></div>
+    
+    <!-- Header -->
+    <header class="minecraft-header">
+        <div class="header-container">
+            <div class="logo-section">
+                <a href="/" class="minecraft-logo">
+                    <span class="logo-text">⛏️ MINECONOMÍA</span>
+                </a>
+            </div>
+            <nav class="main-nav">
+                <div class="nav-section">
+                    <a href="/" class="nav-item">🏠 Inicio</a>
+                    <a href="/regresion-lineal" class="nav-item active">📊 Regresión Lineal</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <main class="minecraft-main">
+            <!-- Hero Section -->
+            <section class="minecraft-hero">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1 style="color: #2E8B57; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">📈 Regresión Lineal Económica</h1>
+                        <p class="hero-subtitle" style="color: #333333; font-weight: bold;">Modelando la relación entre PIB y sus componentes</p>
+                        <p style="color: #333333; font-size: 1.1rem;">Análisis econométrico: PIB vs Consumo, Inversión, Exportaciones Netas</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Gráfica Interactiva -->
+            <section class="features-section">
+                <div class="section-header">
+                    <h2>Modelo de Regresión Lineal: PIB y sus Componentes</h2>
+                    <p>Relación entre Producto Interno Bruto y variables macroeconómicas clave</p>
+                </div>
+                
+                <div class="graph-container">
+                    <div id="graficaEconomica"></div>
+                </div>
+
+                <!-- Controles Interactivos -->
+                <div class="explanation">
+                    <h3>🎛️ Controles del Modelo Económico</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 20px 0;">
+                        <div>
+                            <label><strong>Variable X:</strong></label>
+                            <select id="variableX" onchange="actualizarGrafica()">
+                                <option value="consumo">Consumo Privado</option>
+                                <option value="inversion">Inversión</option>
+                                <option value="exportaciones">Exportaciones</option>
+                                <option value="importaciones">Importaciones</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label><strong>País:</strong></label>
+                            <select id="paisFiltro" onchange="actualizarGrafica()">
+                                <option value="todos">Todos los países</option>
+                                <option value="mexico">México</option>
+                                <option value="usa">Estados Unidos</option>
+                                <option value="china">China</option>
+                                <option value="alemania">Alemania</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label><strong>Año:</strong></label>
+                            <select id="anioFiltro" onchange="actualizarGrafica()">
+                                <option value="todos">Todos los años</option>
+                                <option value="2020">2020</option>
+                                <option value="2021">2021</option>
+                                <option value="2022">2022</option>
+                                <option value="2023">2023</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Explicación Económica -->
+                <div class="explanation">
+                    <h3>🔍 Fundamentos Económicos del Modelo</h3>
+                    
+                    <div class="regression-line">
+                        <h4>📐 Fórmula de Regresión Lineal Múltiple</h4>
+                        <p style="color: #2E8B57 !important; font-weight: bold; font-size: 1.1rem;">
+                            <strong>PIB = β₀ + β₁·Consumo + β₂·Inversión + β₃·Exportaciones + β₄·Importaciones + ε</strong>
+                        </p>
+                    </div>
+
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <h4>💰 Variables del Modelo</h4>
+                            <div class="variable-card">
+                                <strong>PIB (Y):</strong> Variable dependiente - Producto Interno Bruto
+                            </div>
+                            <div class="variable-card" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                                <strong>Consumo (C):</strong> Gasto de hogares en bienes y servicios
+                            </div>
+                            <div class="variable-card" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                                <strong>Inversión (I):</strong> Formación bruta de capital fijo
+                            </div>
+                            <div class="variable-card" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
+                                <strong>Exportaciones (X):</strong> Ventas al exterior
+                            </div>
+                            <div class="variable-card" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                                <strong>Importaciones (M):</strong> Compras del exterior
+                            </div>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <h4>🎯 Interpretación Económica</h4>
+                            <ul style="color: #333333;">
+                                <li><strong>β₁ (Consumo):</strong> Propensión marginal a consumir</li>
+                                <li><strong>β₂ (Inversión):</strong> Multiplicador de la inversión</li>
+                                <li><strong>β₃ (Exportaciones):</strong> Efecto neto exportador</li>
+                                <li><strong>β₄ (Importaciones):</strong> Propensión marginal a importar</li>
+                                <li><strong>R²:</strong> Porcentaje de variación del PIB explicado por el modelo</li>
+                            </ul>
+                            
+                            <div style="background: #e3f2fd; padding: 15px; border-radius: 8px; margin-top: 15px; color: #333333;">
+                                <h5 style="color: #2E8B57;">📈 En la gráfica actual:</h5>
+                                <p id="interpretacion" style="color: #333333;">Cargando análisis...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejemplo de Código Econométrico -->
+                <div class="explanation">
+                    <h3>💻 Código Python para Análisis Econométrico</h3>
+                    <div class="code-block">
+# ANÁLISIS ECONOMÉTRICO: REGRESIÓN LINEAL MÚLTIPLE
+import pandas as pd
+import numpy as np
+import statsmodels.api as sm
+
+# Datos macroeconómicos (ejemplo simplificado)
+datos = {
+    'pais': ['México', 'USA', 'China', 'Alemania', 'México', 'USA', 'China', 'Alemania'],
+    'año': [2022, 2022, 2022, 2022, 2023, 2023, 2023, 2023],
+    'pib': [1.4, 23.3, 17.7, 4.1, 1.5, 25.4, 19.2, 4.3],  # Trillones USD
+    'consumo': [0.9, 15.8, 10.2, 2.4, 1.0, 16.9, 11.1, 2.5],
+    'inversion': [0.3, 4.2, 5.8, 0.9, 0.32, 4.5, 6.2, 0.95],
+    'exportaciones': [0.6, 2.5, 3.4, 1.8, 0.65, 2.7, 3.7, 1.9],
+    'importaciones': [0.5, 3.1, 3.0, 1.6, 0.55, 3.3, 3.2, 1.7]
+}
+
+df = pd.DataFrame(datos)
+
+# Preparar variables para regresión
+X = df[['consumo', 'inversion', 'exportaciones', 'importaciones']]
+X = sm.add_constant(X)  # Agregar intercepto
+y = df['pib']
+
+# Ejecutar regresión lineal múltiple
+modelo = sm.OLS(y, X).fit()
+
+# Mostrar resultados econométricos
+print(modelo.summary())
+
+# Coeficientes e interpretación
+print(f"\n📊 INTERPRETACIÓN ECONÓMICA:")
+print(f"Consumo: Por cada $1 billón de aumento en consumo, el PIB aumenta ${modelo.params['consumo']:.2f} billones")
+print(f"Inversión: Por cada $1 billón de aumento en inversión, el PIB aumenta ${modelo.params['inversion']:.2f} billones")
+print(f"R-cuadrado: {modelo.rsquared:.3f} ({modelo.rsquared*100:.1f}% de variación explicada)")
+                    </div>
+                </div>
+            </section>
+
+            <!-- Navegación -->
+            <div style="text-align: center; margin: 40px 0;">
+                <a href="/" class="nav-item" style="display: inline-block; padding: 15px 30px; background: #4CAF50; color: white; text-decoration: none; border-radius: 5px; font-weight: bold;">
+                    🏠 Volver al Inicio
+                </a>
+            </div>
+        </main>
+    </div>
+
+    <footer class="minecraft-footer">
+        <p>&copy; 2024 Mi Página de Economía - Análisis Econométrico</p>
+    </footer>
+
+    <script>
+        // Datos económicos realistas (en trillones de USD)
+        const datosEconomicos = [
+            // México
+            { pais: 'México', año: 2020, pib: 1.09, consumo: 0.68, inversion: 0.25, exportaciones: 0.42, importaciones: 0.38 },
+            { pais: 'México', año: 2021, pib: 1.27, consumo: 0.79, inversion: 0.28, exportaciones: 0.49, importaciones: 0.44 },
+            { pais: 'México', año: 2022, pib: 1.41, consumo: 0.88, inversion: 0.31, exportaciones: 0.55, importaciones: 0.49 },
+            { pais: 'México', año: 2023, pib: 1.52, consumo: 0.95, inversion: 0.34, exportaciones: 0.59, importaciones: 0.53 },
+            
+            // USA
+            { pais: 'USA', año: 2020, pib: 21.06, consumo: 14.05, inversion: 3.78, exportaciones: 2.13, importaciones: 2.89 },
+            { pais: 'USA', año: 2021, pib: 23.32, consumo: 15.58, inversion: 4.18, exportaciones: 2.36, importaciones: 3.21 },
+            { pais: 'USA', año: 2022, pib: 25.44, consumo: 16.98, inversion: 4.56, exportaciones: 2.58, importaciones: 3.51 },
+            { pais: 'USA', año: 2023, pib: 26.95, consumo: 17.99, inversion: 4.83, exportaciones: 2.73, importaciones: 3.72 },
+            
+            // China
+            { pais: 'China', año: 2020, pib: 14.69, consumo: 8.23, inversion: 5.87, exportaciones: 2.59, importaciones: 2.18 },
+            { pais: 'China', año: 2021, pib: 17.73, consumo: 9.93, inversion: 7.09, exportaciones: 3.13, importaciones: 2.63 },
+            { pais: 'China', año: 2022, pib: 19.24, consumo: 10.78, inversion: 7.69, exportaciones: 3.39, importaciones: 2.85 },
+            { pais: 'China', año: 2023, pib: 20.68, consumo: 11.59, inversion: 8.27, exportaciones: 3.65, importaciones: 3.07 },
+            
+            // Alemania
+            { pais: 'Alemania', año: 2020, pib: 3.85, consumo: 2.16, inversion: 0.78, exportaciones: 1.65, importaciones: 1.42 },
+            { pais: 'Alemania', año: 2021, pib: 4.26, consumo: 2.39, inversion: 0.86, exportaciones: 1.82, importaciones: 1.57 },
+            { pais: 'Alemania', año: 2022, pib: 4.07, consumo: 2.28, inversion: 0.82, exportaciones: 1.74, importaciones: 1.50 },
+            { pais: 'Alemania', año: 2023, pib: 4.31, consumo: 2.42, inversion: 0.87, exportaciones: 1.84, importaciones: 1.59 }
+        ];
+
+        function actualizarGrafica() {
+            const variableX = document.getElementById('variableX').value;
+            const paisFiltro = document.getElementById('paisFiltro').value;
+            const anioFiltro = document.getElementById('anioFiltro').value;
+            
+            // Filtrar datos
+            let datosFiltrados = datosEconomicos;
+            if (paisFiltro !== 'todos') {
+                datosFiltrados = datosFiltrados.filter(d => d.pais.toLowerCase() === paisFiltro);
+            }
+            if (anioFiltro !== 'todos') {
+                datosFiltrados = datosFiltrados.filter(d => d.año.toString() === anioFiltro);
+            }
+            
+            // Preparar datos para la gráfica
+            const xData = datosFiltrados.map(d => d[variableX]);
+            const yData = datosFiltrados.map(d => d.pib);
+            const paises = datosFiltrados.map(d => d.pais);
+            const años = datosFiltrados.map(d => d.año);
+            
+            // Calcular línea de regresión (mínimos cuadrados simples)
+            const n = xData.length;
+            const sumX = xData.reduce((a, b) => a + b, 0);
+            const sumY = yData.reduce((a, b) => a + b, 0);
+            const sumXY = xData.reduce((sum, x, i) => sum + x * yData[i], 0);
+            const sumX2 = xData.reduce((sum, x) => sum + x * x, 0);
+            
+            const pendiente = (n * sumXY - sumX * sumY) / (n * sumX2 - sumX * sumX);
+            const intercepto = (sumY - pendiente * sumX) / n;
+            
+            // Crear puntos para la línea de regresión
+            const xMin = Math.min(...xData);
+            const xMax = Math.max(...xData);
+            const xLine = [xMin, xMax];
+            const yLine = xLine.map(x => pendiente * x + intercepto);
+            
+            // Calcular R-cuadrado
+            const yMean = sumY / n;
+            const ssTot = yData.reduce((sum, y) => sum + Math.pow(y - yMean, 2), 0);
+            const ssRes = yData.reduce((sum, y, i) => sum + Math.pow(y - (pendiente * xData[i] + intercepto), 2), 0);
+            const rCuadrado = 1 - (ssRes / ssTot);
+            
+            // Crear trazas
+            const trazaDatos = {
+                x: xData,
+                y: yData,
+                mode: 'markers',
+                type: 'scatter',
+                name: 'Datos Reales',
+                marker: {
+                    size: 12,
+                    color: años.map(año => {
+                        // Color por año para mejor visualización
+                        const colores = {2020: '#FF6B6B', 2021: '#4ECDC4', 2022: '#45B7D1', 2023: '#96CEB4'};
+                        return colores[año] || '#FFA500';
+                    }),
+                    opacity: 0.8,
+                    line: { width: 2, color: 'white' }
+                },
+                text: datosFiltrados.map(d => 
+                    `País: ${d.pais}<br>Año: ${d.año}<br>PIB: $${d.pib}T<br>${getVariableNombre(variableX)}: $${d[variableX]}T`
+                ),
+                hoverinfo: 'text'
+            };
+            
+            const trazaRegresion = {
+                x: xLine,
+                y: yLine,
+                mode: 'lines',
+                type: 'scatter',
+                name: `Línea de Regresión (R² = ${rCuadrado.toFixed(3)})`,
+                line: { color: '#FF0000', width: 3, dash: 'dash' }
+            };
+            
+            const layout = {
+                title: `Relación entre PIB y ${getVariableNombre(variableX)}`,
+                xaxis: { title: `${getVariableNombre(variableX)} (Trillones USD)` },
+                yaxis: { title: 'Producto Interno Bruto (Trillones USD)' },
+                plot_bgcolor: 'white',
+                paper_bgcolor: 'white',
+                showlegend: true,
+                annotations: [{
+                    x: 0.05, y: 0.95, xref: 'paper', yref: 'paper',
+                    text: `Ecuación: PIB = ${intercepto.toFixed(2)} + ${pendiente.toFixed(2)}·${getVariableAbrev(variableX)}`,
+                    showarrow: false,
+                    bgcolor: 'rgba(255,255,255,0.8)',
+                    bordercolor: 'rgba(0,0,0,0.5)',
+                    borderwidth: 1
+                }]
+            };
+            
+            // Actualizar gráfica
+            Plotly.newPlot('graficaEconomica', [trazaDatos, trazaRegresion], layout);
+            
+            // Actualizar interpretación
+            actualizarInterpretacion(pendiente, intercepto, rCuadrado, variableX);
+        }
+        
+        function getVariableNombre(variable) {
+            const nombres = {
+                'consumo': 'Consumo Privado',
+                'inversion': 'Inversión',
+                'exportaciones': 'Exportaciones',
+                'importaciones': 'Importaciones'
+            };
+            return nombres[variable] || variable;
+        }
+        
+        function getVariableAbrev(variable) {
+            const abreviaturas = {
+                'consumo': 'C',
+                'inversion': 'I',
+                'exportaciones': 'X',
+                'importaciones': 'M'
+            };
+            return abreviaturas[variable] || variable;
+        }
+        
+        function actualizarInterpretacion(pendiente, intercepto, rCuadrado, variableX) {
+            const interpretacion = document.getElementById('interpretacion');
+            const variableNombre = getVariableNombre(variableX);
+            
+            let texto = `
+                <strong>Ecuación estimada:</strong> PIB = ${intercepto.toFixed(2)} + ${pendiente.toFixed(2)}·${getVariableAbrev(variableX)}<br><br>
+                <strong>Interpretación:</strong> Por cada $1 billón de aumento en ${variableNombre.toLowerCase()}, 
+                el PIB ${pendiente > 0 ? 'aumenta' : 'disminuye'} en $${Math.abs(pendiente).toFixed(2)} billones.<br><br>
+                <strong>Bondad de ajuste:</strong> R² = ${rCuadrado.toFixed(3)} (${(rCuadrado * 100).toFixed(1)}% de la variación del PIB es explicada por ${variableNombre.toLowerCase()})
+            `;
+            
+            interpretacion.innerHTML = texto;
+        }
+        
+        // Inicializar gráfica
+        actualizarGrafica();
+    </script>
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Globalización - Economía Mineconómica</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body class="minecraft-body">
+    <!-- Video de fondo - PARA TODAS LAS PÁGINAS -->
+    <video autoplay muted loop class="video-background">
+        <source src="{{ url_for('static', filename='videos/fondo.mp4') }}" type="video/mp4">
+        Tu navegador no soporta videos HTML5.
+    </video>
+    <div class="overlay"></div>
+    
+    <header class="minecraft-header">
+        <div class="header-container">
+            <div class="logo-section">
+                <a href="/" class="minecraft-logo">
+                    <span class="logo-text">⛏️ MINECONOMÍA</span>
+                </a>
+            </div>
+            <nav class="main-nav">
+                <div class="nav-section">
+                    <a href="/" class="nav-item">🏠 Inicio</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <main class="minecraft-main">
+            <!-- Hero Section con Mapa -->
+            <section class="minecraft-hero">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1>🌐 Globalización Económica</h1>
+                        <p class="hero-subtitle">🗺️ <strong>El Mapa</strong> te explica la interconexión mundial</p>
+                    </div>
+                    <div class="hero-media">
+                        <div class="character-explanation">
+                            <img src="https://play-lh.googleusercontent.com/mW6iSIu0qc29o0eK6e9g2UrvklT_9bLyctMFGEpcMc2SyhJTvoAGSKH_j0yjF11HyDMi" alt="Mapa de Minecraft" width="250" height="250" class="character-image">
+                            <div class="speech-bubble">
+                                <p style="font-family: 'Press Start 2P', cursive; font-size: 10px; line-height: 1.5;">"¡Exploremos! Como mapa, muestro cómo todo está conectado. La globalización une economías, culturas y mercados en un mundo sin fronteras!"</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Explicación del Mapa -->
+            <section class="features-section">
+                <div class="tabs-container">
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">🛳️</div>
+                            <h3>Comercio Internacional</h3>
+                            <p>"Mi función es guiar exploraciones. El comercio internacional conecta productores y consumidores a través de fronteras, basándose en ventajas comparativas."</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">💸</div>
+                            <h3>Flujos de Capital</h3>
+                            <p>"Los mapas muestran rutas de comercio. Los flujos de capital viajan por el mundo buscando las mejores oportunidades de inversión."</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🔗</div>
+                            <h3>Cadenas Globales</h3>
+                            <p>"Un mapa revela conexiones ocultas. Las cadenas globales de valor distribuyen la producción para maximizar eficiencia en diferentes países."</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Dimensiones de la Globalización -->
+            <section class="resources-section">
+                <div class="section-header">
+                    <h2>🗺️ Dimensiones de la Globalización</h2>
+                    <p>Según la perspectiva del Mapa</p>
+                </div>
+                <div class="resources-grid">
+                    <div class="resource-item">
+                        <span class="resource-icon">💰</span>
+                        <span class="resource-name">Económica</span>
+                        <span class="resource-desc">Comercio y finanzas</span>
+                    </div>
+                    <div class="resource-item">
+                        <span class="resource-icon">🌍</span>
+                        <span class="resource-name">Cultural</span>
+                        <span class="resource-desc">Intercambio de ideas</span>
+                    </div>
+                    <div class="resource-item">
+                        <span class="resource-icon">🏭</span>
+                        <span class="resource-name">Productiva</span>
+                        <span class="resource-desc">Cadenas de valor</span>
+                    </div>
+                    <div class="resource-item">
+                        <span class="resource-icon">📡</span>
+                        <span class="resource-name">Tecnológica</span>
+                        <span class="resource-desc">Comunicación global</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Ventajas y Desventajas -->
+            <section class="features-section">
+                <div class="section-header">
+                    <h2>⚖️ Impacto de la Globalización</h2>
+                    <p>Beneficios y desafíos de un mundo conectado</p>
+                </div>
+                <div class="feature-card" style="max-width: 800px; margin: 0 auto;">
+                    <h3>🗺️ Desde la perspectiva del Mapa:</h3>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 1rem 0;">
+                        <div>
+                            <h4 style="color: #4CAF50;">✅ Ventajas</h4>
+                            <ul style="text-align: left; margin: 1rem 0;">
+                                <li>📈 <strong>Crecimiento:</strong> Acceso a mercados más grandes</li>
+                                <li>💡 <strong>Innovación:</strong> Difusión rápida de tecnología</li>
+                                <li>💰 <strong>Eficiencia:</strong> Especialización y escalas</li>
+                                <li>🌍 <strong>Variedad:</strong> Más opciones para consumidores</li>
+                                <li>🤝 <strong>Cooperación:</strong> Soluciones globales a problemas</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 style="color: #F44336;">❌ Desafíos</h4>
+                            <ul style="text-align: left; margin: 1rem 0;">
+                                <li>📉 <strong>Desigualdad:</strong> Brechas entre países</li>
+                                <li>🏭 <strong>Deslocalización:</strong> Pérdida de empleos locales</li>
+                                <li>🌡️ <strong>Vulnerabilidad:</strong> Crisis se propagan rápido</li>
+                                <li>🏪 <strong>Homogeneización:</strong> Pérdida de culturas locales</li>
+                                <li>🌎 <strong>Ambiental:</strong> Impacto ecológico global</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div style="margin-top: 1rem; padding: 1rem; background: rgba(76, 175, 80, 0.2); border-radius: 10px;">
+                        <p><strong>💡 Dato del Mapa:</strong> "Antes los mapas mostraban 'aquí hay dragones'. Hoy muestran cadenas de suministro que dan la vuelta al mundo!"</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Conexión Minecraft -->
+            <section class="platforms-section">
+                <div class="section-header">
+                    <h2>💎 Conexión con Minecraft</h2>
+                    <p>La globalización en el mundo de bloques</p>
+                </div>
+                <div class="platforms-grid">
+                    <div class="platform-item">
+                        <span class="platform-icon">🌍</span>
+                        <span class="platform-name">Servidores Globales</span>
+                        <p>Jugadores de todo el mundo interactuando</p>
+                    </div>
+                    <div class="platform-item">
+                        <span class="platform-icon">💎</span>
+                        <span class="platform-name">Comercio Internacional</span>
+                        <p>Intercambio entre jugadores de diferentes países</p>
+                    </div>
+                    <div class="platform-item">
+                        <span class="platform-icon">📚</span>
+                        <span class="platform-name">Intercambio Cultural</span>
+                        <p>Estilos de construcción multiculturales</p>
+                    </div>
+                    <div class="platform-item">
+                        <span class="platform-icon">🤝</span>
+                        <span class="platform-name">Colaboración</span>
+                        <p>Proyectos construidos por equipos globales</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Ejemplos de Globalización -->
+            <section class="features-section">
+                <div class="section-header">
+                    <h2>🌐 Ejemplos de Globalización</h2>
+                    <p>Cómo funciona la economía interconectada</p>
+                </div>
+                <div class="feature-card" style="max-width: 800px; margin: 0 auto;">
+                    <h3>🗺️ Según las rutas que muestra el Mapa:</h3>
+                    <ul style="text-align: left; margin: 1rem 0;">
+                        <li>📱 <strong>Smartphones:</strong> Diseño en USA, chips de Taiwan, ensamblaje en China, venta global</li>
+                        <li>🚗 <strong>Automóviles:</strong> Partes de 20+ países, ensamblaje final, distribución mundial</li>
+                        <li>☕ <strong>Café:</strong> Cultivado en Brasil/Etiopía, tostado en Europa, consumido globalmente</li>
+                        <li>🛩️ <strong>Turismo:</strong> 1.4 billones de viajeros internacionales anuales</li>
+                        <li>💻 <strong>Tecnología:</strong> Software desarrollado globalmente, usado en todo el mundo</li>
+                    </ul>
+                    <div style="margin-top: 1rem; padding: 1rem; background: rgba(33, 150, 243, 0.2); border-radius: 10px;">
+                        <p><strong>🎯 Reflexión del Mapa:</strong> "En Minecraft, sin exploración no descubres nuevos biomas. En economía, sin globalización no descubres nuevas oportunidades!"</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- El Futuro de la Globalización -->
+            <section class="resources-section">
+                <div class="section-header">
+                    <h2>🔮 El Futuro de la Globalización</h2>
+                    <p>Tendencias y evolución de la economía mundial</p>
+                </div>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🤖</div>
+                        <h3>Tecnología 4.0</h3>
+                        <p>IA, blockchain y automatización transformando cadenas de valor globales.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🌱</div>
+                        <h3>Sostenibilidad</h3>
+                        <p>Comercio justo y cadenas de suministro ecológicas ganando importancia.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🏠</div>
+                        <h3>Glocalización</h3>
+                        <p>Equilibrio entre estándares globales y adaptación local.</p>
+                    </div>
+                </div>
+            </section>
+
+            <div style="text-align: center; margin: 3rem 0;">
+                <a href="/" class="btn-primary">🏠 Volver al Inicio</a>
+                <a href="/instituciones" class="btn-secondary">⚖️ Instituciones</a>
+                <a href="/crecimiento" class="btn-secondary">📈 Crecimiento</a>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

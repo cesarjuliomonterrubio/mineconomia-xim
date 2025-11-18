@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ titulo }} - Mineconomía</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body class="minecraft-body">
+    <!-- Video de fondo - PARA TODAS LAS PÁGINAS -->
+<video autoplay muted loop class="video-background">
+    <source src="{{ url_for('static', filename='videos/fondo.mp4') }}" type="video/mp4">
+    Tu navegador no soporta videos HTML5.
+</video>
+<div class="overlay"></div>
+    <header class="minecraft-header">
+        <div class="header-container">
+            <div class="logo-section">
+                <a href="/" class="minecraft-logo">
+                    <span class="logo-text">⛏️ MINECONOMÍA</span>
+                </a>
+            </div>
+            <nav class="main-nav">
+                <div class="nav-section">
+                    <a href="/" class="nav-item">🏠 Inicio</a>
+                    
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ALDEANO GRANDE FLOTANTE EN ESQUINA -->
+    <div style="position: fixed; top: 80px; right: 20px; z-index: 1000;">
+        <img src="https://p.novaskin.me/4904953555.png?class=thumbnail" 
+             alt="Aldeano Minecraft" 
+             style="width: 180px; height: 180px; border-radius: 15px; border: 4px solid #d69e2e; box-shadow: 0 6px 12px rgba(0,0,0,0.4);">
+        <div style="text-align: center; margin-top: 8px; font-size: 14px; color: #d69e2e; font-weight: bold; text-shadow: 1px 1px 2px black;"></div>
+    </div>
+
+    <div class="container">
+        <main class="minecraft-main">
+            <section class="features-section">
+                <div class="section-header">
+                    <h1>🏢 Oligopolio</h1>
+                    <p>Pocas empresas, grandes decisiones</p>
+                </div>
+                
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">📚</div>
+                        <h3>Definición Económica</h3>
+                        <p>Un oligopolio es un tipo de mercado en el que solo unas pocas empresas compiten entre sí, y cada una de ellas tiene la capacidad de influir en los precios y la cantidad de productos disponibles.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">🎮</div>
+                        <h3>Ejemplo en Minecraft</h3>
+                        <p>Como los <strong>comerciantes de aldeas</strong> - hay pocos oferentes de productos especializados (como librerías o herrerías), y cada uno puede influir en los precios. También como los clanes que controlan recursos escasos.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">📊</div>
+                        <h3>Características Principales</h3>
+                        <ul style="text-align: left; margin: 15px 0;">
+                            <li>🏢 Pocas empresas dominantes</li>
+                            <li>🔄 Interdependencia estratégica</li>
+                            <li>🚧 Barreras de entrada significativas</li>
+                            <li>💼 Productos idénticos o diferenciados</li>
+                            <li>🎯 Publicidad y competencia no-precio</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="feature-card" style="max-width: 800px; margin: 20px auto;">
+                    <h3>🎲 Comportamiento Estratégico</h3>
+                    <div style="background: #2d3748; padding: 20px; border-radius: 10px; border: 2px solid #d69e2e; margin: 15px 0;">
+                        <h4>⚔️ Teoría de Juegos Aplicada</h4>
+                        <p>Las empresas en oligopolio toman decisiones considerando las posibles reacciones de sus competidores, similar al "dilema del prisionero" en teoría de juegos.</p>
+                    </div>
+                </div>
+
+                <!-- IMAGEN DE LA CURVA - OLIGOPOLIO -->
+                <div class="feature-card" style="max-width: 800px; margin: 20px auto;">
+                    <h3>📈 Curva de Oligopolio</h3>
+                    <div style="text-align: center; margin: 20px 0;">
+                        <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxITEhUSEhMVFRUWGBYXGBgWFRgaFxoXHhYXFhgXGRcYHSggHRslHR0dJTEiJSktLi4uGiA2ODMuNygtLisBCgoKDg0OGxAQGy0lHyUtLy8vMi0tLS8vLS8tLy0yLS0tLy0tLS0tLy8yLS8tLy0tLy0tLS0tLy0tLS0tLS01Lf/AABEIANEA8QMBEQACEQEDEQH/xAAbAAEAAgMBAQAAAAAAAAAAAAAABQYBAgQDB//EAEYQAAIBAwIDBAMOAggGAwAAAAECAwAEERIhBQYxEyJBURRhcQcVIzI0QlJTdIGRlLPSM/AkYpKTobHR4RZDRHJzwYKDo//EABsBAQADAQEBAQAAAAAAAAAAAAABAwQCBQYH/8QAOREAAgECBAMFBQYGAwEAAAAAAAECAxEEITFBEmHwBRMiUXEygaHB0QYUQpGx4TM0UmJy8RUWIyT/2gAMAwEAAhEDEQA/ALfzBxm5W8uoYnnLJawvbxxQmRGnZph8KwjYKhZVBLMoAzuMVLJdicPNGh7iOZNItIIp53DZXvo7YQYycFD1qCMrZHha87wvDJJjeNoU0o4dWaYqIsSLtuTg+RB8qMXyPS544yXMKTCSEGG7kdNUbIViMffLDvdGyuMbE5HkXmQzq5c5kW620FCYoZ1BIOYZQSjHA2OxyvmOpqSW47k8KgMzQCgFAKAUAoBQCgFAKAUAoBQCgFAKAUAoBQCgFAKAUAoBQHDHwuJZ5LgKe0kREY5+ahZlAB2ByxohqebcDgLzyFdTXCJHLqJIZEDhRjoPjt+NGyLHB71W6kWjCV+1QygvIXCiFoVAUs2VILoRgfNOfDK99Tq98jqi5dgDpIQ7tGsyAu7MSspUyA6ic50j2Y2xR+aOVoenCeCQ2+0SY7qJkkkhEzoQEnZVzsPXQlkmKAUAoBQCgFAKAUAoBQCgFAKAUAoBQCgFAKAUAoBQCgFAKAUAoDBoCIuj/T7f7Nd/q2dQSS4NSQZoBQCgFAKAUAoBQCgFAKAUAoBQCgI+/wCKrHIkQVpJXVnCKVB0KVDMSxAAyyjr1IqGwsyNHN0Xpkdk0cqSPB2+XVQqrqddLHVnVlD4Y9dSD35T5kjv4WmiSRFWR4iJAobUuM7Kx23oCboBQCgFAKAUAoBQCgFAYNQwUznDjvot/YsQCki3ETE9VDNbHUvsYL18z0qVOEcpPrq5rw2DliIycNY525b+8uSGhjs1kZBoTe5mgFAKAUAoBQCgFAKAUAoBQCgFAV7iXDZFvI72NQ5EL27xltOVMiSKyk7ZBUgjx1equWlbMZ2yK9zNytd3Ny866I2a1ihDB8lXE8jPjIG3Zv1x1/GpelhdbMnuSuDSWq3KPpxJd3MyaTn4N3ymdtjjwrpsJqxZKgCgFAKAUAoBQCgFAKA1cZFLvYFU5v4QLqRID1a1u9J32cS2ZQ/iBUxUeLxabl1CvOlNThk0VD3LudCrehXDAKCUVmPxXG3ZZ+jthQfLHkKsxeDlg52bupaHrYinTxlH7zSXiXtRX6/U+sIdgds/79KrPDbtk8jcVARmgFARXEuLFJY7dAvayq7rqOFCIVBY+J3ZRj11GdxlqbvxPs4w84wcnaJZJcgHGQEUtjG5228aleYs9zmm5rs1xmdMGL0gEaipg1BDJqAxpBIzvsMnoM0IOi545BGyq8mnWVUHS5TU2NKmQDQrNqXCkgnO2alEvI0t+YraSTsklBftJIcYYfCx7yR5IxqA3x4gHGcGubkbnFxjmyGOGV4pI2aIqPhO0WM/CrExDqjasMdPdDYbY43xPMJkhccchSUQu+lmOlSyOELYLaBJjRrwCdOc4B2pluT6G3C+NwXBYQvqICt8VlyhzpdNQGtDg4dcrsd6BEjQCgFAct7crGjO7BVQFiScDABJ3OBXM2krkXUU29Cpe580s73F/Iz4mbREhfuiJCei5wMMSPPZjvnNVUU5Liehlwzcm5fXr3bF2xV5rM0AoBQCgFAKAUAoBQCgMGgIi6H9Og+zXf6tnXK8KsGfPuZ+DRwcT+FXNrxIhDjJ7K5PdVlwDgtkeedT5wBXtOEcbgnCXtU/jH9utSzD4qphaqqRuutCx8q8Xlhmfh124Z0x2MhyO2j6jBOxIA885z1wTXz1Ko4S7ueu3M9PtDDQq0/vVBZP2l/S+tNC6CtKPHfIzQkzQEPxfgwlkSYaBIivH301o0cmNaMuRkHC+P8AnRXtYJ+RDWvJZjijSObCrNPOydniJ+1DjQY1I7qFsqOmwyDRpjVnEvudsIhF6QNuHScPz2R6s6t2uNfQYxp/xoQdvGOTmmkybnu5syqsmdBt5Nbdn3gBr8ds7dSMAQToZsuTGSVZDMDpvrm8x2eNpY3QR51eGrOrxx0FSgeFzyXIbJ+HLcKsPd7LMRLqFnWbvEvl+mnbHXJzS1kOFWOnifKUk1wk7TjCXUdwoaMkqqRNGYVOrAU51dOvXwxOQSOvlnltrWR27XKOoAiQFYgwZmMgQswViDg6cDAG1cr4CxY6kCgMZpYFE53umuLiHhkLEaz2k5U9Ih8w4OdwCSP+3rk1nqtz/wDOL9THiHxyUEXKxtliRY0GFUKqjyAGAPwq5WikkaoxjGKSyOqujoUAoBQCgFAKAUAoBQCgFGCHufl8H2a6/Vs65as7kkd7onL/AKZZuqZE0fwkRGzCRRkYIBIz02r0OzsQqFdSfsvJ+jOJq8SL4R2fGuHRSM2idcAyJnUky47w6d0kA4HnscjNUdq4LuqzhH1T5PRmzBY6VBqSzT1Xmjt5R5glaR7K70i4hAGQciRfpr0Plnb8Ogw05yvwz1NePwcIwWIo+zL4Pyf+y3A1oseU3Y5uLXLRQSyIut0RmVfpEAkCq6kuGLZ1BJyzKJBzXeeiTTZD4t4ZQ7dixR3IDtohc5jUHUA2G2OaucVxqP8Aelfk3nfVX+pwm7XtnZu3NbLflmSd7xiVWgiS8Ro5JZVa4CR5QLEXWIneMuSOuBsMYzvVee/k36u9vgtc87bC++t2vcmtffovVakSear11Vg6xEcPkuiBGp1SJIFU4fcIw3I6+sVMmoxlJrNcOXqm2m+Vut+0ryUfNyV/S2e/nzPS95gmaftD2YeEWnYxFAWlE+O1dWI1AfNGnYaCTtUpeN/5cL5LJ3+futqV3bpp/wBvF6vPLrPM3tuP3ckyL2+lZL67tcLHH3Y41dkIyD3+7jJ2wenjUU05RTe8W/epWO5ZOXJr4pP5/wC9DjteZp2WC60RyzegXsgwg1M0ciBQNO4DYGVB3NG7Rb0uoP8APX8rnbiuLhe02vyT+OVtiTuuYZEgjK3qSvNLEisI4l0FoWlKPIToQHTsxRiAcaWJBEzVpcK/u99utteWbK4Pw8UuXubfWr9+xFR85XZgt5mkjAzcLL2YjeRjHcLEpVJCmtNPXRhskEL4VNvFFeai/e9b/Ly3Id7S5N/BX959PU5ANcslCo3Bx8Uv1gieZzhEUs23gPZ/lionKyOKk+FXKp7nVm8na8QmHwl0x0DrphHQbgdT+ICnbeqaUbt1CjDUnd1Jbl3xWh5mozQCgFAKAUAoBQCgFAKAUANARFz8vg+z3f6tnQglXpvYNXTPm3CgOH8algYaYb/4WLvd0Sjd1wfEknyHxQM5wParXxWAjP8AFTyfo9Pp8Su9p5ln5q5bFyBJGxiuYu9FKp3z10t5qenqz7Qfn50lLNa7Hq4HG9y+GXig8mn1qeXJfMJuVeOUBLiElJFHQ4wA4B30n/MezKjUbynquuvUntDB9xJVI+xLRlm1CrrHnbXRiOFQCAoAPUAAZ9tOQT3NWt1wF0Lpz00jH4VIRnsx4qOmOg6eWfL1VBNkR8XFrR5uxSWFplXUFDKWCZK528iDtU7kciR7MeCjrnoOp6n2+uoAWMDoqjGwwPCofIk1FumNOhcZzjSMZ88VJBk26bd1dtxsNj5igPWgNWNCJZK5Q+cZPTb2DhynuKe2nxjGlegP4geO7rkeNZa2c1Fe8yVm6lRU46asvUEIQBVACgYAAwAPDHkK06KxrSSR6VJIoBQCgFAKAUAoBQCgFAKAUBEXPy+D7Nd/q2dAS9QwUn3WeEmaxadMiW1PbxspII0HLnII6Lk5693avS7Kr93W4JezLJr1/exXNblg5Z4uLq2huFwdajVjoHAw4xkkYYYx1rJicO6FSVOWqO42auRHNPLjuwurRuzuoxkEdJB9Bx4jG34Z6DGOrBvxrJ9anqYHHxjehXV6b28uaO3lHmEXkWojTIhKSJn4rADOCPm9cH1HyqaVRNZFWPwcsLNLWLzT80Twq0w8zagIrmThsVxA8UzSLGQxZo5HjIGlgclCNS4J7rZU7bHApZkXufNOCe5XLbXEV/YzlSCzmGXPejY7RmRCNynXO2cbURN8j6+KAzQCgFAYzR5A4eN8RS3gknfpGurHn5D7ztXMmoq7OKlTgg5MrvufcMdYnvJge3um7Rs5yFzlFw2+B4eQxvsKowqdnKWrM+FjJR43q/mXGtJrFAKAUAoBQCgFAKAUAoBQCgFAQ9wP6fB9mu/1bOgJc1DBh1zS9ncHzjlBve7iU3DGB7GfVNa7NgbFnizjGAAT/wDHcktXt4tfecJHEr2o+GXyf6IqUrPhPowP/uvFtuW2toU3mngTxSen2WFmAJlTosqAZOR9LbP3edZ505QfHA9jBYqnUj93xHsvR7xf05E9y1xmO7gSePHe+MuQSrbZU4/H2EGrYTU1dGDF4aeHqum/z8yV1eXt+6u9rma1srERxR+1lS2G+r4SYj5sSnAUnGxkbCgbZCykHK1LyJyJgVBBmgFAKAUBjNCEyhcwf0/iEdkN4LfEs/XBYgMsZ2xuCPuY4IIrHKTnOy066/cx1X31RQWizZeYlAAVQABsABgYxsB4AVsjFJG1WtkeooQhQkUAoBQCgFAKAUAoBQCgFAKAiLn5fB9mu/1bOgJegFAUD3VeHSKkXErcZms21nHUwn442Hh1OdtOrr0r1uyKkXKWHqaTVvR7MrquyRcODcSS4hjnjOVkUMP9DnxBrza1KdKo4S1TOk7xOwrVe1jq9kUXjnDZbGVr2zA0HLXEHRCvzpF8mAzn8cbEVmlCUHxw03R7WGxEMXTjQrarKMt09k+X6Fs4bxSOeBZ0PcZdWW2IG/UeY8a0QmpK6PKxNGVGo6c1mjXgsZKtMwIaU6sHqExiNd/6u+PNj45ropV9ySAqCTNAKAUBg0BFczcXS1t5Jmx3VOkfSc/FUbjO9V1J93G5XWqKnTbZEe53who7czy7zXJMshIGcNkgH8c+HXpVeHhwxu9WVYWNo8T1eZbAK0GhKxmhIoBQCgFAKAUAoBQCgFAKA010Dy1MOx/nepSuyHoRdx8vt/s11+rZ1BJMUAoDwniDhlPQgg7Z2II/n2VMXbMiWZ8/9zCY2stxwiXrAxlgJ6vExyegAyCQc9TrOBha9ntNKrCGKj+LKXJr6/IrhdNo+jGvFLVzPKZAVIIG+evQ5G/+lTyEfC7o+a8wWZ4dIeyJaylKvcwjHwamRR3dW2h2whTxUuuRsy5XHunxR0ex7VKa7QSpT/iLR+eWSfPn0/pFjcLIiuhyrAEH1HetN09Dx5QlCTjJWaOihyKAUAoDDU5BlA4jm/4okHW3s8O+2zS589XgdsY8H6g1lf8A61LbIwyvVq8G0S/rWq99DalYzQkUAoBQCgFAKAUAoBQCgFAKAp3ussRwucqSDqthscf9VCCMjzG1T6i1ja05elJuBq9GhlMeiKI7ppDCRhju9/IyMEd3OMnIhjLzOy8kMd3bdXIt7kdcE/CWm5LE/h13rHjMZTwkFOr5kwXF69de87/fN/qT/bWvM/7DhNrnfdMwOKP9Sf7a1H/YsKdOkzPvm/1J/trR/aLCvId0yie6G7RS23FFDRtbsEkOdWuJjgAqpHiSPXrGelfSdh9tUcbx4FfizXJooqQcZXLrb8aLqHSIsrAMrCRCCCMg5G3lXh4rtqjQrSpTTvF2ZZGHHobycXIUs0WFAySZFACjcnPTGN6ph2/h5NJXuS6LIu1nMscjTW5PpGCUcjaPACIysBghTuMZBJGds1Mu3cNDwvP8uvQ6jGUJKSPm/HOM3/CbhYrdmFsT2iRSaXVxtrjDkFhjPzTkdfHe7C46nVTdN5foe06ccer28e7W/r1tsfbLaQsit01KpxnpkZNesrJHz81m47nvUgUBim4ZCc38aFrbtIMmQ9yNRklpGB0jp12/wqupPgRTWqqEM9Tk5A4Iba2Ha7zyntJSQMhiAQp9gx95bGxxXFCHDG73OaFLghnvmWYVfaxoM0AoBQGCaAgF4nNPNPFbtGot2VG1ox1u0YkxlWGkAMu+9L21F0VyfnW5WbiMWmHMGFthh8tJ8CG7TvYKhpohtp61O12SlcmeEc4xm1tpbggSTQJO4RTpRTpBc5J0pqONya5Q5nfwbizy3V5C2nTA0KpgHVh4VkOo533O2ANq6Wcb82vysJKzVt1f4tfIrKc6T62AktXcXzWotlUidohMYtYPancL3ySmMKenWop+JQ3vrbbXP0IqeHi5Je+6Tt8T6DQCgFAKA5byzSVNEiLIhxlXUFTggglTtsQD91FZZDfQ6AP5/GovuH5Ff4z8tt9/+nuv1bOvmvtRd4SOX4i6g8zoxXwTatZGsYrgEJJzFEl2LSRWjZgDG7DCSZ2IVh4+o9T68Z9mPZk5YXv4Wkt0tV1n6FDr2nwy66/QkeIWqzxPC+6OpRsZ6EYPT+dqpwGMlgcTGtB2a6sWTjdWaKl7md4wSewlYNJaSFFOrvGIk6ep1d3p4AAqPCvrftlhoVO67QpR8NSKv5X66zKaEreEt9/aCVOzb4pI1L9JQc6D/VbGCDsVJHjXxOGrOhJz5O3r5+q23TzNDVz2qmTV7hZZM5OJWEc5iilXUjswIPl2Mu/tBxg+G1fS/ZiPFXkn/ScSqzpNTg7NMiOGXU3DZltJyz2sjYt5cZKknAib/wBerpsML9nGTpPheh6FanDtGk8RSVqizkvNf1L59XvikVq0yPCvcyaXSBqT18aPLMhalBBXiHFCTh4LIbdCplY/6r6x3PAmsqj3k+SMWdStyRfs/wA4rU1nY2pbG9CRQCgFAYY0IehB3dgqGWdLj0cOA0zEJjuLjtMvspCjcnIwOm1dO5M3bUrXCeFWF7NLNBcmVorlpWIAwGe3SHAz1TuKwboWTbIFQc8Sud59z62ZLdTpdoIFttUkMUmqNTkd2RWVWBzvjxPnTQ7diXh4E8c888U2ntzGWUxhgNEaxjScjGQKiOStzv8AmJPityVvi38zr4JwlbdZFVi3aTSzHIAwZHLkbeAJosoqPkG2236fBWJGhAoBQCgFAKAr3Gfltv8A+C7/AFbOvmftV/Kx/wAvkXUfaPevz81igIrmHgMV3CYpBjfUrrs0beDqfP1eNengMfUw001mt1sU1aSqe0QXBOYZLeT0LiTBZBjsp2OEmToNz0f29Tt1xn18d2fDFR+8YPPzXkU0qkotwqHJzh/Qr2HiaD4J9MFyBqwEPdSTCg5wNvPuqANzX0PYMv8Ak+zKnZlTOcc4325fAiranNVEXxHyMjGD09nga/PcRGVOTg1o3+prWbM1mOjQfxYBj57foy19P9lP5qX+PzRRXfhOnjfBYruJoZlBU+PipxsR5GvvZJSTRXhq8qFTvKb9UVjgPF5rSYWF8cqcLBOfiuPBGPg2Djfx232JppT4Xwy9zPVxWHhiabxOHVv6orbms9C75yPDJq+yeuh4mWxW+euPm1gxENU0zCOMbdT1bqNgPHzK561XWm0rIzV5qELpa5ddeR2cn8DFpbrFq1OSXkY9TI2M59gwPYBSlDgyO6NLgiTlWlwoBQGM0JMMdjvRHLs8im8w8/wRP6Paqbu6ywEUWSFKg6tTKCMgjdeo8cdacLOHUadkiMi5Rvr91k4rIqwqSy2kJ2BwQpkkHUgE9M9BuMkHttLQ54HJXZe+HcMigQRwxrGg+agA/wAvH11Xd3LIKx1ipR0ZoBQCgFAKAUAoAaAr3Gfltv8A+C6/Vs6+Z+1X8rH/ACLaHtHvX5+bBQDFdOWVkiER3G+CwXUZjuI1dd8E/GUkFSVONjg1twOPqYSfFTfrzK6lLjVnqUTiNw1tFJw3iLkwSKVtroj+ykmx3G3ex0B8N6+07KqRniaeOw+Uk/FHl18DDOc4JwlmTnuZcUMlqLd8CW1PYMAR0TuqdgPAY6npnO9Zftt2U6OLWIh7FRJo04ep4VEuFfEcPM1I8x/Gh/72/Rlr6b7LfzUl/aUVndWJzG9ffLQyJZ3IjmbgKXcXZuSrDdHX4yP4MNx+FcTpqojXgcZPC1OJejWzXkyG5V4/KsnoV+NM6juP82ZRncHA7wx/ODVVOrZ8MjZjMFBw+8YfOO63jyfI4eDauI8QN3jFtbEpDnGHkHzwBkFTknPmF67gcwXHV4noj5uKdatxfhVy+pWo3PU3oDBNAM0Fyr8yc92lp3CzSzHZYoRrcnbrjYee++xwCdqlIrlUSyK6vCOJ8U713K1jbMSBBHvKVwNmcgDrk5IPj3QDU5FfC5vkXPgXLVtaJpt4lTzO5Y7k7ue8ev8AlXOmhdGCSsSwFCUrI2AoSKAUAoBQCgFAKAUAoCu8Z+W2/wBnuv1bTxr5n7Vfysf8vkXUNTor8/NYoBQCiBz3lnHKjJIodCCCG328fX/p4VsoYmpQnxQdrFcoqa4T5cbP3iuxMNUlvMHQKpw22lkDZOGZe9g7bZ9lfoMMTV7f7P7j8UbHnWnQnxbfU+m8N4lHOiywurqwB2PTboR1B9Rr4LFYOph58NRWtc9GnUhNXR7q3wsHX47foy/4f7V7f2Yzxc2/6fmV1skTwr7oy7GM1NvIhyRQPdOijkNvEisbuR9MTK2NCnZyxAPdx+G5yMb5MSuJJR1OpY2pShKjT/Hl16HX7n/EkjX3vkTsZ4M5XbEgye+pwM52NdUGlHglqjZU7O7ilGpTd4vfnuXNWrTfMxpGdVLHLkipce90axtm7MOZ5cgCOAayWJXCg9NR1DbO/tolnY5lVSIUWnGOJbzOOH2x/wCXGczMpUjvMwz4jqFGDuMiukitKpPTItHLfJtpZD4GPMhzqlfvyMe7nLHpkgHC4Gd8ZqHItVPdk/p3zUI7vbI2oBQCgFAKAUAoBQCgFAKAwaArfG3IvLc4JHYXQwqljkyWpzpUE4269OnnXg/aHDVMThoxpK7vsWUpKLsenpQ+hL/cS/sr5D/gcdf+G/zNPeR8zAux9CUf/TL+2uX2Hjbfw2O9iZ9KH0Jf7mX9tQuxMdp3bI72I9KH0Jf7mX9lS+w8bb+Gye9iPSR9CX+4l/ZUrsTHp27tjvYtakNzdwwXdpJb6ZdRGYyYpgA43XOF6eHjsfGvofs3Sx+Ax0KkoeHR+jKarhKFlsUXlbhTyW6XXD5mguFGiVEDywSOFbDPp1jJB8c4ySAK+i7Zwrji5U5Q46bzTVsr/LzMcIyjG6budPEeer+2eE3FpHH2ZLMCcGUYMeqNGIZRgsBsfXgA152C7Np4Ss6kL3fmepQpqrRbk7NdddX+rcI49b3KgwzROdIYorqXUHHxlByv3ivc2uefJpNq513V4sSNJIyoijJJ6AVzN2XEQ/Cr7FM5Mga7nfilwuCSyW6so7ke4JyRnVgkEg+LDocVRRi23PzMmHXFJ1pPLb0OTnfilg3ZXMN/DHcRfwmWQOrDxRtGrAOfv361ZUoXd1qe7gsfGk3Sqq8Jar5o5bD3TZ7lVisrF5pwuXy6iMAA5bOdu9jAYjOdqsguLNnn1c7yp3tfI6/+EeJXhLcRvDFH9RaFghHdzqPzs4+dqwc464qzjSy3KFCcnmW3lzlm0s0028KqcAM/WRsfSc7+vHQZOAKht7lkYJKxMafb+NcllzahBjFAZoBQCgFAKAUAoBQCgFAKAwaeoIi5P9Pg+z3f6tnUaglwKZgzUgVFmDGamwGKAxJ0qLkNXyPmy54bxgqc+i8RP9Y6bknbYD5xO/8A3AnAWvblJYvBJ28dP4x2/Iqz47L5dfUufGbGKR7cSxxuO1b46K3/ACJScZHmB+A8q8VRT9xdfVMg+Ie5nwyUg+j6CNRxGxXJONyPV/7rraxV3SlqUq65QHpg4bZ3N32C5My9o3ZQqTrCquQCST5HdgdyGxndfilwpZLrr9zNJKdThTy6y6+RZIPcnsDvO0s8m3faTfSAAq93wUDA26bVfdw0NFOh4c9Cw8N5J4fEdSWserToyw1EjIO+rIzkCknZnSgnfI4OZuAyrKL2y2mQaXj30zIMYTGMAgdPYPKs9RTvxR+R6+AxVJweHrey9H/S/P00JbljmCO8jLoNLrtJG2zI42x6xt1G23mCB3GcKqsUYzCTwz8Wj0ezRNxnarDHZrU2oBQCgFAKAUAoBQCgFAKAUAoBQCgIi5+XwfZrr9WzpYEvQCosBUgUAoDBoQ0VD3TOCNc2euH+PAwniI65XdlGATkrnA27wXet/ZeJVKtn7Lyfv6/I5qLy1PXlrjy3tvZ3AxlnYOPouIJgw6DxqnHYeWHrOn5PLmtjuOjkdPOXHRaw6l3lchIlAJ1SHp49P58awVZ8Cy1KK1bghbVvQ05J4CbaHMnenlPaSscZDHfRkdQPPJycnxwOaUPDcYal3cc9XqWOtDLlrcyRTUkw9PQhq5SeYeEz2054hZrqLDFxF9NRgakIGQwxv+OCcg5qlNwfHE9nB4mjiKSw2Idl+F+T58veWTgHGYrqFZom7p6g/GUncqwzsR/uNqvhOM0mjz8XhZ4eo6c9etORJV2Z2rm1QBQCgFAKAUAoBQCgFAKAUAoBQERc/L4Ps13+rZ0BL5oBmouBS4FSBQGGqUSjVvKuFlYhWZ8nt7teF8UuI5e5bSn0uLvEgP2ciMqqfnMWPjtoA9nq4/FU6mEpzb8cfD6rZ+hxGlUzcU2lmWPlzh0t3ce+N1GFGMW8TZJRdsOR0BIH4nO2BXhRg51OOWRmpw4597P3IuwrVpkbMzOKELIzQkwTQGuDT1GxQ+KWc3DJnvIAZLaVi9zF4pnJMiH7+h/yI05ZJ03fbXr/AGe7QqU+0KaoVcppWi/Pk+v3uXC7+OeNZYmDKwyCP8c+sVpi7pHjV6E6M3GeTR25qSu5gMDQhO5mhJjNAZoBQCgFAKAUAoBQCgFARFz8vg+zXf6tnQEvQGpagbSQqLi5nNSQYpbclIwSKhq5ypJMheY+aLe0U9o4LgZWNSC7eAAHlv126VXOrFKxxUqxhrqfIfdB4HeXKPxN4+zydKwkEOIlRm1sWOxwrEj+TbgaP3qsoVHZGzC4+UKUozj6ddWPs/LvEI57aGWM6lZFIP3bg79R0I89qtr0pUarpy1WRnXiVyT1Cqjqwz4UIM0AoBQHnJHnr08v9fVRvKwu9igSRycImLKNVjM4LAKNULnYYAHxTkDHs8fjZbdxeTzj+h7yce04KLyqxWX9y+vXpbOKyyS2rNayqhZMrKBrwPEgZ3bGcZ8eoNXSleN7nj8DhUtJZrYrfDOLy+icPYu7v6M1zKSzZcJCNnPrdh18qtq+GUmlklpzenzKoq+T3lb3Jv8Ab8yW5a5le4dFkiVO0torldLlsB/mt3RuPMdamUbSlHeL/W/0OE8ovzv8LfUq3C7+aMpP2k0jScVntGRppGQwGWZABG7FV7PAbKgHCYJxkVHIlNtZn0xRUCyNqEigFAKAUAoBQCgFARFz8vg+zXf6tnQEvQEHzLwF7oLoup7fTn+C2nVkbaiN9vbVcoOWVyqpBy0diDHLvFguF4nnAwMwITsNsk5J9pzVPdVl+Io7mtFe18AiceGMtZffr3/w60ffLdddehD+8cuuvUY4952P/wCnl7PZU8VZ+R1/9G7XXXzNP+HuK3GfSb4RKWzotxjGBgaZNm3O5Bz4/c4KstXlyOe6rT9qXXXVyV4FyTbWzdpgyykljJKdTas6tQz0OfHr133Ndwoxj6llPDqGe/mSnE4gWhBAIMjA+wwS5/0q5Slc1Ju2pSvc/drG9ueFPnRkz22dR+DO7KuRjA9W2oNuTXs9oWxGHhilr7MvVaMphk+H39fkQPFOJ3QBKTT6k4te7LI+WihieZYOu8fdwE6b9K8ZZlvoWXkXisk/EbyTtZHhljhlhVmYoqdrPEGReihhGG8M5osw8j6BQCgFAKA8bm2WRWRwGVgVYEAgg+BzXLV8tjqE5QlxReaKBZSHhUvo1wS1jKSI5cfw2PVJCNt85yfDfwIGdJU7prwvqx7tSMe0KbqU8qq1XmluvoXO24PbKgVEXT2XYDDEjsvoDfp6+vTyrVfiT5/L/Z4N2rJ83+ev6G9lwmCIqYowpSNYVwTtGvxU3PQfjUttycnq9evec8Ky5fM8rTl62jkMiR4Yu8m7OyrI+dciIxKqx1HJUA7moRJJ4oLGaAUAoBQCgFAKAUBioYIi4+XwfZ7v9WzqRYmM0AoDWouyDNTckwRS4Vhjelxc2oDg4l/Et/8Ayt+hNS1yV53KZ7p9m8Jg4rAMy2rASAZ78B6qcA/FJJ32Gpuu1et2VOMlLCS0msuTWn0KZN2uiycL4fZyxx3EUSaZGa5U4Px5Uw8m/wA5lYg58ztXlVIOnNxeqdi1bWO+x4RBCQYolQiNIhp+rTOhPYMn8a5auDvqQKEChIoBQHDxGwSaNopF1K4IOcfcd/I9KiUVNWehZQrSpVFOOTWnwKdwDiT8OkWwuz8Ec+jz/NYZ2Ryeh8APDYdMVmpcVN8D02+h7GMpQxsHiqHtfijz3a5P9bl8D5/2rUnc8NxejNhQX2GaAzQChAoSKAUBqWoBqHnU2Zzxx8zaoOir88TuotIxnRNdwxS4yPgisjEZHQFlUZ9ePGlmTdHhylaG5toppzIJI2uokZZHQ9l6QVGSD3srHGcny261HoQTnvIn1tx+Yl/dUge8ifW3H5iX91APeVPrbj8xL+6gHvIn1tx+Yl/dQD3kT624/MS/uoB7yJ9bcfmJf3UBq/Bk+tuPzEn7qXsLXIKGe2kaLLXYWRmEErTvod1V8hCHJB0h8EgZGcVN8stznxadfodVjbW13G4D3RTLIyvLKMjcdCfikbj2ipg3CaktVoS1dWZ18N5Ut4I1ihaeONc6VW4lwMsWOO95kn766rVZVpuc82wlZWOr3kT624/MS/uqske8ifW3H5iX91APeRPrbj8xL+6gHvIn1tx+Yl/dQD3kT624/MS/uoB7yJ9bcfmJf3UBj3kT624/MS/uoDm4hynbzpomM0i5zhp5SM+fxq5lFS1LqFepQlx03ZntDy/GoCrJcAAAAekS9Bt4tSMUiucnN3Z6e8ifW3H5iX91dHJx8StIYVDPLc7sqKBPLlnY4VV73UmobsQaW9uhVmkN3DpOD2lywHmCGEhUj76nK9idFme72EIwTcSjIyM3UmCNtx3um4/woiFmRvE7q2i7RRNcyyxqjNDHct2ulmCgjXIq+vcjYezJB8zfjLwWxhV5LpjPNHAoW4fKs4dgz5cYXCHpvTex081kSC8OiJKrPMWGMqLmTI9o1Zomjm3mznsbiEXhtked3WETEtMzxaWkeLG7HvAofD76E+pN59Tfj/vXdieOPmvy/Y964IPG7tI5UMciK6HqrAFTvncGgNoIVRQqKFUbAAYAHkAKEt3PShAoBQCgFAKA85kyCPMEdfVUpgo9ry7cKLC2KL2FnMriQN3mCpNHGNPscajt02yDtD1Jy1RelQDoAPuqCEbVIFAKAUAoBQCgFAKAUAoCG5m4UZ1hZca4J450BzgsupSuR0yrMMnIqGnsMjn4rFdSqgEaIO1UspcNIYtJDaWxpRtRHTO2roTt0hmVOy5JuhBBHIsbGO24lCcvqw00uqAZI6BQBnwoMnma8R5Ju3gkjxG0kljYQEl/+bBKHly2N8jcN4ld65BJcW5XuHu0lAVlF/BdambDLEkBiaMDH0u94ZzU2DexmHl27a8incooQXyMUbA0Saew0xgeGDkkkk7+VTmGe3KHLc9tcJJIE0pYw2xYNkvJHLIzOR/WDA1xm2Qi65pd+R0ZrogUAoBQCgFAKAUAoBQCgFAKAUAoBQCgFAKAUAoBQCgFAKAUAoBQGKAzQIUB/9k=" 
+                             alt="Curva de Oligopolio" 
+                             style="width: 100%; max-width: 600px; border-radius: 10px; border: 2px solid #d69e2e;">
+                        <p style="margin-top: 10px; font-size: 14px; color: #ccc;">Interdependencia estratégica entre pocas empresas</p>
+                    </div>
+                </div>
+
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">📈</div>
+                        <h3>Modelos de Oligopolio</h3>
+                        <ul style="text-align: left;">
+                            <li><strong>Cournot:</strong> Competencia en cantidades</li>
+                            <li><strong>Bertrand:</strong> Competencia en precios</li>
+                            <li><strong>Stackelberg:</strong> Líder-seguidor</li>
+                            <li><strong>Carteles:</strong> Colusión explícita</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">🤝</div>
+                        <h3>Colusión y Carteles</h3>
+                        <p>Cuando las empresas oligopólicas cooperan para:</p>
+                        <ul style="text-align: left;">
+                            <li>Fijar precios más altos</li>
+                            <li>Repartirse el mercado</li>
+                            <li>Limitar la producción</li>
+                            <li>Eliminar competencia</li>
+                        </ul>
+                        <p style="margin-top: 10px; color: #e53e3e;">⚠️ Generalmente ilegal</p>
+                    </div>
+                </div>
+
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">✅</div>
+                        <h3>Ventajas</h3>
+                        <ul style="text-align: left;">
+                            <li>Economías de escala</li>
+                            <li>Inversión en I+D</li>
+                            <li>Estabilidad de precios</li>
+                            <li>Eficiencia productiva</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">❌</div>
+                        <h3>Desventajas</h3>
+                        <ul style="text-align: left;">
+                            <li>Precios más altos</li>
+                            <li>Reducción de bienestar</li>
+                            <li>Posible colusión</li>
+                            <li>Barreras a nuevos competidores</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin: 40px 0;">
+    <a href="/" class="nav-item" style="display: inline-block; padding: 15px 30px; background: #4CAF50; color: white; text-decoration: none; border-radius: 5px; font-weight: bold;">
+         Volver al Inicio
+    </a>
+</div>
+
+    <footer class="minecraft-footer" style="text-align: center; padding: 20px;">
+        <p>&copy; 2024 Mineconomía - Aprendiendo economía con Minecraft</p>
+    </footer>
+</body>
+</html>

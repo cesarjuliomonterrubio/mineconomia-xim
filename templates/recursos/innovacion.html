@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Innovación - Economía Mineconómica</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body class="minecraft-body">
+    <!-- Video de fondo - PARA TODAS LAS PÁGINAS -->
+    <video autoplay muted loop class="video-background">
+        <source src="{{ url_for('static', filename='videos/fondo.mp4') }}" type="video/mp4">
+        Tu navegador no soporta videos HTML5.
+    </video>
+    <div class="overlay"></div>
+    
+    <header class="minecraft-header">
+        <div class="header-container">
+            <div class="logo-section">
+                <a href="/" class="minecraft-logo">
+                    <span class="logo-text">⛏️ MINECONOMÍA</span>
+                </a>
+            </div>
+            <nav class="main-nav">
+                <div class="nav-section">
+                    <a href="/" class="nav-item">🏠 Inicio</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <main class="minecraft-main">
+            <!-- Hero Section con Alex -->
+            <section class="minecraft-hero">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1>💡 Innovación Tecnológica</h1>
+                        <p class="hero-subtitle"> <strong>Sunny</strong> te explica cómo las nuevas ideas transforman la economía</p>
+                    </div>
+                    <div class="hero-media">
+                        <div class="character-explanation">
+                            <img src="https://s.namemc.com/3d/skin/body.png?id=56ac4e160f5ac9da&model=slim&width=308&height=308" alt="Alex de Minecraft" width="250" height="250" class="character-image">
+                            <div class="speech-bubble">
+                                <p style="font-family: 'Press Start 2P', cursive; font-size: 10px; line-height: 1.5;">"¡Hola! Como Sunny, sé que la redstone y la creatividad pueden crear maravillas. La innovación es el motor que impulsa el progreso económico!"</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Explicación de Sunny -->
+            <section class="features-section">
+                <div class="tabs-container">
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">🔬</div>
+                            <h3>I+D Investigación</h3>
+                            <p>"Como experimento con redstone, la investigación sistemática descubre nuevas posibilidades y crea productos revolucionarios."</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🚀</div>
+                            <h3>Tecnologías Disruptivas</h3>
+                            <p>"La redstone cambió Minecraft para siempre. Las tecnologías disruptivas transforman industrias completas y crean nuevos mercados."</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🔄</div>
+                            <h3>Mejora de Procesos</h3>
+                            <p>"Optimizo mis granjas automáticas constantemente. La mejora continua hace que las empresas sean más eficientes y competitivas."</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tipos de Innovación -->
+            <section class="resources-section">
+                <div class="section-header">
+                    <h2> Tipos de Innovación</h2>
+                    <p>Según la experiencia de Sunny</p>
+                </div>
+                <div class="resources-grid">
+                    <div class="resource-item">
+                        <span class="resource-icon">💡</span>
+                        <span class="resource-name">Incremental</span>
+                        <span class="resource-desc">Mejoras continuas</span>
+                    </div>
+                    <div class="resource-item">
+                        <span class="resource-icon">⚡</span>
+                        <span class="resource-name">Disruptiva</span>
+                        <span class="resource-desc">Cambia reglas del juego</span>
+                    </div>
+                    <div class="resource-item">
+                        <span class="resource-icon">🔧</span>
+                        <span class="resource-name">Procesos</span>
+                        <span class="resource-desc">Optimiza métodos</span>
+                    </div>
+                    <div class="resource-item">
+                        <span class="resource-icon">🎯</span>
+                        <span class="resource-name">Modelo Negocio</span>
+                        <span class="resource-desc">Nuevas formas de operar</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Importancia Económica -->
+            <section class="features-section">
+                <div class="section-header">
+                    <h2>🚀 Importancia en la Economía</h2>
+                    <p>Por qué la innovación es crucial</p>
+                </div>
+                <div class="feature-card" style="max-width: 800px; margin: 0 auto;">
+                    <h3> Desde la perspectiva de Sunny:</h3>
+                    <ul style="text-align: left; margin: 1rem 0;">
+                        <li>📈 <strong>Crecimiento:</strong> Crea nuevos productos y mercados</li>
+                        <li>💼 <strong>Empleo:</strong> Genera trabajos en nuevas industrias</li>
+                        <li>🌍 <strong>Competitividad:</strong> Ventaja en mercados globales</li>
+                        <li>💰 <strong>Productividad:</strong> Más output con menos recursos</li>
+                        <li>🔄 <strong>Adaptación:</strong> Permite responder a cambios</li>
+                    </ul>
+                    <div style="margin-top: 1rem; padding: 1rem; background: rgba(33, 150, 243, 0.2); border-radius: 10px;">
+                        <p><strong>💡 Dato de Sunny:</strong> "Sin redstone, Minecraft sería solo construcción básica. Sin innovación, las economías se estancan!"</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Conexión Minecraft -->
+            <section class="platforms-section">
+                <div class="section-header">
+                    <h2>💎 Conexión con Minecraft</h2>
+                    <p>La innovación en el mundo de bloques</p>
+                </div>
+                <div class="platforms-grid">
+                    <div class="platform-item">
+                        <span class="platform-icon">🔴</span>
+                        <span class="platform-name">Redstone</span>
+                        <p>Sistema de ingeniería y automatización</p>
+                    </div>
+                    <div class="platform-item">
+                        <span class="platform-icon">🏭</span>
+                        <span class="platform-name">Automatización</span>
+                        <p>Granjas automáticas y sistemas</p>
+                    </div>
+                    <div class="platform-item">
+                        <span class="platform-icon">🕹️</span>
+                        <span class="platform-name">Sistemas Avanzados</span>
+                        <p>Calculadoras y computadoras</p>
+                    </div>
+                    <div class="platform-item">
+                        <span class="platform-icon">🎮</span>
+                        <span class="platform-name">Minijuegos</span>
+                        <p>Creaciones interactivas complejas</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Ejemplos de Innovación Real -->
+            <section class="features-section">
+                <div class="section-header">
+                    <h2>🌟 Ejemplos de Innovación Disruptiva</h2>
+                    <p>Cambios que transformaron industrias</p>
+                </div>
+                <div class="feature-card" style="max-width: 800px; margin: 0 auto;">
+                    <h3> Según la experiencia de Sunny con redstone:</h3>
+                    <ul style="text-align: left; margin: 1rem 0;">
+                        <li>📱 <strong>Smartphones:</strong> Revolucionaron comunicación y acceso a información</li>
+                        <li>🛒 <strong>E-commerce:</strong> Transformaron el comercio minorista</li>
+                        <li>🚗 <strong>Vehiculos Eléctricos:</strong> Cambiaron la industria automotriz</li>
+                        <li>☁️ <strong>Cloud Computing:</strong> Reestructuraron servicios tecnológicos</li>
+                        <li>🤖 <strong>IA:</strong> Están transformando todos los sectores</li>
+                    </ul>
+                    <div style="margin-top: 1rem; padding: 1rem; background: rgba(156, 39, 176, 0.2); border-radius: 10px;">
+                        <p><strong>🎯 Reflexión de Sunny:</strong> "Crear con redstone me enseñó que los límites solo existen en la mente. ¡La innovación rompe barreras!"</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Cómo Fomentar la Innovación -->
+            <section class="resources-section">
+                <div class="section-header">
+                    <h2>🔧 Cómo Fomentar la Innovación</h2>
+                    <p>Estrategias para crear entornos innovadores</p>
+                </div>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🎓</div>
+                        <h3>Educación STEM</h3>
+                        <p>Invertir en ciencia, tecnología, ingeniería y matemáticas desde temprana edad.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">💼</div>
+                        <h3>Emprendimiento</h3>
+                        <p>Apoyar startups y pequeñas empresas con ideas disruptivas.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🤝</div>
+                        <h3>Colaboración</h3>
+                        <p>Fomentar alianzas entre universidades, empresas y gobierno.</p>
+                    </div>
+                </div>
+            </section>
+
+            <div style="text-align: center; margin: 3rem 0;">
+                <a href="/" class="btn-primary">🏠 Volver al Inicio</a>
+                <a href="/capital-fisico" class="btn-secondary">🏭 Capital Físico</a>
+                <a href="/instituciones" class="btn-secondary">⚖️ Instituciones</a>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

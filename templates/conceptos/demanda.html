@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demanda - Concepto Completo</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        .concepto-container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 30px;
+            background: rgba(42, 42, 42, 0.95);
+            border: 4px solid #555;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            color: white;
+        }
+        
+        .concepto-header {
+            text-align: center;
+            margin-bottom: 40px;
+            background: linear-gradient(135deg, #8b4513 0%, #5d2f0f 100%);
+            color: #ffd700;
+            padding: 30px;
+            border-radius: 10px;
+            border: 3px solid #ffd700;
+            font-family: 'Press Start 2P', cursive;
+            text-shadow: 3px 3px 0 #000;
+        }
+        
+        .graph-container {
+            text-align: center;
+            margin: 40px 0;
+            padding: 30px;
+            background: rgba(139, 69, 19, 0.3);
+            border-radius: 15px;
+            border: 3px solid #7a7a7a;
+        }
+        
+        .explanation {
+            background: rgba(58, 58, 58, 0.8);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border: 3px solid #8b4513;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .definition-box {
+            background: rgba(139, 69, 19, 0.4);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border: 3px solid #cddc39;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .back-button {
+            display: inline-block;
+            padding: 12px 25px;
+            background: #8b4513;
+            color: #ffd700;
+            text-decoration: none;
+            border-radius: 8px;
+            margin: 10px;
+            border: 2px solid #ffd700;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-shadow: 2px 2px 0 #000;
+        }
+        
+        .back-button:hover {
+            background: #a0522d;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 0 #5d2f0f;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Press Start 2P', cursive;
+            color: #ffd700;
+            text-shadow: 2px 2px 0 #000;
+        }
+        
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+        
+        h2 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+        
+        h3 {
+            font-size: 1rem;
+            margin-bottom: 12px;
+        }
+        
+        h4 {
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            color: #cddc39;
+        }
+        
+        strong {
+            color: #cddc39;
+            font-family: 'Courier New', monospace;
+        }
+        
+        ul li {
+            margin-bottom: 0.8rem;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .button-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        .graph-image {
+            max-width: 100%;
+            height: auto;
+            border: 3px solid #ffd700;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+        }
+        
+        .image-caption {
+            margin-top: 15px;
+            font-style: italic;
+            color: #cddc39;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.7rem;
+            text-shadow: 1px 1px 0 #000;
+        }
+        
+        .minecraft-text {
+            font-family: 'Press Start 2P', cursive;
+            text-shadow: 2px 2px 0 #000;
+        }
+        
+        .concepto-header p {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.8rem;
+            margin-top: 15px;
+            text-shadow: 1px 1px 0 #000;
+        }
+    </style>
+</head>
+<body class="minecraft-body">
+    <!-- Video de fondo - PARA TODAS LAS PÁGINAS -->
+<video autoplay muted loop class="video-background">
+    <source src="{{ url_for('static', filename='videos/fondo.mp4') }}" type="video/mp4">
+    Tu navegador no soporta videos HTML5.
+</video>
+<div class="overlay"></div>
+    <div class="concepto-container">
+        <div class="concepto-header">
+            <h1>📉 CONCEPTO DE DEMANDA</h1>
+            <p>ANÁLISIS COMPLETO DE LA CURVA DE DEMANDA Y LA LEY DE LA DEMANDA</p>
+        </div>
+
+        <div class="definition-box">
+            <h2>📖 DEFINICIÓN DE DEMANDA</h2>
+            <p><strong>DEMANDA:</strong> "Son las distintas cantidades alternativas de un bien o servicio que los consumidores están dispuestos a comprar a los diferentes precios, manteniendo todos los demás determinantes constantes en tiempo determinado."</p>
+        </div>
+
+        <div class="graph-container">
+            <h2>📊 CURVA DE LA DEMANDA</h2>
+            <div style="background: rgba(0, 0, 0, 0.8); padding: 20px; border-radius: 10px; display: inline-block; border: 2px solid #ffd700;">
+                <!-- Imagen real de la curva de demanda -->
+                <img src="https://www.cienciasfera.com/materiales/economia/economia/tema07/img08.JPG" 
+                     alt="Curva de Demanda Económica" 
+                     class="graph-image"
+                     style="max-width: 600px; height: auto;">
+            </div>
+            <p class="image-caption">LA CURVA DE DEMANDA MUESTRA LA RELACIÓN INVERSA ENTRE PRECIO Y CANTIDAD DEMANDADA</p>
+        </div>
+
+        <div class="explanation">
+            <h3>🔍 EXPLICACIÓN DE LA CURVA DE DEMANDA</h3>
+            <p>"La curva de demanda se refiere a la representación gráfica de la relación entre el precio de un bien o servicio y la cantidad que los consumidores están dispuestos a comprar en un mercado específico y en un momento dado, manteniendo constantes otros factores."</p>
+            
+            <h4>⚖️ LEY DE LA DEMANDA</h4>
+            <p>"A medida que el precio de un bien disminuye, la cantidad demandada tiende a aumentar, y viceversa. Este comportamiento se debe al principio de la ley de la demanda, que establece que, en términos generales, existe una relación inversa entre el precio de un bien y la cantidad demandada."</p>
+        </div>
+
+        <div class="explanation" style="border-color: #cddc39;">
+            <h3>🎯 FACTORES QUE AFECTAN LA DEMANDA</h3>
+            <ul>
+                <li><strong>PRECIO DEL BIEN:</strong> Relación inversa con la cantidad demandada</li>
+                <li><strong>INGRESO DEL CONSUMIDOR:</strong> Bienes normales vs inferiores</li>
+                <li><strong>PRECIOS DE BIENES RELACIONADOS:</strong> Sustitutos y complementarios</li>
+                <li><strong>GUSTOS Y PREFERENCIAS:</strong> Cambios en patrones de consumo</li>
+                <li><strong>EXPECTATIVAS DE PRECIOS FUTUROS:</strong> Compras anticipadas</li>
+                <li><strong>POBLACIÓN Y DEMOGRAFÍA:</strong> Tamaño y composición del mercado</li>
+            </ul>
+        </div>
+
+        <div class="button-container">
+            <a href="{{ url_for('inicio') }}" class="back-button">🏠 IR AL INICIO</a>
+            <button onclick="goBack()" class="back-button">🔙 REGRESAR</button>
+        </div>
+    </div>
+
+    <script>
+        function goBack() {
+            if (window.history.length > 1) {
+                window.history.back();
+            } else {
+                window.location.href = "{{ url_for('inicio') }}";
+            }
+        }
+        
+        // Función para regresar con Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                if (window.history.length > 1) {
+                    window.history.back();
+                } else {
+                    window.location.href = "{{ url_for('inicio') }}";
+                }
+            }
+        });
+    </script>
+</body>
+</html>

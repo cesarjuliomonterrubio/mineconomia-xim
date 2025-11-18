@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agradecimientos - Mineconomía</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .contenido-agradecimiento {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            border: 3px solid #8B4513;
+            color: #333333;
+            font-family: Arial, sans-serif;
+        }
+        
+        .contenido-agradecimiento h1 {
+            text-align: center;
+            color: #2E8B57;
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+        }
+        
+        .mensaje-agradecimiento {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            text-align: justify;
+        }
+        
+        .firma {
+            text-align: right;
+            font-style: italic;
+            font-size: 1.3rem;
+            margin-top: 40px;
+            color: #2E8B57;
+            font-weight: bold;
+        }
+        
+        .btn-volver {
+            display: block;
+            width: 200px;
+            margin: 40px auto 0 auto;
+            padding: 12px 25px;
+            text-align: center;
+            background: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            border: 2px solid #2E8B57;
+        }
+        
+        .btn-volver:hover {
+            background: #45a049;
+        }
+    </style>
+</head>
+<body class="minecraft-body">
+    <!-- Video de fondo -->
+    <video autoplay muted loop class="video-background">
+        <source src="{{ url_for('static', filename='videos/fondo.mp4') }}" type="video/mp4">
+        Tu navegador no soporta videos HTML5.
+    </video>
+    <div class="overlay"></div>
+
+    <!-- Header/Navegación -->
+    <header class="minecraft-header">
+        <div class="header-container">
+            <div class="logo-section">
+                <a href="/" class="minecraft-logo">
+                    <span class="logo-text">⛏️ MINECONOMÍA</span>
+                </a>
+            </div>
+            
+            <nav class="main-nav">
+                <div class="nav-section">
+                    <a href="/" class="nav-item">🏠 Inicio</a>
+                    <a href="/agradecimientos" class="nav-item active"> Agradecimiento</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contenido Principal -->
+    <div class="container">
+        <main class="minecraft-main">
+            <div class="contenido-agradecimiento">
+                <h1>Agradecimiento</h1>
+                
+                <div class="mensaje-agradecimiento">
+                    <p><strong>Estimado Profesor Eduardo Aguilar</strong></p>
+                    
+                    <p>Quiero darle las gracias de corazón. Su motivación fue fundamental para que me animara a realizar el proyecto de Python.</p>
+                    
+                    <p>Admiro profundamente su dedicación; es de los pocos maestros que se preocupan genuinamente por el aprendizaje de sus alumnos. Gracias por inspirarnos.</p>
+                    
+                    <div class="firma">
+                        <p>Con aprecio,</p>
+                        <p>Fany</p>
+                    </div>
+                </div>
+
+                <a href="/" class="btn-volver">Volver al Inicio</a>
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="minecraft-footer" style="text-align: center; padding: 20px;">
+        <p style="color: white;">&copy; ♥ Estefany Ximena Sánchez Torres ♥</p>
+    </footer>
+</body>
+</html>

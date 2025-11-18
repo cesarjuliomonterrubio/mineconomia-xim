@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ titulo }} - Mineconomía</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body class="minecraft-body">
+    <!-- Video de fondo - PARA TODAS LAS PÁGINAS -->
+<video autoplay muted loop class="video-background">
+    <source src="{{ url_for('static', filename='videos/fondo.mp4') }}" type="video/mp4">
+    Tu navegador no soporta videos HTML5.
+</video>
+<div class="overlay"></div>
+    <header class="minecraft-header">
+        <div class="header-container">
+            <div class="logo-section">
+                <a href="/" class="minecraft-logo">
+                    <span class="logo-text">⛏️ MINECONOMÍA</span>
+                </a>
+            </div>
+            <nav class="main-nav">
+                <div class="nav-section">
+                    <a href="/" class="nav-item">🏠 Inicio</a>
+                    
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ALDEANO GRANDE FLOTANTE EN ESQUINA -->
+    <div style="position: fixed; top: 80px; right: 20px; z-index: 1000;">
+        <img src="https://cdn.apexminecrafthosting.com/img/uploads/2021/09/20205353/wandering-trader-no-background.png" 
+             alt="Aldeano Minecraft" 
+             style="width: 180px; height: 180px; border-radius: 15px; border: 4px solid #e53e3e; box-shadow: 0 6px 12px rgba(0,0,0,0.4);">
+        <div style="text-align: center; margin-top: 8px; font-size: 14px; color: #e53e3e; font-weight: bold; text-shadow: 1px 1px 2px black;"></div>
+    </div>
+
+    <div class="container">
+        <main class="minecraft-main">
+            <section class="features-section">
+                <div class="section-header">
+                    <h1>👑 Monopolio</h1>
+                    <p>Cuando una sola empresa domina el mercado</p>
+                </div>
+                
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">📚</div>
+                        <h3>Definición Económica</h3>
+                        <p>Un monopolio es una estructura de mercado donde existe un único vendedor de un producto o servicio que no tiene sustitutos cercanos, permitiéndole controlar los precios y la oferta del mercado.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">🎮</div>
+                        <h3>Ejemplo en Minecraft</h3>
+                        <p>Como el <strong>Ender Dragon</strong> - es único en su tipo, no tiene competidores directos y controla completamente el acceso a los recursos del End. También como un jugador que controla la única mina de diamantes del servidor.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">📊</div>
+                        <h3>Características Principales</h3>
+                        <ul style="text-align: left; margin: 15px 0;">
+                            <li>👑 Un único vendedor</li>
+                            <li>🚫 No hay sustitutos cercanos</li>
+                            <li>⛔ Barreras de entrada muy altas</li>
+                            <li>💰 Control total sobre el precio</li>
+                            <li>📉 Curva de demanda del mercado</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="feature-card" style="max-width: 800px; margin: 20px auto;">
+                    <h3>🎯 Poder de Mercado</h3>
+                    <div style="background: #2d3748; padding: 20px; border-radius: 10px; border: 2px solid #e53e3e; margin: 15px 0;">
+                        <h4>💎 El monopolista como "price-maker"</h4>
+                        <p>A diferencia de la competencia perfecta, el monopolio puede fijar precios por encima del costo marginal, generando beneficios extraordinarios a largo plazo.</p>
+                    </div>
+                </div>
+
+                <!-- IMAGEN DE LA CURVA - MONOPOLIO -->
+                <div class="feature-card" style="max-width: 800px; margin: 20px auto;">
+                    <h3>📈 Curva de Monopolio</h3>
+                    <div style="text-align: center; margin: 20px 0;">
+                        <img src="https://tribunaeconomica.com.mx/assets/media/fotos/publicacion/detalle/2022/03/13/Monopolio_1.png" 
+                             alt="Curva de Monopolio" 
+                             style="width: 100%; max-width: 600px; border-radius: 10px; border: 2px solid #e53e3e;">
+                        <p style="margin-top: 10px; font-size: 14px; color: #ccc;">El monopolista fija precios por encima del costo marginal</p>
+                    </div>
+                </div>
+
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🏆</div>
+                        <h3>Tipos de Monopolio</h3>
+                        <ul style="text-align: left;">
+                            <li><strong>Natural:</strong> Economías de escala (empresas de agua)</li>
+                            <li><strong>Legal:</strong> Patentes y derechos de autor</li>
+                            <li><strong>Puro:</strong> Control total sin sustitutos</li>
+                            <li><strong>Geográfico:</strong> Ubicación única</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">⚖️</div>
+                        <h3>Regulación</h3>
+                        <p>Los gobiernos suelen regular monopolios para proteger a los consumidores mediante:</p>
+                        <ul style="text-align: left;">
+                            <li>Control de precios máximos</li>
+                            <li>Impuestos específicos</li>
+                            <li>Promoción de competencia</li>
+                            <li>Servicios públicos regulados</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin: 40px 0;">
+    <a href="/" class="nav-item" style="display: inline-block; padding: 15px 30px; background: #4CAF50; color: white; text-decoration: none; border-radius: 5px; font-weight: bold;">
+        Volver al Inicio
+    </a>
+</div>
+
+    <footer class="minecraft-footer" style="text-align: center; padding: 20px;">
+        <p>&copy; 2024 Mineconomía - Aprendiendo economía con Minecraft</p>
+    </footer>
+</body>
+</html>

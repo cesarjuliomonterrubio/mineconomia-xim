@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Economía Internacional - Economía Mineconómica</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body class="minecraft-body">
+    <!-- Video de fondo - PARA TODAS LAS PÁGINAS -->
+<video autoplay muted loop class="video-background">
+    <source src="{{ url_for('static', filename='videos/fondo.mp4') }}" type="video/mp4">
+    Tu navegador no soporta videos HTML5.
+</video>
+<div class="overlay"></div>
+    <header class="minecraft-header">
+        <div class="header-container">
+            <div class="logo-section">
+                <a href="/" class="minecraft-logo">
+                    <span class="logo-text">⛏️ MINECONOMÍA</span>
+                </a>
+            </div>
+            <nav class="main-nav">
+                <div class="nav-section">
+                    <a href="/" class="nav-item">🏠 Inicio</a>
+                    
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <main class="minecraft-main">
+            <section class="minecraft-hero">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1>🌍 Economía Internacional</h1>
+                        <p class="hero-subtitle">🧔 <strong>Steve</strong> te explica el comercio global</p>
+                    </div>
+                    <div class="hero-media">
+                        <div class="character-explanation">
+                            <img src="https://minecraftshop.com/cdn/shop/files/steve.png?v=1617981073" alt="Steve" width="250" height="250" class="character-image">
+                            <div class="speech-bubble">
+                                <div class="speech-bubble">
+    <p style="font-family: 'Press Start 2P', cursive; font-size: 10px; line-height: 1.5;">"Como exploro diferentes biomas, la economía internacional estudia intercambios entre países y culturas."</p>
+</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="features-section">
+                <div class="tabs-container">
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">🔄</div>
+                            <h3>Comercio Global</h3>
+                            <p>"Intercambiar recursos entre biomas es como el comercio internacional entre países."</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">💱</div>
+                            <h3>Tipos de Cambio</h3>
+                            <p>"Como convierto recursos, las monedas se intercambian a diferentes valores."</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🏛️</div>
+                            <h3>Organizaciones Internacionales</h3>
+                            <p>"Cooperar con otros jugadores es como países colaborando en organizaciones globales."</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div style="text-align: center; margin: 3rem 0;">
+                <a href="/" class="btn-primary">🏠 Volver al Inicio</a>
+                <a href="/analisis-datos" class="btn-secondary">📈 Análisis de Datos</a>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

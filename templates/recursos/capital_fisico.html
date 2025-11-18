@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capital Físico - Economía Mineconómica</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body class="minecraft-body">
+    <!-- Video de fondo - PARA TODAS LAS PÁGINAS -->
+    <video autoplay muted loop class="video-background">
+        <source src="{{ url_for('static', filename='videos/fondo.mp4') }}" type="video/mp4">
+        Tu navegador no soporta videos HTML5.
+    </video>
+    <div class="overlay"></div>
+
+    <header class="minecraft-header">
+        <div class="header-container">
+            <div class="logo-section">
+                <a href="/" class="minecraft-logo">
+                    <span class="logo-text">⛏️ MINECONOMÍA</span>
+                </a>
+            </div>
+            <nav class="main-nav">
+                <div class="nav-section">
+                    <a href="/" class="nav-item">🏠 Inicio</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <main class="minecraft-main">
+            <!-- Hero Section con Conejo -->
+            <section class="minecraft-hero">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1>🏭 Capital Físico</h1>
+                        <p class="hero-subtitle">🐇 <strong>El Conejo Dorado</strong> te explica las herramientas de producción</p>
+                    </div>
+                    <div class="hero-media">
+                        <div class="character-explanation">
+                            <img src="https://todosobreminecraft05.wordpress.com/wp-content/uploads/2022/04/gold_rabbit_je2_be2.webp?w=640" alt="Conejo Dorado de Minecraft" width="250" height="250" class="character-image">
+                            <div class="speech-bubble">
+                                <p style="font-family: 'Press Start 2P', cursive; font-size: 10px; line-height: 1.5;">"¡Salto! Como conejo dorado, sé que las herramientas valiosas hacen el trabajo más fácil. El capital físico multiplica nuestra productividad!"</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Explicación del Conejo -->
+            <section class="features-section">
+                <div class="tabs-container">
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">🔧</div>
+                            <h3>Maquinaria y Equipos</h3>
+                            <p>"Como mis patas ágiles, la maquinaria especializada permite trabajar más rápido y con mejor calidad en la producción económica."</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🏗️</div>
+                            <h3>Infraestructura</h3>
+                            <p>"Necesito caminos para moverme rápido. La infraestructura conecta mercados y facilita el comercio entre regiones."</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">💻</div>
+                            <h3>Tecnología</h3>
+                            <p>"Mi pelaje dorado es especial. La tecnología moderna optimiza procesos y crea ventajas competitivas."</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Componentes del Capital Físico -->
+            <section class="resources-section">
+                <div class="section-header">
+                    <h2>🐇 Componentes del Capital Físico</h2>
+                    <p>Según la experiencia del Conejo Dorado</p>
+                </div>
+                <div class="resources-grid">
+                    <div class="resource-item">
+                        <span class="resource-icon">🏭</span>
+                        <span class="resource-name">Fábricas</span>
+                        <span class="resource-desc">Plantas de producción</span>
+                    </div>
+                    <div class="resource-item">
+                        <span class="resource-icon">🚜</span>
+                        <span class="resource-name">Maquinaria</span>
+                        <span class="resource-desc">Equipos industriales</span>
+                    </div>
+                    <div class="resource-item">
+                        <span class="resource-icon">🏢</span>
+                        <span class="resource-name">Edificios</span>
+                        <span class="resource-desc">Infraestructura comercial</span>
+                    </div>
+                    <div class="resource-item">
+                        <span class="resource-icon">🔌</span>
+                        <span class="resource-name">Tecnología</span>
+                        <span class="resource-desc">Sistemas y software</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Importancia Económica -->
+            <section class="features-section">
+                <div class="section-header">
+                    <h2>🚀 Importancia en la Economía</h2>
+                    <p>Por qué el capital físico es fundamental</p>
+                </div>
+                <div class="feature-card" style="max-width: 800px; margin: 0 auto;">
+                    <h3>🐇 Desde la perspectiva del Conejo:</h3>
+                    <ul style="text-align: left; margin: 1rem 0;">
+                        <li>⚡ <strong>Eficiencia:</strong> Mejora la productividad y reduce tiempos</li>
+                        <li>💰 <strong>Inversión:</strong> Requiere capital pero genera retornos</li>
+                        <li>🌍 <strong>Desarrollo:</strong> Base para el crecimiento económico</li>
+                        <li>🔧 <strong>Innovación:</strong> Permite adoptar nuevas tecnologías</li>
+                        <li>📈 <strong>Competitividad:</strong> Ventaja en mercados globales</li>
+                    </ul>
+                    <div style="margin-top: 1rem; padding: 1rem; background: rgba(255, 215, 0, 0.2); border-radius: 10px;">
+                        <p><strong>💡 Dato del Conejo:</strong> "Invertir en capital físico es como encontrar zanahorias doradas - requiere esfuerzo pero el beneficio es enorme!"</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Conexión Minecraft -->
+            <section class="platforms-section">
+                <div class="section-header">
+                    <h2>💎 Conexión con Minecraft</h2>
+                    <p>El capital físico en el mundo de bloques</p>
+                </div>
+                <div class="platforms-grid">
+                    <div class="platform-item">
+                        <span class="platform-icon">⛏️</span>
+                        <span class="platform-name">Herramientas</span>
+                        <p>Picos, hachas, espadas - aumentan productividad</p>
+                    </div>
+                    <div class="platform-item">
+                        <span class="platform-icon">🏠</span>
+                        <span class="platform-name">Infraestructura</span>
+                        <p>Hornos, mesas de trabajo, yunques</p>
+                    </div>
+                    <div class="platform-item">
+                        <span class="platform-icon">🔗</span>
+                        <span class="platform-name">Redstone</span>
+                        <p>Sistema de ingeniería que automatiza</p>
+                    </div>
+                    <div class="platform-item">
+                        <span class="platform-icon">🏰</span>
+                        <span class="platform-name">Construcciones</span>
+                        <p>Casas, granjas, sistemas de transporte</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Depreciación y Mantenimiento -->
+            <section class="features-section">
+                <div class="section-header">
+                    <h2>🔧 Mantenimiento del Capital Físico</h2>
+                    <p>Cómo conservar las herramientas productivas</p>
+                </div>
+                <div class="feature-card" style="max-width: 800px; margin: 0 auto;">
+                    <h3>🐇 Consejos del Conejo Dorado:</h3>
+                    <ul style="text-align: left; margin: 1rem 0;">
+                        <li>🛠️ <strong>Reparaciones:</strong> Mantener equipos en buen estado</li>
+                        <li>🔄 <strong>Actualizaciones:</strong> Renovar tecnología obsoleta</li>
+                        <li>📊 <strong>Depreciación:</strong> Contabilizar desgaste natural</li>
+                        <li>💡 <strong>Innovación:</strong> Adoptar nuevas herramientas</li>
+                        <li>🌱 <strong>Sostenibilidad:</strong> Equipos eficientes energéticamente</li>
+                    </ul>
+                    <div style="margin-top: 1rem; padding: 1rem; background: rgba(139, 69, 19, 0.2); border-radius: 10px;">
+                        <p><strong>🎯 Reflexión:</strong> "Sin mis patas ágiles no podría escapar de los depredadores. Sin capital físico, las economías no pueden competir!"</p>
+                    </div>
+                </div>
+            </section>
+
+            <div style="text-align: center; margin: 3rem 0;">
+                <a href="/" class="btn-primary">🏠 Volver al Inicio</a>
+                <a href="/capital-humano" class="btn-secondary">📚 Capital Humano</a>
+                <a href="/innovacion" class="btn-secondary">💡 Innovación</a>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
