@@ -112,7 +112,7 @@
             top: 10px;
             right: 10px;
             background: #4CAF50;
-            color: rgb(255, 85, 85);
+            color: white;
             border: none;
             padding: 8px 15px;
             border-radius: 5px;
@@ -298,7 +298,7 @@
                 <div class="code-section">
                     <h3> Instrucciones Rápidas:</h3>
                     <ol style="color: #333333; margin-left: 20px;">
-                        <li>Instala las dependencias: <code style="color: #2E8B57; background: #0f93da; padding: 2px 6px; border-radius: 3px;">pip install pandas numpy matplotlib statsmodels</code></li>
+                        <li>Instala las dependencias: <code style="color: #2E8B57; background: #f0f0f0; padding: 2px 6px; border-radius: 3px;">pip install pandas numpy matplotlib statsmodels</code></li>
                         <li>Copia el código siguiente</li>
                         <li>Pégalo en un archivo .py</li>
                         <li>Ejecuta y obtendrás la misma gráfica</li>
@@ -411,16 +411,15 @@ plt.text(<span class="number">0.05</span>, <span class="number">0.95</span>, <sp
 plt.tight_layout()
 plt.show()
 
-print(<span class="string">"Gráfica generada"</span>)
-
+print(<span class="string">"Gráfica generada"</span>)</code></pre>
                     </div>
                     
                     <div style="background: #e8f5e8; padding: 15px; border-radius: 8px; margin-top: 20px;">
                         <h4 style="color: #2E8B57;"> ¿Qué obtendrás al ejecutar este código?</h4>
                         <ul style="color: #333333;">
                             <li><strong>La misma gráfica de dispersión</strong> que ves en esta página</li>
-                           
-                            
+                            <li><strong>Análisis estadístico completo</strong> de la regresión lineal</li>
+                            <li><strong>Ecuación de regresión</strong> y coeficiente de determinación R²</li>
                         </ul>
                     </div>
                 </div>
@@ -467,18 +466,102 @@ print(<span class="string">"Gráfica generada"</span>)
             { pais: 'Alemania', año: 2023, pib: 4.31, consumo: 2.42, inversion: 0.87, exportaciones: 1.84, importaciones: 1.59 }
         ];
 
+        function mostrarMensajeSinDatos() {
+            const layout = {
+                title: 'No hay datos disponibles',
+                xaxis: { title: 'Variable X', showgrid: false, zeroline: false, showticklabels: false },
+                yaxis: { title: 'PIB', showgrid: false, zeroline: false, showticklabels: false },
+                plot_bgcolor: 'white',
+                paper_bgcolor: 'white',
+                annotations: [{
+                    x: 0.5, y: 0.5, xref: 'paper', yref: 'paper',
+                    text: 'No hay datos para los filtros seleccionados<br>Intenta con otras combinaciones',
+                    showarrow: false,
+                    font: { size: 16, color: 'red' },
+                    bgcolor: 'rgba(255,255,255,0.9)',
+                    bordercolor: 'red',
+                    borderwidth: 2,
+                    borderpad: 10
+                }]
+            };
+            
+            Plotly.newPlot('graficaEconomica', [], layout);
+            
+            // Actualizar interpretación
+            document.getElementById('interpretacion').innerHTML = 
+                '<strong>No hay datos disponibles</strong> para los filtros seleccionados. ' +
+                'Por favor, intenta con otras combinaciones de país y año.';
+        }
+
+        function getVariableNombre(variable) {
+            const nombres = {
+                'consumo': 'Consumo Privado',
+                'inversion': 'Inversión',
+                'exportaciones': 'Exportaciones',
+                'importaciones': 'Importaciones'
+            };
+            return nombres[variable] || variable;
+        }
+        
+        function getVariableAbrev(variable) {
+            const abreviaturas = {
+                'consumo': 'C',
+                'inversion': 'I',
+                'exportaciones': 'X',
+                'importaciones': 'M'
+            };
+            return abreviaturas[variable] || variable;
+        }
+
+        function actualizarInterpretacion(pendiente, intercepto, rCuadrado, variableX) {
+            const interpretacion = document.getElementById('interpretacion');
+            const variableNombre = getVariableNombre(variableX);
+            
+            let texto = `
+                <strong>Ecuación estimada:</strong> PIB = ${intercepto.toFixed(2)} + ${pendiente.toFixed(2)}·${getVariableAbrev(variableX)}<br><br>
+                <strong>Interpretación:</strong> Por cada $1 billón de aumento en ${variableNombre.toLowerCase()}, 
+                el PIB ${pendiente > 0 ? 'aumenta' : 'disminuye'} en $${Math.abs(pendiente).toFixed(2)} billones.<br><br>
+                <strong>Bondad de ajuste:</strong> R² = ${rCuadrado.toFixed(3)} (${(rCuadrado * 100).toFixed(1)}% de la variación del PIB es explicada por ${variableNombre.toLowerCase()})
+            `;
+            
+            interpretacion.innerHTML = texto;
+        }
+
         function actualizarGrafica() {
             const variableX = document.getElementById('variableX').value;
             const paisFiltro = document.getElementById('paisFiltro').value;
             const anioFiltro = document.getElementById('anioFiltro').value;
             
-            // Filtrar datos
-            let datosFiltrados = datosEconomicos;
-            if (paisFiltro !== 'todos') {
-                datosFiltrados = datosFiltrados.filter(d => d.pais.toLowerCase() === paisFiltro);
-            }
-            if (anioFiltro !== 'todos') {
-                datosFiltrados = datosFiltrados.filter(d => d.año.toString() === anioFiltro);
+            // Mapeo de valores del select a nombres reales
+            const nombresPaises = {
+                'mexico': 'México',
+                'usa': 'USA', 
+                'china': 'China',
+                'alemania': 'Alemania'
+            };
+            
+            // Filtrar datos - VERSIÓN CORREGIDA
+            let datosFiltrados = datosEconomicos.filter(d => {
+                let cumplePais = true;
+                let cumpleAnio = true;
+                
+                if (paisFiltro !== 'todos') {
+                    cumplePais = d.pais === nombresPaises[paisFiltro];
+                }
+                
+                if (anioFiltro !== 'todos') {
+                    cumpleAnio = d.año.toString() === anioFiltro;
+                }
+                
+                return cumplePais && cumpleAnio;
+            });
+            
+            console.log('Datos filtrados:', datosFiltrados); // Para debug
+            
+            // Verificar si hay datos
+            if (datosFiltrados.length === 0) {
+                mostrarMensajeSinDatos();
+                return;
             }
             
             // Preparar datos para la gráfica
@@ -486,6 +569,50 @@ print(<span class="string">"Gráfica generada"</span>)
             const yData = datosFiltrados.map(d => d.pib);
             const paises = datosFiltrados.map(d => d.pais);
             const años = datosFiltrados.map(d => d.año);
+            
+            // Solo calcular regresión si hay al menos 2 puntos
+            if (datosFiltrados.length < 2) {
+                // Mostrar solo el punto sin línea de regresión
+                const trazaDatos = {
+                    x: xData,
+                    y: yData,
+                    mode: 'markers',
+                    type: 'scatter',
+                    name: 'Datos',
+                    marker: {
+                        size: 15,
+                        color: '#FF6B6B',
+                        opacity: 0.8,
+                        line: { width: 2, color: 'white' }
+                    },
+                    text: datosFiltrados.map(d => 
+                        `País: ${d.pais}<br>Año: ${d.año}<br>PIB: $${d.pib}T<br>${getVariableNombre(variableX)}: $${d[variableX]}T`
+                    ),
+                    hoverinfo: 'text'
+                };
+                
+                const layout = {
+                    title: `Relación entre PIB y ${getVariableNombre(variableX)}`,
+                    xaxis: { title: `${getVariableNombre(variableX)} (Trillones USD)` },
+                    yaxis: { title: 'Producto Interno Bruto (Trillones USD)' },
+                    plot_bgcolor: 'white',
+                    paper_bgcolor: 'white',
+                    showlegend: true,
+                    annotations: [{
+                        x: 0.5, y: 0.9, xref: 'paper', yref: 'paper',
+                        text: 'Solo un punto disponible - No se puede calcular regresión',
+                        showarrow: false,
+                        bgcolor: 'rgba(255,255,255,0.8)',
+                        bordercolor: 'orange',
+                        borderwidth: 1
+                    }]
+                };
+                
+                Plotly.newPlot('graficaEconomica', [trazaDatos], layout);
+                document.getElementById('interpretacion').innerHTML = 
+                    '<strong>Un solo punto de datos:</strong> Se necesita al menos 2 puntos para calcular una regresión lineal.';
+                return;
+            }
             
             // Calcular línea de regresión (mínimos cuadrados simples)
             const n = xData.length;
@@ -519,7 +646,6 @@ print(<span class="string">"Gráfica generada"</span>)
                 marker: {
                     size: 12,
                     color: años.map(año => {
-                        // Color por año para mejor visualización
                         const colores = {2020: '#FF6B6B', 2021: '#4ECDC4', 2022: '#45B7D1', 2023: '#96CEB4'};
                         return colores[año] || '#FFA500';
                     }),
@@ -550,11 +676,12 @@ print(<span class="string">"Gráfica generada"</span>)
                 showlegend: true,
                 annotations: [{
                     x: 0.05, y: 0.95, xref: 'paper', yref: 'paper',
-                    text: `Ecuación: PIB = ${intercepto.toFixed(2)} + ${pendiente.toFixed(2)}·${getVariableAbrev(variableX)}`,
+                    text: `Ecuación: PIB = ${intercepto.toFixed(2)} + ${pendiente.toFixed(2)}·${getVariableAbrev(variableX)}<br>R² = ${rCuadrado.toFixed(3)}`,
                     showarrow: false,
-                    bgcolor: 'rgba(255,255,255,0.8)',
+                    bgcolor: 'rgba(255,255,255,0.9)',
                     bordercolor: 'rgba(0,0,0,0.5)',
-                    borderwidth: 1
+                    borderwidth: 1,
+                    font: { size: 12 }
                 }]
             };
             
@@ -563,40 +690,6 @@ print(<span class="string">"Gráfica generada"</span>)
             
             // Actualizar interpretación
             actualizarInterpretacion(pendiente, intercepto, rCuadrado, variableX);
-        }
-        
-        function getVariableNombre(variable) {
-            const nombres = {
-                'consumo': 'Consumo Privado',
-                'inversion': 'Inversión',
-                'exportaciones': 'Exportaciones',
-                'importaciones': 'Importaciones'
-            };
-            return nombres[variable] || variable;
-        }
-        
-        function getVariableAbrev(variable) {
-            const abreviaturas = {
-                'consumo': 'C',
-                'inversion': 'I',
-                'exportaciones': 'X',
-                'importaciones': 'M'
-            };
-            return abreviaturas[variable] || variable;
-        }
-        
-        function actualizarInterpretacion(pendiente, intercepto, rCuadrado, variableX) {
-            const interpretacion = document.getElementById('interpretacion');
-            const variableNombre = getVariableNombre(variableX);
-            
-            let texto = `
-                <strong>Ecuación estimada:</strong> PIB = ${intercepto.toFixed(2)} + ${pendiente.toFixed(2)}·${getVariableAbrev(variableX)}<br><br>
-                <strong>Interpretación:</strong> Por cada $1 billón de aumento en ${variableNombre.toLowerCase()}, 
-                el PIB ${pendiente > 0 ? 'aumenta' : 'disminuye'} en $${Math.abs(pendiente).toFixed(2)} billones.<br><br>
-                <strong>Bondad de ajuste:</strong> R² = ${rCuadrado.toFixed(3)} (${(rCuadrado * 100).toFixed(1)}% de la variación del PIB es explicada por ${variableNombre.toLowerCase()})
-            `;
-            
-            interpretacion.innerHTML = texto;
         }
 
         // Función para copiar el código al portapapeles
