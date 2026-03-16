@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Sopa de Letras - Conceptos Económicos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos responsive */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #1a1a1a;
+            font-family: 'Press Start 2P', cursive;
+            color: #fff;
+        }
+
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: -1;
+        }
+
+        .minecraft-header {
+            background: linear-gradient(to bottom, #2a2a2a, #1a1a1a);
+            border-bottom: 4px solid #5a5a5a;
+            padding: 10px 0;
+            margin-bottom: 20px;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .minecraft-logo {
+            text-decoration: none;
+            color: #ffaa00;
+            font-size: clamp(14px, 3vw, 20px);
+            text-shadow: 3px 3px 0 #5a3a00;
+        }
+
+        .main-nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-item {
+            color: #fff;
+            text-decoration: none;
+            font-size: clamp(10px, 2vw, 14px);
+            padding: 8px 15px;
+            background: #3f3f3f;
+            border: 2px solid #5a5a5a;
+            border-radius: 5px;
+            transition: all 0.2s;
+        }
+
+        .nav-item:hover {
+            background: #5a5a5a;
+            border-color: #ffaa00;
+        }
+
+        .wordsearch-wrapper {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 10px;
+        }
+
+        .minecraft-main {
+            padding: 20px 0;
+        }
+
+        .minecraft-hero {
+            background: rgba(0, 0, 0, 0.8);
+            border: 4px solid #8b8b8b;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .hero-content {
+            text-align: center;
+        }
+
+        .hero-text h1 {
+            color: #ffaa00;
+            font-size: clamp(16px, 4vw, 24px);
+            margin-bottom: 10px;
+            text-shadow: 4px 4px 0 #5a3a00;
+        }
+
+        .hero-subtitle {
+            color: #fff;
+            font-size: clamp(12px, 3vw, 16px);
+        }
+
+        .wordsearch-container {
+            background: rgba(0, 0, 0, 0.8);
+            border: 4px solid #8b8b8b;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 0 30px rgba(0,0,0,0.7);
+        }
+
+        .wordsearch-title {
+            text-align: center;
+            color: #fff;
+            font-family: 'Press Start 2P', cursive;
+            font-size: clamp(16px, 4vw, 24px);
+            margin-bottom: 20px;
+            text-shadow: 4px 4px 0 #3f3f3f;
+            word-break: break-word;
+        }
+
+        .wordsearch-grid {
+            display: grid;
+            grid-template-columns: repeat(15, minmax(30px, 1fr));
+            gap: 3px;
+            background: #1a1a1a;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border: 3px solid #5a5a5a;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .grid-cell {
+            aspect-ratio: 1;
+            background: #2a2a2a;
+            border: 2px solid #3f3f3f;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Press Start 2P', cursive;
+            font-size: clamp(10px, 2vw, 16px);
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-transform: uppercase;
+            padding: 2px;
+            border-radius: 4px;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        @media (max-width: 768px) {
+            .grid-cell {
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .grid-cell {
+                font-size: 10px;
+            }
+        }
+
+        .grid-cell:hover {
+            background: #3f3f3f;
+            transform: scale(1.05);
+            border-color: #ffaa00;
+        }
+
+        .grid-cell.selected {
+            background: #4a6b8f;
+            border-color: #ffaa00;
+            box-shadow: 0 0 10px #ffaa00;
+        }
+
+        .grid-cell.found {
+            background: #2d5a27;
+            border-color: #4caf50;
+            cursor: default;
+        }
+
+        .grid-cell.found:hover {
+            transform: none;
+            background: #2d5a27;
+        }
+
+        .search-words-panel {
+            background: rgba(30, 30, 30, 0.95);
+            border: 3px solid #ffaa00;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .search-words-title {
+            color: #ffaa00;
+            font-family: 'Press Start 2P', cursive;
+            font-size: clamp(14px, 3vw, 18px);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .search-words-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+        }
+
+        .search-word-item {
+            background: #2a2a2a;
+            border: 2px solid #4a6b8f;
+            border-radius: 25px;
+            padding: 8px 15px;
+            font-family: 'Press Start 2P', cursive;
+            font-size: clamp(8px, 2vw, 12px);
+            color: #ffaa00;
+            text-transform: uppercase;
+            transition: all 0.2s;
+        }
+
+        .search-word-item.found {
+            background: #2d5a27;
+            border-color: #4caf50;
+            color: white;
+            text-decoration: line-through;
+            opacity: 0.8;
+        }
+
+        .words-panel {
+            background: rgba(30, 30, 30, 0.95);
+            border: 3px solid #9c27b0;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .words-panel-title {
+            color: #9c27b0;
+            font-family: 'Press Start 2P', cursive;
+            font-size: clamp(14px, 3vw, 18px);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .words-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            min-height: 80px;
+        }
+
+        .found-word-chip {
+            background: #2d5a27;
+            border: 3px solid #4caf50;
+            border-radius: 30px;
+            padding: clamp(8px, 2vw, 12px) clamp(12px, 3vw, 20px);
+            font-family: 'Press Start 2P', cursive;
+            font-size: clamp(10px, 2vw, 14px);
+            color: white;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: 0 4px 0 #1a3a1a;
+            animation: bounceIn 0.3s;
+        }
+
+        /* Estilo para palabras ya usadas */
+        .found-word-chip.used {
+            background: #5a2a2a;
+            border-color: #8b3f3f;
+            box-shadow: 0 4px 0 #3a1a1a;
+            cursor: not-allowed;
+            opacity: 0.6;
+            text-decoration: line-through;
+        }
+
+        .found-word-chip.used:hover {
+            transform: none;
+            box-shadow: 0 4px 0 #3a1a1a;
+            border-color: #8b3f3f;
+        }
+
+        @keyframes bounceIn {
+            0% { transform: scale(0); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .found-word-chip:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 0 #1a3a1a;
+            border-color: #ffaa00;
+        }
+
+        .found-word-chip:active {
+            transform: translateY(4px);
+            box-shadow: 0 0 0 #1a3a1a;
+        }
+
+        .found-word-chip.selected-for-sentence {
+            background: #4a6b8f;
+            border-color: #ffaa00;
+            box-shadow: 0 0 15px #ffaa00;
+        }
+
+        .sentences-section {
+            background: rgba(30, 30, 30, 0.95);
+            border: 3px solid #5a5a5a;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .sentences-title {
+            color: #ffaa00;
+            font-family: 'Press Start 2P', cursive;
+            font-size: clamp(14px, 3vw, 18px);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .sentences-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+        }
+
+        .sentence-card {
+            background: rgba(0, 0, 0, 0.7);
+            border: 2px solid #3f3f3f;
+            border-radius: 10px;
+            padding: 15px;
+            transition: all 0.3s;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .sentence-card:hover {
+            border-color: #ffaa00;
+            transform: scale(1.02);
+            box-shadow: 0 0 20px rgba(255, 170, 0, 0.3);
+        }
+
+        .sentence-card.completed {
+            background: rgba(45, 90, 39, 0.3);
+            border-color: #4caf50;
+        }
+
+        .sentence-number {
+            color: #ffaa00;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 10px;
+            margin-bottom: 10px;
+        }
+
+        .sentence-text {
+            color: #fff;
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .blank-space {
+            display: inline-block;
+            min-width: 80px;
+            background: #2a2a2a;
+            border: 2px dashed #4a6b8f;
+            border-radius: 5px;
+            padding: 5px 8px;
+            margin: 0 3px;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 10px;
+            color: #ffaa00;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .blank-space:hover {
+            background: #3a3a3a;
+            border-color: #ffaa00;
+        }
+
+        .blank-space.filled {
+            background: #2d5a27;
+            border: 2px solid #4caf50;
+            color: white;
+            cursor: default;
+        }
+
+        .blank-space.filled:hover {
+            transform: scale(1.05);
+            background: #2d5a27;
+        }
+
+        .success-badge {
+            display: inline-block;
+            background: #4caf50;
+            color: white;
+            padding: 3px 6px;
+            border-radius: 5px;
+            font-size: 8px;
+            margin-left: 8px;
+            font-family: 'Press Start 2P', cursive;
+        }
+
+        .message-area {
+            text-align: center;
+            font-family: 'Press Start 2P', cursive;
+            font-size: clamp(8px, 2vw, 12px);
+            color: #ffaa00;
+            margin: 20px 0;
+            min-height: 30px;
+            padding: 10px;
+            background: rgba(0,0,0,0.5);
+            border-radius: 5px;
+            line-height: 1.5;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 25px;
+            background: #2a2a2a;
+            border: 3px solid #3f3f3f;
+            border-radius: 15px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #4caf50, #8bc34a);
+            width: 0%;
+            transition: width 0.3s;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            color: #fff;
+            font-family: 'Press Start 2P', cursive;
+            font-size: clamp(8px, 2vw, 12px);
+            margin: 10px 0;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        /* Estilos para botones estilo Minecraft */
+        .minecraft-btn {
+            background: #7c7c7c;
+            border: 4px solid #3f3f3f;
+            border-top-color: #b0b0b0;
+            border-left-color: #b0b0b0;
+            border-bottom-color: #2a2a2a;
+            border-right-color: #2a2a2a;
+            color: white;
+            font-family: 'Press Start 2P', cursive;
+            font-size: clamp(10px, 2vw, 14px);
+            padding: 12px 24px;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: all 0.1s;
+            box-shadow: 0 4px 0 #2a2a2a;
+            border-radius: 5px;
+        }
+
+        .minecraft-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 0 #2a2a2a;
+            background: #8c8c8c;
+        }
+
+        .minecraft-btn:active {
+            transform: translateY(4px);
+            box-shadow: 0 0 0 #2a2a2a;
+            border-top-color: #2a2a2a;
+            border-left-color: #2a2a2a;
+            border-bottom-color: #b0b0b0;
+            border-right-color: #b0b0b0;
+        }
+
+        .controls {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            font-family: 'Press Start 2P', cursive;
+            font-size: clamp(10px, 2vw, 12px);
+            color: #ffaa00;
+            text-decoration: none;
+            padding: 10px;
+            background: rgba(0,0,0,0.5);
+            border: 2px solid #ffaa00;
+            border-radius: 5px;
+        }
+
+        .back-link:hover {
+            background: rgba(255, 170, 0, 0.2);
+            text-decoration: none;
+        }
+
+        .instructions {
+            background: rgba(0, 0, 0, 0.7);
+            border-left: 4px solid #ffaa00;
+            border-right: 4px solid #ffaa00;
+            padding: 15px;
+            margin-bottom: 20px;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .instructions strong {
+            color: #ffaa00;
+            font-family: 'Press Start 2P', cursive;
+            font-size: clamp(10px, 2vw, 12px);
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .instructions p {
+            margin: 8px 0;
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .main-nav {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .sentence-text {
+                font-size: 12px;
+            }
+            
+            .blank-space {
+                min-width: 60px;
+                font-size: 9px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .wordsearch-grid {
+                gap: 2px;
+                padding: 10px;
+            }
+            
+            .grid-cell {
+                font-size: 8px;
+            }
+            
+            .search-word-item {
+                font-size: 8px;
+                padding: 5px 10px;
+            }
+            
+            .found-word-chip {
+                font-size: 8px;
+                padding: 8px 12px;
+            }
+            
+            .minecraft-btn {
+                width: 100%;
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body class="minecraft-body">
+    <!-- Video de fondo -->
+    <video autoplay muted loop class="video-background">
+        <source src="{{ url_for('static', filename='videos/fondo.mp4') }}" type="video/mp4">
+        Tu navegador no soporta videos HTML5.
+    </video>
+    <div class="overlay"></div>
+
+    <header class="minecraft-header">
+        <div class="header-container">
+            <div class="logo-section">
+                <a href="/" class="minecraft-logo">
+                    <span class="logo-text">⛏️ MINECONOMÍA</span>
+                </a>
+            </div>
+            <nav class="main-nav">
+                <div class="nav-section">
+                    <a href="/" class="nav-item"> Inicio</a>
+                    
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="wordsearch-wrapper">
+        <main class="minecraft-main">
+            <!-- Título principal sin imagen de aldeano -->
+            <section class="minecraft-hero">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1>🔍 SOPA DE LETRAS ECONÓMICA</h1>
+                        <p class="hero-subtitle">📚 Encuentra las palabras y completa las oraciones</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Instrucciones -->
+            <div class="instructions">
+                <strong>🎮 CÓMO JUGAR:</strong>
+                <p>1️ Busca las palabras de la <span style="color: #ffaa00;">LISTA AMARILLA</span> en la sopa de letras</p>
+                <p>2️ Selecciona las letras con el mouse o dedo para formar cada palabra</p>
+                <p>3️ Las palabras encontradas aparecerán en el <span style="color: #9c27b0;">PANEL MORADO</span></p>
+                <p>4️ Haz clic en una palabra del panel morado para seleccionarla (se pondrá naranja)</p>
+                <p>5️ Haz clic en el hueco (_____) de la oración donde crees que va</p>
+                <p>6️ ¡La palabra se colocará automáticamente si es correcta!</p>
+                <p>7️ Las palabras usadas se pondrán <span style="color: #ff6b6b;">ROJAS</span> y no se podrán volver a usar</p>
+            </div>
+
+            <!-- LISTA DE PALABRAS A BUSCAR -->
+            <div class="search-words-panel">
+                <h3 class="search-words-title">🔍 PALABRAS A BUSCAR</h3>
+                <div class="search-words-container" id="searchWordsContainer">
+                    <!-- Las palabras se cargarán aquí dinámicamente -->
+                </div>
+            </div>
+
+            <!-- Sopa de Letras -->
+            <div class="wordsearch-container">
+                <h2 class="wordsearch-title">⚡ SOPA DE LETRAS ⚡</h2>
+                
+                <!-- Barra de progreso y stats -->
+                <div class="stats">
+                    <span>Palabras encontradas: <span id="foundCount">0</span>/15</span>
+                    <span>Oraciones completadas: <span id="completedCount">0</span>/15</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+
+                <!-- Grid de la sopa de letras -->
+                <div class="wordsearch-grid" id="wordsearchGrid"></div>
+
+                <!-- Mensaje de estado -->
+                <div class="message-area" id="message">
+                    ¡Busca las palabras de la lista amarilla!
+                </div>
+
+                <!-- Controles con botones estilo Minecraft -->
+                <div class="controls">
+                    <button class="minecraft-btn" onclick="resetSelection()">🔄 Limpiar</button>
+                    <button class="minecraft-btn" onclick="newGame()">🎮 Nuevo</button>
+                </div>
+            </div>
+
+            <!-- Panel de palabras encontradas -->
+            <div class="words-panel">
+                <h3 class="words-panel-title">📦 PALABRAS ENCONTRADAS</h3>
+                <div class="words-container" id="wordsContainer">
+                    <p style="color: #888; font-family: 'Press Start 2P', cursive; font-size: 10px; text-align: center;">Aún no has encontrado palabras. ¡Busca en la sopa de letras!</p>
+                </div>
+            </div>
+
+            <!-- Sección de oraciones -->
+            <div class="sentences-section">
+                <h3 class="sentences-title">📝 COMPLETA LAS ORACIONES</h3>
+                <p style="color: #aaa; text-align: center; margin-bottom: 20px; font-family: 'Press Start 2P', cursive; font-size: 8px;">Haz clic en una palabra del panel morado y luego en el hueco (_____)</p>
+                <div class="sentences-grid" id="sentencesGrid">
+                    <!-- Las oraciones se cargarán aquí dinámicamente -->
+                </div>
+            </div>
+
+            <div style="text-align: center;">
+                <a href="/logros" class="back-link">← Volver a Logros</a>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Lista de palabras y oraciones con huecos
+        const wordSentences = [
+            { word: 'ESCASEZ', sentence: 'La _______ es el problema fundamental de la economía, ya que los recursos son limitados frente a necesidades ilimitadas.' },
+            { word: 'OPORTUNIDAD', sentence: 'El beneficio al que se renuncia al elegir una opción sobre otra se llama costo de _______.' },
+            { word: 'INFLACION', sentence: 'La _______ es el aumento generalizado y sostenido de los precios de los bienes y servicios.' },
+            { word: 'MERCADO', sentence: 'El lugar donde se encuentran compradores y vendedores para intercambiar bienes se llama _______.' },
+            { word: 'DEMANDA', sentence: 'La ley de la _______ indica que, a mayor precio, menor es la cantidad que los consumidores desean comprar.' },
+            { word: 'OFERTA', sentence: 'La _______ representa la cantidad de bienes que los productores están dispuestos a vender a un precio dado.' },
+            { word: 'PIB', sentence: 'El _______ (Producto Interno Bruto) es el valor total de la producción de un país en un periodo determinado.' },
+            { word: 'ACTIVO', sentence: 'Un _______ es un bien o derecho con valor económico que posee una persona o empresa.' },
+            { word: 'AHORRO', sentence: 'El _______ es la parte del ingreso que no se destina al consumo inmediato.' },
+            { word: 'MICROECONOMIA', sentence: 'La _______ estudia el comportamiento de agentes individuales como familias y empresas.' },
+            { word: 'CAPITAL', sentence: 'El _______ incluye los recursos producidos por la mano del hombre que se utilizan para fabricar otros bienes, como maquinaria o edificios.' },
+            { word: 'DEFLACION', sentence: 'La _______ es el fenómeno contrario a la inflación, donde ocurre una caída generalizada de los precios de bienes y servicios.' },
+            { word: 'MONOPOLIO', sentence: 'Se denomina _______ a la estructura de mercado donde existe un único vendedor que controla toda la oferta de un producto.' },
+            { word: 'INTERES', sentence: 'El _______ es el precio que se paga por el uso del dinero ajeno durante un tiempo determinado.' },
+            { word: 'MACROECONOMIA', sentence: 'La _______ se encarga de estudiar el funcionamiento global de la economía como un todo (empleo, crisis, crecimiento).' }
+        ];
+
+        const words = wordSentences.map(item => item.word);
+        const gridSize = 15;
+        let grid = [];
+        let selectedCells = [];
+        let foundWords = [];
+        let usedWords = []; // Palabras que ya han sido usadas en oraciones
+        let isSelecting = false;
+        let selectedWordForSentence = null;
+        let completedSentences = [];
+
+        // Inicializar el juego
+        function initGame() {
+            createEmptyGrid();
+            placeWords();
+            fillEmptyCells();
+            renderGrid();
+            renderSearchWords();
+            renderSentences();
+            updateProgress();
+        }
+
+        // Crear grid vacío
+        function createEmptyGrid() {
+            grid = Array(gridSize).fill().map(() => Array(gridSize).fill(''));
+        }
+
+        // Colocar palabras en el grid - SOLO HORIZONTAL Y VERTICAL
+        function placeWords() {
+            const directions = [
+                { x: 1, y: 0 },  // horizontal derecha
+                { x: -1, y: 0 }, // horizontal izquierda
+                { x: 0, y: 1 },  // vertical abajo
+                { x: 0, y: -1 }  // vertical arriba
+            ];
+
+            words.forEach(word => {
+                let placed = false;
+                let attempts = 0;
+                const maxAttempts = 200;
+
+                while (!placed && attempts < maxAttempts) {
+                    const direction = directions[Math.floor(Math.random() * directions.length)];
+                    const startX = Math.floor(Math.random() * gridSize);
+                    const startY = Math.floor(Math.random() * gridSize);
+                    
+                    if (canPlaceWord(word, startX, startY, direction)) {
+                        for (let i = 0; i < word.length; i++) {
+                            const x = startX + i * direction.x;
+                            const y = startY + i * direction.y;
+                            if (x >= 0 && x < gridSize && y >= 0 && y < gridSize) {
+                                grid[y][x] = word[i];
+                            }
+                        }
+                        placed = true;
+                    }
+                    attempts++;
+                }
+            });
+        }
+
+        // Verificar si se puede colocar una palabra
+        function canPlaceWord(word, startX, startY, direction) {
+            for (let i = 0; i < word.length; i++) {
+                const x = startX + i * direction.x;
+                const y = startY + i * direction.y;
+                
+                if (x < 0 || x >= gridSize || y < 0 || y >= gridSize) {
+                    return false;
+                }
+                
+                if (grid[y][x] !== '' && grid[y][x] !== word[i]) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        // Llenar celdas vacías con letras aleatorias
+        function fillEmptyCells() {
+            const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            for (let y = 0; y < gridSize; y++) {
+                for (let x = 0; x < gridSize; x++) {
+                    if (grid[y][x] === '') {
+                        grid[y][x] = letters[Math.floor(Math.random() * letters.length)];
+                    }
+                }
+            }
+        }
+
+        // Renderizar el grid
+        function renderGrid() {
+            const gridElement = document.getElementById('wordsearchGrid');
+            gridElement.innerHTML = '';
+            
+            for (let y = 0; y < gridSize; y++) {
+                for (let x = 0; x < gridSize; x++) {
+                    const cell = document.createElement('div');
+                    cell.className = 'grid-cell';
+                    cell.textContent = grid[y][x];
+                    cell.dataset.x = x;
+                    cell.dataset.y = y;
+                    
+                    if (isCellInFoundWord(x, y)) {
+                        cell.classList.add('found');
+                    }
+                    
+                    gridElement.appendChild(cell);
+                }
+            }
+            
+            setupEventListeners();
+        }
+
+        // Verificar si una celda pertenece a una palabra encontrada
+        function isCellInFoundWord(x, y) {
+            return foundWords.some(word => 
+                word.positions.some(pos => pos.x === x && pos.y === y)
+            );
+        }
+
+        // Renderizar lista de palabras a buscar
+        function renderSearchWords() {
+            const container = document.getElementById('searchWordsContainer');
+            container.innerHTML = '';
+            
+            words.forEach(word => {
+                const isFound = foundWords.some(f => f.word === word);
+                const wordItem = document.createElement('span');
+                wordItem.className = `search-word-item ${isFound ? 'found' : ''}`;
+                wordItem.textContent = word;
+                container.appendChild(wordItem);
+            });
+        }
+
+        // Renderizar palabras encontradas
+        function renderFoundWords() {
+            const container = document.getElementById('wordsContainer');
+            
+            if (foundWords.length === 0) {
+                container.innerHTML = '<p style="color: #888; font-family: \'Press Start 2P\', cursive; font-size: 10px; text-align: center;">Aún no has encontrado palabras. ¡Busca en la sopa de letras!</p>';
+                return;
+            }
+            
+            container.innerHTML = '';
+            foundWords.forEach((found, index) => {
+                const chip = document.createElement('div');
+                const isUsed = usedWords.includes(found.word);
+                
+                // Aplicar clase 'used' si la palabra ya fue usada
+                chip.className = `found-word-chip ${selectedWordForSentence === found.word ? 'selected-for-sentence' : ''} ${isUsed ? 'used' : ''}`;
+                chip.textContent = found.word;
+                chip.dataset.word = found.word;
+                chip.dataset.index = index;
+                
+                // Solo permitir hacer clic si la palabra NO ha sido usada
+                if (!isUsed) {
+                    chip.onclick = () => selectWordForSentence(found.word);
+                }
+                
+                container.appendChild(chip);
+            });
+        }
+
+        // Seleccionar palabra del panel morado
+        function selectWordForSentence(word) {
+            const wordExists = foundWords.some(f => f.word === word);
+            if (!wordExists) {
+                document.getElementById('message').textContent = '❌ Esta palabra ya no está disponible';
+                return;
+            }
+
+            // Verificar si la palabra ya fue usada
+            if (usedWords.includes(word)) {
+                document.getElementById('message').textContent = '❌ Esta palabra ya fue usada en una oración';
+                return;
+            }
+
+            if (selectedWordForSentence === word) {
+                selectedWordForSentence = null;
+                document.getElementById('message').textContent = '✅ Palabra deseleccionada. Puedes elegir otra.';
+            } else {
+                selectedWordForSentence = word;
+                document.getElementById('message').textContent = `✨ Palabra "${word}" seleccionada. ¡Haz clic en un hueco!`;
+            }
+            renderFoundWords();
+        }
+
+        // Renderizar oraciones
+        function renderSentences() {
+            const sentencesGrid = document.getElementById('sentencesGrid');
+            sentencesGrid.innerHTML = '';
+            
+            wordSentences.forEach((item, index) => {
+                const isCompleted = completedSentences.includes(index);
+                const card = document.createElement('div');
+                card.className = `sentence-card ${isCompleted ? 'completed' : ''}`;
+                card.id = `sentence-${index}`;
+                
+                const number = document.createElement('div');
+                number.className = 'sentence-number';
+                number.textContent = `#${index + 1}`;
+                
+                const text = document.createElement('div');
+                text.className = 'sentence-text';
+                
+                const parts = item.sentence.split('_______');
+                
+                text.appendChild(document.createTextNode(parts[0]));
+                
+                const blank = document.createElement('span');
+                blank.className = `blank-space ${isCompleted ? 'filled' : ''}`;
+                blank.id = `blank-${index}`;
+                blank.dataset.index = index;
+                blank.dataset.word = item.word;
+                
+                if (isCompleted) {
+                    blank.textContent = item.word;
+                } else {
+                    blank.textContent = '_____';
+                }
+                
+                blank.onclick = () => fillSentence(index, item.word);
+                text.appendChild(blank);
+                
+                if (parts.length > 1) {
+                    text.appendChild(document.createTextNode(parts[1]));
+                }
+                
+                if (isCompleted) {
+                    const badge = document.createElement('span');
+                    badge.className = 'success-badge';
+                    badge.textContent = '✓ CORRECTO';
+                    text.appendChild(badge);
+                }
+                
+                card.appendChild(number);
+                card.appendChild(text);
+                sentencesGrid.appendChild(card);
+            });
+        }
+
+        // Llenar una oración con la palabra seleccionada
+        function fillSentence(index, correctWord) {
+            if (completedSentences.includes(index)) {
+                document.getElementById('message').textContent = '⚠️ ¡Esta oración ya está completada!';
+                return;
+            }
+            
+            if (!selectedWordForSentence) {
+                document.getElementById('message').textContent = '👆 ¡Primero selecciona una palabra del panel morado!';
+                return;
+            }
+            
+            const wordExists = foundWords.some(f => f.word === selectedWordForSentence);
+            if (!wordExists) {
+                document.getElementById('message').textContent = '❌ Esta palabra ya no está disponible';
+                selectedWordForSentence = null;
+                renderFoundWords();
+                return;
+            }
+
+            // Verificar si la palabra ya fue usada
+            if (usedWords.includes(selectedWordForSentence)) {
+                document.getElementById('message').textContent = '❌ Esta palabra ya fue usada en otra oración';
+                selectedWordForSentence = null;
+                renderFoundWords();
+                return;
+            }
+            
+            if (selectedWordForSentence === correctWord) {
+                // Marcar la palabra como usada
+                usedWords.push(selectedWordForSentence);
+                completedSentences.push(index);
+                
+                document.getElementById('message').textContent = `✅ ¡Correcto! Completaste la oración #${index + 1}`;
+                
+                // Deseleccionar la palabra actual
+                selectedWordForSentence = null;
+                
+                renderSentences();
+                renderFoundWords();
+                updateProgress();
+                
+                if (completedSentences.length === words.length) {
+                    document.getElementById('message').textContent = '🎉 ¡FELICIDADES! Completaste todas las oraciones. ¡Eres un maestro economista! 🏆';
+                }
+            } else {
+                document.getElementById('message').textContent = `❌ "${selectedWordForSentence}" no es correcta para esta oración. Sigue intentando con otra oración.`;
+                renderFoundWords();
+            }
+        }
+
+        // Configurar eventos de selección
+        function setupEventListeners() {
+            const cells = document.querySelectorAll('.grid-cell');
+            
+            cells.forEach(cell => {
+                cell.removeEventListener('mousedown', startSelection);
+                cell.removeEventListener('mouseenter', continueSelection);
+                cell.removeEventListener('mouseup', endSelection);
+                cell.removeEventListener('touchstart', touchStartHandler);
+                cell.removeEventListener('touchmove', touchMoveHandler);
+                cell.removeEventListener('touchend', endSelection);
+            });
+            
+            cells.forEach(cell => {
+                cell.addEventListener('mousedown', startSelection);
+                cell.addEventListener('mouseenter', continueSelection);
+                cell.addEventListener('mouseup', endSelection);
+                cell.addEventListener('touchstart', touchStartHandler);
+                cell.addEventListener('touchmove', touchMoveHandler);
+                cell.addEventListener('touchend', endSelection);
+            });
+            
+            document.addEventListener('mouseup', endSelection);
+        }
+
+        // Handlers específicos para touch
+        function touchStartHandler(e) {
+            e.preventDefault();
+            startSelection(e);
+        }
+
+        function touchMoveHandler(e) {
+            e.preventDefault();
+            const touch = e.touches[0];
+            const element = document.elementFromPoint(touch.clientX, touch.clientY);
+            if (element && element.classList.contains('grid-cell')) {
+                continueSelection({ target: element });
+            }
+        }
+
+        function startSelection(e) {
+            if (e.target.classList.contains('grid-cell') && !e.target.classList.contains('found')) {
+                isSelecting = true;
+                clearSelection();
+                toggleCellSelection(e.target);
+            }
+        }
+
+        function continueSelection(e) {
+            if (isSelecting && e.target.classList.contains('grid-cell') && !e.target.classList.contains('found')) {
+                toggleCellSelection(e.target);
+            }
+        }
+
+        function endSelection() {
+            if (isSelecting) {
+                isSelecting = false;
+                checkAnswers();
+            }
+        }
+
+        function toggleCellSelection(cell) {
+            const x = parseInt(cell.dataset.x);
+            const y = parseInt(cell.dataset.y);
+            
+            const index = selectedCells.findIndex(c => c.x === x && c.y === y);
+            
+            if (index === -1) {
+                cell.classList.add('selected');
+                selectedCells.push({ x, y, element: cell });
+            }
+        }
+
+        function clearSelection() {
+            selectedCells.forEach(cell => {
+                if (cell.element) {
+                    cell.element.classList.remove('selected');
+                }
+            });
+            selectedCells = [];
+        }
+
+        function resetSelection() {
+            clearSelection();
+            document.getElementById('message').textContent = 'Selección limpiada';
+        }
+
+        // Verificar respuestas de la sopa de letras - SOLO HORIZONTAL Y VERTICAL
+        function checkAnswers() {
+            if (selectedCells.length < 2) {
+                return;
+            }
+
+            const lineInfo = checkIfStraightLine(selectedCells);
+            
+            if (!lineInfo.isStraightLine) {
+                clearSelection();
+                document.getElementById('message').textContent = '❌ Las letras deben estar en línea recta (horizontal o vertical)';
+                setTimeout(() => {
+                    document.getElementById('message').textContent = selectedWordForSentence ? 
+                        `✨ Palabra "${selectedWordForSentence}" seleccionada` : 
+                        '🔍 Busca las palabras de la lista amarilla';
+                }, 1500);
+                return;
+            }
+
+            // Solo permitir horizontal o vertical
+            if (lineInfo.direction !== 'horizontal' && lineInfo.direction !== 'vertical') {
+                clearSelection();
+                document.getElementById('message').textContent = '❌ Solo se permiten palabras horizontales o verticales';
+                setTimeout(() => {
+                    document.getElementById('message').textContent = selectedWordForSentence ? 
+                        `✨ Palabra "${selectedWordForSentence}" seleccionada` : 
+                        '🔍 Busca las palabras de la lista amarilla';
+                }, 1500);
+                return;
+            }
+
+            const selectedWord = selectedCells.map(cell => grid[cell.y][cell.x]).join('');
+            const selectedWordReversed = [...selectedCells].reverse().map(cell => grid[cell.y][cell.x]).join('');
+            
+            let foundWord = null;
+            
+            if (words.includes(selectedWord) && !foundWords.some(f => f.word === selectedWord)) {
+                foundWord = selectedWord;
+            } else if (words.includes(selectedWordReversed) && !foundWords.some(f => f.word === selectedWordReversed)) {
+                foundWord = selectedWordReversed;
+            }
+
+            if (foundWord) {
+                let positions;
+                if (foundWord === selectedWord) {
+                    positions = selectedCells.map(cell => ({ x: cell.x, y: cell.y }));
+                } else {
+                    positions = [...selectedCells].reverse().map(cell => ({ x: cell.x, y: cell.y }));
+                }
+                
+                foundWords.push({
+                    word: foundWord,
+                    positions: positions
+                });
+                
+                selectedCells.forEach(cell => {
+                    if (cell.element) {
+                        cell.element.classList.remove('selected');
+                        cell.element.classList.add('found');
+                    }
+                });
+                
+                clearSelection();
+                renderGrid();
+                renderSearchWords();
+                renderFoundWords();
+                updateProgress();
+                
+                document.getElementById('message').textContent = `🎯 ¡Encontraste: ${foundWord}! Ahora selecciona esta palabra y úsala en una oración`;
+                selectWordForSentence(foundWord);
+            } else {
+                document.getElementById('message').textContent = '❌ Esa no es una palabra válida';
+                setTimeout(() => {
+                    clearSelection();
+                    document.getElementById('message').textContent = selectedWordForSentence ? 
+                        `✨ Palabra "${selectedWordForSentence}" seleccionada` : 
+                        '🔍 Busca las palabras de la lista amarilla';
+                }, 1500);
+            }
+        }
+
+        // Verificar si las celdas seleccionadas están en línea recta - SOLO HORIZONTAL Y VERTICAL
+        function checkIfStraightLine(cells) {
+            if (cells.length < 2) return { isStraightLine: true };
+            
+            const first = cells[0];
+            const last = cells[cells.length - 1];
+            
+            const dx = last.x - first.x;
+            const dy = last.y - first.y;
+            
+            // Solo permitir horizontal (dx !== 0, dy === 0) o vertical (dx === 0, dy !== 0)
+            if ((dx === 0 && dy === 0) || (dx !== 0 && dy !== 0)) {
+                return { isStraightLine: false };
+            }
+            
+            // Verificar que cada paso sea adyacente
+            for (let i = 1; i < cells.length; i++) {
+                const prev = cells[i-1];
+                const current = cells[i];
+                
+                const stepX = current.x - prev.x;
+                const stepY = current.y - prev.y;
+                
+                if (Math.abs(stepX) > 1 || Math.abs(stepY) > 1) {
+                    return { isStraightLine: false };
+                }
+                
+                // Para horizontal, stepY debe ser 0
+                if (dx !== 0 && stepY !== 0) {
+                    return { isStraightLine: false };
+                }
+                
+                // Para vertical, stepX debe ser 0
+                if (dy !== 0 && stepX !== 0) {
+                    return { isStraightLine: false };
+                }
+            }
+            
+            let direction = dx !== 0 ? 'horizontal' : 'vertical';
+            return { isStraightLine: true, direction: direction };
+        }
+
+        // Actualizar barra de progreso
+        function updateProgress() {
+            const progress = (completedSentences.length / words.length) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+            document.getElementById('foundCount').textContent = foundWords.length;
+            document.getElementById('completedCount').textContent = completedSentences.length;
+        }
+
+        function newGame() {
+            foundWords = [];
+            usedWords = [];
+            completedSentences = [];
+            selectedWordForSentence = null;
+            clearSelection();
+            initGame();
+            document.getElementById('message').textContent = '¡Nueva sopa de letras generada!';
+        }
+
+        // Iniciar juego cuando carga la página
+        document.addEventListener('DOMContentLoaded', initGame);
+    </script>
+</body>
+</html>

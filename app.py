@@ -10,7 +10,7 @@ def inicio():
                          titulo="Economía Mineconómica", 
                          fecha_actual=fecha_actual)
 
-# NUEVA RUTA PARA AGRADECIMIENTOS
+# RUTA PARA AGRADECIMIENTOS
 @app.route('/agradecimientos')
 def agradecimientos():
     return render_template('agradecimientos.html', 
@@ -79,7 +79,7 @@ def crecimiento():
                          titulo="Crecimiento Económico",
                          seccion="recursos")
 
-# NUEVAS RUTAS PARA LOGROS ACADÉMICOS INTERACTIVOS
+# RUTAS PARA LOGROS ACADÉMICOS INTERACTIVOS
 @app.route('/licenciatura-economia')
 def licenciatura_economia():
     return render_template('logros/licenciatura.html', 
@@ -116,7 +116,14 @@ def economia_digital():
                          titulo="Economía Digital",
                          seccion="logros")
 
-# NUEVAS RUTAS PARA CONCEPTOS ECONÓMICOS
+# NUEVA RUTA PARA SOPA DE LETRAS - ¡AGREGADA!
+@app.route('/sopa-letras')
+def sopa_letras():
+    return render_template('logros/sopa_de_letras.html', 
+                         titulo="Sopa de Letras Económica",
+                         seccion="logros")
+
+# RUTAS PARA CONCEPTOS ECONÓMICOS
 @app.route('/oferta')
 def oferta():
     return render_template('conceptos/oferta.html', 
@@ -143,8 +150,7 @@ def descargar_cv():
 def linkedin():
     return redirect("https://linkedin.com")
 
-
-# NUEVAS RUTAS PARA TIPOS DE MERCADO
+# RUTAS PARA TIPOS DE MERCADO
 @app.route('/tipos-mercado')
 def tipos_mercado():
     return render_template('conceptos/tipos_mercado.html', 
@@ -177,7 +183,9 @@ def monopolio():
 
 @app.route('/regresion-lineal')
 def regresion_lineal():
-    return render_template('recursos/regresion_lineal.html')
+    return render_template('recursos/regresion_lineal.html', 
+                         titulo="Regresión Lineal",
+                         seccion="recursos")
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
